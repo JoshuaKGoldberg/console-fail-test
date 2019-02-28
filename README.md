@@ -21,3 +21,7 @@ It's got some nifty features:
 
 -   Summary of which methods are called with calling arguments
 -   Failures are thrown after the test finishes, so your tests will fail normally if the should.
+
+Look how fancy the terminal output is!
+
+![Terminal output showing details on each console call failing a test](./images/sample.png)
