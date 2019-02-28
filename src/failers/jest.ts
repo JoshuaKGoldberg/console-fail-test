@@ -1,4 +1,5 @@
 import { consoleMethodNames } from "../console";
+import { complain } from "./complain";
 
 declare global {
     const afterEach: (callback: () => void) => void;
@@ -20,16 +21,6 @@ const check = (): boolean => {
     return typeof afterEach !== "undefined" && typeof beforeEach !== "undefined" && typeof jest !== "undefined";
 };
 
-const complain = (methodsWithCalls: [keyof Console, unknown[]][]) => {
-    const methodComplaints = methodsWithCalls
-        .map(([methodName, calls]) => `* ${methodName} (${calls.length} time${calls.length === 1 ? "" : "s"})`)
-        .join("\n");
-
-    // It looks like something wrote to the console during your test!
-    // Put a breakpoint on this line and check the methodsWithCalls variable to see details.
-    throw new Error(`Oh no! Your test called the following console methods:\n${methodComplaints}  `);
-};
-
 const run = () => {
     beforeEach(() => {
         for (const methodName of consoleMethodNames) {
@@ -38,7 +29,7 @@ const run = () => {
     });
 
     afterEach(() => {
-        const methodsWithCalls: [keyof Console, unknown[]][] = [];
+        const methodsWithCalls: [keyof Console, unknown[][]][] = [];
 
         for (const methodName of consoleMethodNames) {
             const method = console[methodName] as MockMethod;
