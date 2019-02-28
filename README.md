@@ -20,7 +20,7 @@ Use [`setupFilesAfterEnv`](https://jestjs.io/docs/en/configuration.html) to run 
 ```js
 // jest.config.js
 // ...
-setupFilesAfterEnv: ["<rootDir>/node_modules/console-fail-test/setup.js"];
+  setupFilesAfterEnv: ["<rootDir>/node_modules/console-fail-test/setup.js"],
 // ...
 ```
 
