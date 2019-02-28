@@ -25,6 +25,7 @@
         "no-unbound-method": false,
         "no-unsafe-any": false,
         "no-unused-variable": false,
+        "no-unnecessary-type-assertion": false,
         "no-use-before-declare": false,
         "prefer-conditional-expression": false,
         "prefer-method-signature": false,

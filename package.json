@@ -20,7 +20,7 @@
             "pre-commit": "pretty-quick --staged --write"
         }
     },
-    "keywords": ["console", ""],
+    "keywords": ["console", "fail", "info", "jest", "log", "test", "warn"],
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -33,5 +33,6 @@
         "prettier:write:all": "yarn run prettier:write ./{.,src}/**/*.{json,md,ts}",
         "verify": "run-s compile lint"
     },
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "dependencies": {}
 }
