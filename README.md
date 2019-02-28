@@ -8,6 +8,30 @@
 
 Gently fails test runs if the console was used during them.
 
+## Usage
+
+`console-fail-test` is meant to support any test runner; for now, it just works with **Jest**.
+See [open test framework support issues](https://github.com/RyzacInc/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22test+framework+support%22) for progress on others!
+
+### Jest
+
+Use [`setupFilesAfterEnv`](https://jestjs.io/docs/en/configuration.html) to run this before setting up test files:
+
+```js
+// jest.config.js
+// ...
+setupFilesAfterEnv: ["<rootDir>/node_modules/console-fail-test/setup.js"];
+// ...
+```
+
+Alternately, if you have a local file being run already, you can use the Node API:
+
+```js
+import { cft } from "console-fail-test";
+
+cft();
+```
+
 ## Why?
 
 Logging to the console during tests can be a sign of
