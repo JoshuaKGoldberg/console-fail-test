@@ -24,27 +24,27 @@ Use [`setupFilesAfterEnv`](https://jestjs.io/docs/en/configuration.html) to run 
 // ...
 ```
 
-Alternately, if you have a local file being run already, you can use the Node API:
+Alternately, if you'd like to manually enable this in individual files, you can use the Node API:
 
 ```js
-import { cft } from "console-fail-test";
+// some.test.js
 
-cft();
+require("console-fail-test").ctf();
 ```
 
 ## Why?
 
 Logging to the console during tests can be a sign of
 
--   warnings from third-party libraries such as React for improper usage
--   temporary code that shouldn't be checked into your project
--   unnecessary spam in your tests window
+-   🚫 warnings from third-party libraries such as React for improper usage
+-   🤕 temporary code that shouldn't be checked into your project
+-   📢 unnecessary spam in your tests window
 
 This little library throws an error after each test if a console method was called during it.
 It's got some nifty features:
 
--   Summary of which methods are called with calling arguments
--   Failures are thrown after the test finishes, so your tests will fail normally if the should.
+-   📊 Summary of which methods are called with calling arguments
+-   ✅ Failures are thrown _after_ tests finish, so your tests will fail normally if the should
 
 Look how fancy the terminal output is!
 
