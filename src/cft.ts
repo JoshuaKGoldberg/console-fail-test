@@ -7,10 +7,11 @@ import { MethodCall, MethodSpy } from "./spies/spyTypes";
 export const cft = () => {
     const spyFactory = getSpyFactory();
     const testEnvironment = getTestEnvironment();
+    const methodSpies: { [i: string]: MethodSpy } = {};
 
     testEnvironment.before(() => {
         for (const methodName of consoleMethodNames) {
-            spyFactory.spyOn(console, methodName);
+            methodSpies[methodName] = spyFactory.spyOn(console, methodName);
         }
     });
 
@@ -18,13 +19,13 @@ export const cft = () => {
         const methodsWithCalls: [keyof Console, MethodCall[]][] = [];
 
         for (const methodName of consoleMethodNames) {
-            const method = console[methodName] as MethodSpy;
+            const spy = methodSpies[methodName];
             const calls = testEnvironment.filterMethodCalls({
-                methodCalls: method.getCalls(),
+                methodCalls: spy.getCalls(),
                 methodName,
             });
 
-            method.restore();
+            spy.restore();
 
             if (calls.length !== 0) {
                 methodsWithCalls.push([methodName, calls]);

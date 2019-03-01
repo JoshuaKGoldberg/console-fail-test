@@ -8,7 +8,7 @@ type SinonSpy = Function & {
 };
 
 declare const sinon: {
-    spy(): SinonSpy;
+    spy(callback: Function): SinonSpy;
 };
 
 export const sinonSpyFactory: SpyFactory = {
@@ -19,13 +19,14 @@ export const sinonSpyFactory: SpyFactory = {
         const methodCalls: MethodCall[] = [];
         const originalMethod = container[methodName];
 
-        const spyMethod = function(this: unknown, ...args: unknown[]) {
+        const spyMethod = sinon.spy(function(this: unknown, ...args: unknown[]) {
             methodCalls.push({
                 args,
                 stack: createStack(),
             });
+
             return originalMethod.apply(this, args);
-        };
+        });
 
         container[methodName] = spyMethod;
 
