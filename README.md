@@ -36,7 +36,7 @@ require("console-fail-test").ctf();
 
 Logging to the console during tests can be a sign of
 
--   ⚠️ warnings from third-party libraries such as React for improper usage
+-   🚫 warnings from third-party libraries such as React for improper usage
 -   🤕 temporary code that shouldn't be checked into your project
 -   📢 unnecessary spam in your tests window
 
