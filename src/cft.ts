@@ -1,12 +1,42 @@
-import { allFailers } from "./failers/all";
+import { createComplaint } from "./complaining";
+import { consoleMethodNames } from "./console";
+import { getTestEnvironment } from "./environments/allTestEnvironments";
+import { getSpyFactory } from "./spies/allSpyFactories";
+import { MethodCall, MethodSpy } from "./spies/spyTypes";
 
 export const cft = () => {
-    for (const failer of allFailers) {
-        if (failer.check()) {
-            failer.run();
+    const spyFactory = getSpyFactory();
+    const testEnvironment = getTestEnvironment();
+
+    testEnvironment.before(() => {
+        for (const methodName of consoleMethodNames) {
+            spyFactory.spyOn(console, methodName);
+        }
+    });
+
+    testEnvironment.after(({ reportComplaint }) => {
+        const methodsWithCalls: [keyof Console, MethodCall[]][] = [];
+
+        for (const methodName of consoleMethodNames) {
+            const method = console[methodName] as MethodSpy;
+            const calls = testEnvironment.filterMethodCalls({
+                methodCalls: method.getCalls(),
+                methodName,
+            });
+
+            method.restore();
+
+            if (calls.length !== 0) {
+                methodsWithCalls.push([methodName, calls]);
+            }
+        }
+
+        if (methodsWithCalls.length === 0) {
             return;
         }
-    }
 
-    throw new Error("Your global environment didn't seem to match any known ones :(");
+        const complaint = testEnvironment.formatComplaint(createComplaint(methodsWithCalls));
+
+        reportComplaint(complaint);
+    });
 };
