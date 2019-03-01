@@ -26,5 +26,5 @@ export const complain = (methodsWithCalls: [keyof Console, unknown[][]][]) => {
 
     // It looks like something wrote to the console during your test!
     // Put a breakpoint on this line and check the methodsWithCalls variable to see details.
-    throw new Error(`Oh no! Your test called the following console methods:\n${methodComplaints}  `);
+    throw new Error(`Oh no! Your test called the following console methods:\n${methodComplaints}`);
 };
