@@ -11,7 +11,7 @@ Include this as your first file before including other tests:
 mocha ./node_modules/console-fail-test/setup.js src/**/*.test.js
 ```
 
-Alternately, if you have a setup file already being run first, you'd like to manually enable this in individual files, you can use the Node API:
+Alternately, if you have a setup file already being run first, or you'd like to manually enable this in individual files, you can use the Node API:
 
 ```js
 // some.test.js

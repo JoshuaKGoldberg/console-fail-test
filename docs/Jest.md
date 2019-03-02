@@ -10,11 +10,11 @@ Use [`setupFilesAfterEnv`](https://jestjs.io/docs/en/configuration.html) to run 
 ```js
 // jest.config.js
 // ...
-  setupFilesAfterEnv: ["<rootDir>/node_modules/console-fail-test/setup.js"],
+  setupFilesAfterEnv: ["console-fail-test/setup.js"],
 // ...
 ```
 
-Alternately, if you have a setup file already being run first, you'd like to manually enable this in individual files, you can use the Node API:
+Alternately, if you have a setup file already being run first, or you'd like to manually enable this in individual files, you can use the Node API:
 
 ```js
 // some.test.js

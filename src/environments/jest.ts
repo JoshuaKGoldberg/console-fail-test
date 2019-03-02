@@ -11,13 +11,17 @@ export const getJestEnvironment: TestEnvironmentGetter = () => {
 
     return {
         after(callback: (afterHooks: TestAfterHooks) => void) {
-            callback({
-                reportComplaint(error: Error) {
-                    throw error;
-                },
+            afterEach(() => {
+                callback({
+                    reportComplaint(error: Error) {
+                        throw error;
+                    },
+                });
             });
         },
-        before: beforeEach,
+        before: (callback: () => void) => {
+            beforeEach(callback);
+        },
         filterMethodCalls: ({ methodCalls }) => methodCalls,
         formatComplaint: (complaint: Error) => complaint,
     };

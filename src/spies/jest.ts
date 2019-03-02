@@ -7,12 +7,12 @@ export type JestMockMethod = Function & {
 };
 
 declare const jest: {
-    spyOn(container: any, methodName: string, implementation?: Function): JestMockMethod;
+    fn(implementation: Function): void;
 };
 
 export const jestSpyFactory: SpyFactory = {
     canSpy() {
-        return typeof jest !== "undefined" && typeof jest.spyOn !== "undefined";
+        return typeof jest !== "undefined" && typeof jest.fn !== "undefined";
     },
     spyOn(container: any, methodName: string) {
         const methodCalls: MethodCall[] = [];
@@ -27,11 +27,13 @@ export const jestSpyFactory: SpyFactory = {
             return originalMethod.apply(this, args);
         };
 
-        const spy = jest.spyOn(container, methodName, methodSpy);
+        container[methodName] = jest.fn(methodSpy);
 
         return {
             getCalls: () => methodCalls,
-            restore: spy.mockRestore,
+            restore: () => {
+                container[methodName] = originalMethod;
+            },
         };
     },
 };
