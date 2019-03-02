@@ -1,6 +1,6 @@
-# Jest
+# Mocha
 
-Jest is supported as a testing framework.
+Mocha is supported as a testing framework.
 It will be auto-detected if available.
 
 ## Setup
