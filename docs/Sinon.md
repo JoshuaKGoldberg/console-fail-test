@@ -1,4 +1,4 @@
-# Jest
+# Sinon
 
 Sinon is supported as a spy library.
 It will be auto-detected if `sinon.spy` is globally available.
