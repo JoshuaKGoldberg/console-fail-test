@@ -1,6 +1,8 @@
+import { MethodCall } from "./spies/spyTypes";
+
 const lineThreshold = 3;
 
-const formatMethodComplaint = ([methodName, calls]: [keyof Console, unknown[][]]) => {
+const formatMethodComplaint = ([methodName, calls]: [keyof Console, MethodCall[]]) => {
     const summary = `* ${methodName} (${calls.length} call${calls.length === 1 ? "" : "s"})`;
 
     const lines = calls.slice(0, Math.min(calls.length, lineThreshold)).map(formatLine);
@@ -9,22 +11,23 @@ const formatMethodComplaint = ([methodName, calls]: [keyof Console, unknown[][]]
         lines.push(`...${calls.length - lineThreshold} more`);
     }
 
-    return `${summary}\n${lines.map((line) => `   > Call ${line}`).join("\n")}`;
+    return `${summary}\n${lines.map((line) => `  > Call ${line}`).join("\n")}`;
 };
 
-const formatLine = (call: unknown[], i: number) => `${i}: ${call.map(formatArg)}`;
+const formatLine = (call: MethodCall, i: number) => `${i}: ${call.args.map(formatArg)}`;
 
 const formatArg = (arg: unknown) => {
     const text = JSON.stringify(arg);
-    const endlineMatch = text.match(/\n|(\\n)/); // = Math.min(text.indexOf("\n"), text.indexOf("\\n"));
+    const endlineMatch = text.match(/\n|(\\n)/);
 
     return endlineMatch === null ? text : `${text.substring(0, endlineMatch.index)}...`;
 };
 
-export const complain = (methodsWithCalls: [keyof Console, unknown[][]][]) => {
+export const createComplaint = (methodsWithCalls: [keyof Console, MethodCall[]][]) => {
     const methodComplaints = methodsWithCalls.map(formatMethodComplaint).join("\n");
+    const s = methodsWithCalls.length === 1 ? "" : "s";
 
     // It looks like something wrote to the console during your test!
     // Put a breakpoint on this line and check the methodsWithCalls variable to see details.
-    throw new Error(`Oh no! Your test called the following console methods:\n${methodComplaints}`);
+    return new Error(`Oh no! Your test called the following console method${s}:\n${methodComplaints}`);
 };

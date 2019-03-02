@@ -6,6 +6,7 @@
     "rules": {
         "array-type": [true, "array"],
         "arrow-return-shorthand": false,
+        "ban-types": false,
         "comment-format": false,
         "completed-docs": false,
         "interface-name": [true, "never-prefix"],
@@ -33,6 +34,7 @@
         "prefer-template": false,
         "promise-function-async": false,
         "strict-boolean-expressions": [true, "allow-boolean-or-undefined", "allow-number"],
+        "strict-type-predicates": false,
         "switch-default": false,
         "switch-final-break": false,
         "typedef": false

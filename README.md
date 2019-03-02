@@ -13,24 +13,110 @@ Gently fails test runs if the console was used during them.
 `console-fail-test` is meant to support any test runner; for now, it just works with **Jest**.
 See [open test framework support issues](https://github.com/RyzacInc/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22test+framework+support%22) for progress on others!
 
-### Jest
+### Test Frameworks
 
-Use [`setupFilesAfterEnv`](https://jestjs.io/docs/en/configuration.html) to run this before setting up test files:
+<table>
+  <thead>
+    <tr>
+      <td>Framework</td>
+      <td>Support?</td>
+      <td>Documentation</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mocha</td>
+      <td>
+        <span aria-label="supported" role="img">✅️</span>
+      </td>
+      <td>
+        <a href="./docs/Mocha.md">
+          <code>Mocha.md</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>Jest</td>
+      <td>
+        <span aria-label="supported" role="img">✅️</span>
+      </td>
+      <td>
+        <a href="./docs/Jest.md">
+          <code>Jest.md</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>Jasmine</td>
+      <td>
+        <span aria-label="not yet supported" role="img">⚙️</span>
+      </td>
+      <td>
+        <a href="https://github.com/RyzacInc/console-fail-test/issues/5">
+          <code>/issues/5</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>Karma</td>
+      <td>
+        <span aria-label="not yet supported" role="img">⚙️</span>
+      </td>
+      <td>
+        <a href="https://github.com/RyzacInc/console-fail-test/issues/6">
+          <code>/issues/6</code>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-```js
-// jest.config.js
-// ...
-  setupFilesAfterEnv: ["<rootDir>/node_modules/console-fail-test/setup.js"],
-// ...
-```
+### Spy Libraries
 
-Alternately, if you'd like to manually enable this in individual files, you can use the Node API:
-
-```js
-// some.test.js
-
-require("console-fail-test").ctf();
-```
+<table>
+  <thead>
+    <tr>
+      <td>Library</td>
+      <td>Support?</td>
+      <td>Spy</td>
+      <td>Documentation</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jest</td>
+      <td>
+        <span aria-label="supported" role="img">✅️</span>
+      </td>
+      <td>
+        <a href="https://jestjs.io/docs/en/mock-functions.html">
+          <code>jest.fn()</code>
+        </a>
+      </td>
+      <td>
+        <a href="./docs/Jest.md">
+          <code>Jest.md</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>Sinon</td>
+      <td>
+        <span aria-label="supported" role="img">✅️</span>
+      </td>
+      <td>
+        <a href="https://sinonjs.org/releases/latest/spies">
+          <code>sinon.spy()</code>
+        </a>
+      </td>
+      <td>
+        <a href="./docs/Sinon.md">
+          <code>Sinon.md</code>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## Why?
 
@@ -44,8 +130,8 @@ This little library throws an error after each test if a console method was call
 It's got some nifty features:
 
 -   📊 Summary of which methods are called with calling arguments
--   ✅ Failures are thrown _after_ tests finish, so your tests will fail normally if the should
+-   🛫 Failures are thrown _after_ tests finish, so your tests will fail normally if they should
 
-Look how fancy the terminal output is!
+Look how fancy the terminal output is with Jest!
 
 ![Terminal output showing details on each console call failing a test](./images/sample.png)
