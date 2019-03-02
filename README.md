@@ -10,8 +10,9 @@ Gently fails test runs if the console was used during them.
 
 ## Usage
 
-`console-fail-test` is meant to support any test runner; for now, it just works with **Jest**.
-See [open test framework support issues](https://github.com/RyzacInc/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22test+framework+support%22) for progress on others!
+`console-fail-test` is meant to support any (test framework) x (spy library) combination.
+It will auto-detect your combination and use the most appropriate environment hooks and function spies it can find.
+See [open test framework support issues](https://github.com/RyzacInc/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22test+framework+support%22) for progress on more!
 
 ### Test Frameworks
 
