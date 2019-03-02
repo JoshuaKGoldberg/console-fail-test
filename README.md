@@ -1,6 +1,6 @@
 # console-fail-test
 
-[![Circle CI](https://circleci.com/gh/Codecademy/console-fail-test.svg?style=svg)](https://circleci.com/gh/Codecademy/console-fail-test) 
+[![Circle CI](https://circleci.com/gh/Codecademy/console-fail-test.svg?style=svg)](https://circleci.com/gh/Codecademy/console-fail-test)
 [![Greenkeeper](https://badges.greenkeeper.io/Codecademy/console-fail-test.svg)](https://greenkeeper.io/)
 ![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-14cc21.svg)
 
@@ -46,6 +46,17 @@ See [open test framework support issues](https://github.com/RyzacInc/console-fai
       </td>
     </tr>
     <tr>
+      <td>Ava</td>
+      <td>
+        <span aria-label="not yet supported" role="img">⚙️</span>
+      </td>
+      <td>
+        <a href="https://github.com/RyzacInc/console-fail-test/issues/16">
+          <code>/issues/16</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>Jasmine</td>
       <td>
         <span aria-label="not yet supported" role="img">⚙️</span>
@@ -67,10 +78,67 @@ See [open test framework support issues](https://github.com/RyzacInc/console-fai
         </a>
       </td>
     </tr>
+    <tr>
+      <td>lab</td>
+      <td>
+        <span aria-label="not yet supported" role="img">⚙️</span>
+      </td>
+      <td>
+        <a href="https://github.com/RyzacInc/console-fail-test/issues/20">
+          <code>/issues/20</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>node-tap</td>
+      <td>
+        <span aria-label="not yet supported" role="img">⚙️</span>
+      </td>
+      <td>
+        <a href="https://github.com/RyzacInc/console-fail-test/issues/18">
+          <code>/issues/18</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>QUnit</td>
+      <td>
+        <span aria-label="not yet supported" role="img">⚙️</span>
+      </td>
+      <td>
+        <a href="https://github.com/RyzacInc/console-fail-test/issues/19">
+          <code>/issues/19</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>tape</td>
+      <td>
+        <span aria-label="not yet supported" role="img">⚙️</span>
+      </td>
+      <td>
+        <a href="https://github.com/RyzacInc/console-fail-test/issues/17">
+          <code>/issues/17</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>TestCafe</td>
+      <td>
+        <span aria-label="not yet supported" role="img">⚙️</span>
+      </td>
+      <td>
+        <a href="https://github.com/RyzacInc/console-fail-test/issues/15">
+          <code>/issues/15</code>
+        </a>
+      </td>
+    </tr>
   </tbody>
 </table>
 
 ### Spy Libraries
+
+If a supported spy library isn't detected, an internal fallback will be used to spy on `console` methods.
 
 <table>
   <thead>
