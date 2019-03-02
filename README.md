@@ -1,6 +1,7 @@
 # console-fail-test
 
-[![Circle CI](https://circleci.com/gh/Codecademy/console-fail-test.svg?style=svg)](https://circleci.com/gh/Codecademy/console-fail-test) [![Greenkeeper badge](https://badges.greenkeeper.io/Codecademy/console-fail-test.svg)](https://greenkeeper.io/)
+[![Circle CI](https://circleci.com/gh/Codecademy/console-fail-test.svg?style=svg)](https://circleci.com/gh/Codecademy/console-fail-test) 
+[![Greenkeeper](https://badges.greenkeeper.io/Codecademy/console-fail-test.svg)](https://greenkeeper.io/)
 ![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-14cc21.svg)
 
 Gently fails test runs if the console was used during them.
