@@ -1,9 +1,6 @@
 # console-fail-test
 
-<!-- [![Circle CI](https://circleci.com/gh/JoshuaKGoldberg/TypeStat.svg?style=svg)](https://circleci.com/gh/JoshuaKGoldberg/TypeStat)
-[![NPM version](https://badge.fury.io/js/typestat.svg)](http://badge.fury.io/js/typestat)
-[![Join the chat at https://gitter.im/TypeStat/community](https://badges.gitter.im/TypeStat/community.svg)](https://gitter.im/TypeStat/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) -->
-
+[![Circle CI](https://circleci.com/gh/Codecademy/console-fail-test.svg?style=svg)](https://circleci.com/gh/Codecademy/console-fail-test)
 ![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-14cc21.svg)
 
 Gently fails test runs if the console was used during them.
