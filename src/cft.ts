@@ -19,7 +19,6 @@ export const cft = () => {
         const methodsWithCalls: [keyof Console, MethodCall[]][] = [];
 
         for (const methodName of consoleMethodNames) {
-            // console.log("\t", methodName, methodSpies[methodName]);
             const spy = methodSpies[methodName];
             if (!spy) {
                 continue;
