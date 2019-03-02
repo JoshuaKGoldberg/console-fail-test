@@ -20,10 +20,6 @@ export const cft = () => {
 
         for (const methodName of consoleMethodNames) {
             const spy = methodSpies[methodName];
-            if (!spy) {
-                continue;
-            }
-
             const calls = testEnvironment.filterMethodCalls({
                 methodCalls: spy.getCalls(),
                 methodName,
