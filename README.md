@@ -59,6 +59,7 @@ require("console-fail-test").cft({
       <td>Mocha</td>
       <td>
         <span aria-label="supported" role="img">✅️</span>
+        <span aria-label="auto detectable" role="img">✨</span>
       </td>
       <td>
         <code>"mocha"</code>
@@ -73,6 +74,7 @@ require("console-fail-test").cft({
       <td>Jasmine</td>
       <td>
         <span aria-label="supported" role="img">✅️</span>
+        <span aria-label="auto detectable" role="img">✨</span>
       </td>
       <td>
         <code>"jasmine"</code>
@@ -87,6 +89,7 @@ require("console-fail-test").cft({
       <td>Jest</td>
       <td>
         <span aria-label="supported" role="img">✅️</span>
+        <span aria-label="auto detectable" role="img">✨</span>
       </td>
       <td>
         <code>"jest"</code>
