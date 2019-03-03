@@ -12,7 +12,7 @@ export const cft = (request: CftRequest = {}) => {
 
     testEnvironment.before(() => {
         for (const methodName of consoleMethodNames) {
-            methodSpies[methodName] = spyFactory.spyOn(console, methodName);
+            methodSpies[methodName] = spyFactory(console, methodName);
         }
     });
 

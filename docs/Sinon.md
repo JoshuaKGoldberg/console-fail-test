@@ -3,8 +3,13 @@
 Sinon is supported as a spy library.
 It will be auto-detected if `sinon.spy` is globally available.
 
-> If `sinon.spy` is not globally available without `import` or `require` calls,
-> it will not be used!
+Otherwise, pass `require("sinon")` as your `spyLibrary` request:
+
+```js
+require("console-fail-test").cft({
+    spyLibrary: require("sinon"),
+});
+```
 
 ## Spies
 

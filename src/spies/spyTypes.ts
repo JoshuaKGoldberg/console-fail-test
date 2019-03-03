@@ -1,19 +1,11 @@
 import { CftRequest } from "../types";
 
+export type SpyFactoryGetter = (request: CftRequest) => SpyFactory | undefined;
+
 /**
  * Creates method spies that abstract the spy library implementation.
  */
-export type SpyFactory = {
-    /**
-     * @returns Whether this spy factory's library is usable (has been loaded).
-     */
-    canSpy(request: CftRequest): boolean;
-
-    /**
-     * Spies on calls to a method on a container by name.
-     */
-    spyOn(container: any, methodName: string): MethodSpy;
-};
+export type SpyFactory = (container: any, methodName: string) => MethodSpy;
 
 /**
  * Record for a single method being spied upon.

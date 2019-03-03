@@ -22,14 +22,14 @@ const detectableTestEnvironmentGetters: TestEnvironmentGetter[] = [
 ];
 
 export const selectTestEnvironment = (request: CftRequest) => {
-    // If a test environment is requested, it must exist
-    if (request.testFramework !== undefined) {
+    // If a test environment is requested by name, it must exist
+    if (typeof request.testFramework === "string") {
         const getter = testEnvironmentsByName.get(request.testFramework);
         if (getter === undefined) {
-            throw new Error(`Requested test framework '${request.testFramework}' not supported by console-fail-test.`);
+            throw new Error(`Requested test framework '${request.testFramework}' not known by name in console-fail-test.`);
         }
 
-        const environment = getter();
+        const environment = getter(request);
         if (environment === undefined) {
             throw new Error(`Requested test framework '${request.testFramework}' does not seem to be active.`);
         }
@@ -39,7 +39,7 @@ export const selectTestEnvironment = (request: CftRequest) => {
 
     // Otherwise, attempt to auto-detect an active one
     for (const testEnvironmentGetter of detectableTestEnvironmentGetters) {
-        const environment = testEnvironmentGetter();
+        const environment = testEnvironmentGetter(request);
 
         if (environment !== undefined) {
             return environment;
