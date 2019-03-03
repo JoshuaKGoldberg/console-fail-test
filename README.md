@@ -68,17 +68,6 @@ See [open test framework support issues](https://github.com/RyzacInc/console-fai
       </td>
     </tr>
     <tr>
-      <td>Karma</td>
-      <td>
-        <span aria-label="not yet supported" role="img">⚙️</span>
-      </td>
-      <td>
-        <a href="https://github.com/RyzacInc/console-fail-test/issues/6">
-          <code>/issues/6</code>
-        </a>
-      </td>
-    </tr>
-    <tr>
       <td>lab</td>
       <td>
         <span aria-label="not yet supported" role="img">⚙️</span>
