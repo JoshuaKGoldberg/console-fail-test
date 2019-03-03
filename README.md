@@ -35,6 +35,17 @@ See [open test framework support issues](https://github.com/RyzacInc/console-fai
       </td>
     </tr>
     <tr>
+      <td>Jasmine</td>
+      <td>
+        <span aria-label="supported" role="img">✅️</span>
+      </td>
+      <td>
+        <a href="./docs/Jasmine.md">
+          <code>Jasmine.md</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>Jest</td>
       <td>
         <span aria-label="supported" role="img">✅️</span>
@@ -53,17 +64,6 @@ See [open test framework support issues](https://github.com/RyzacInc/console-fai
       <td>
         <a href="https://github.com/RyzacInc/console-fail-test/issues/16">
           <code>/issues/16</code>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>Jasmine</td>
-      <td>
-        <span aria-label="not yet supported" role="img">⚙️</span>
-      </td>
-      <td>
-        <a href="https://github.com/RyzacInc/console-fail-test/issues/5">
-          <code>/issues/5</code>
         </a>
       </td>
     </tr>
@@ -150,6 +150,22 @@ If a supported spy library isn't detected, an internal fallback will be used to 
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>Jasmine</td>
+      <td>
+        <span aria-label="supported" role="img">✅️</span>
+      </td>
+      <td>
+        <a href="https://jasmine.github.io/2.0/introduction.html#section-Spies">
+          <code>jasmine.createSpy()</code>
+        </a>
+      </td>
+      <td>
+        <a href="./docs/Jasmine.md">
+          <code>Jasmine.md</code>
+        </a>
+      </td>
+    </tr>
     <tr>
       <td>Jest</td>
       <td>
