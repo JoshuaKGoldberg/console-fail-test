@@ -1,44 +1,50 @@
 import { CftRequest, SupportedSpyLibrary } from "../types";
 
-import { fallbackSpyFactory } from "./fallback";
-import { jasmineSpyFactory } from "./jasmine";
-import { jestSpyFactory } from "./jest";
-import { sinonSpyFactory } from "./sinon";
-import { SpyFactory } from "./spyTypes";
+import { getFallbackSpyFactory } from "./fallback";
+import { getJasmineSpyFactory } from "./jasmine";
+import { getJestSpyFactory } from "./jest";
+import { getSinonSpyFactory } from "./sinon";
+import { SpyFactory, SpyFactoryGetter } from "./spyTypes";
 
-const spyFactoriesByName = new Map<SupportedSpyLibrary, SpyFactory>([
-    ["fallback", fallbackSpyFactory],
-    ["jest", jestSpyFactory],
-    ["jasmine", jasmineSpyFactory],
-    ["sinon", sinonSpyFactory],
+const spyFactoriesByName = new Map<SupportedSpyLibrary, SpyFactoryGetter>([
+    ["fallback", getFallbackSpyFactory],
+    ["jest", getJestSpyFactory],
+    ["jasmine", getJasmineSpyFactory],
+    ["sinon", getSinonSpyFactory],
 ]);
 
-const detectableSpyFactories: SpyFactory[] = [
+const detectableSpyFactoryGetters: SpyFactoryGetter[] = [
     // Jest should come before Jasmine because Jest includes a monkey-patched Jasmine
-    jestSpyFactory,
-    jasmineSpyFactory,
+    getJestSpyFactory,
+    getJasmineSpyFactory,
 
-    sinonSpyFactory,
+    getSinonSpyFactory,
 ];
 
-export const getSpyFactory = (request: CftRequest) => {
-    // If a spy library is requested, it must exist
-    if (request.spyLibrary !== undefined) {
-        const spyFactory = spyFactoriesByName.get(request.spyLibrary);
-        if (spyFactory === undefined) {
-            throw new Error(`Requested spy library '${request.spyLibrary}' not supported by console-fail-test.`);
+export const getSpyFactory = (request: CftRequest): SpyFactory => {
+    // If a spy library is requested by name, it must exist
+    if (typeof request.spyLibrary === "string") {
+        const getter = spyFactoriesByName.get(request.spyLibrary);
+        if (getter === undefined) {
+            throw new Error(`Requested spy library '${request.spyLibrary}' not known by name in console-fail-test.`);
         }
 
-        return spyFactory;
+        const library = getter(request);
+        if (library === undefined) {
+            throw new Error(`Requested spy library '${request.spyLibrary}' does not seem to be active.`);
+        }
+
+        return library;
     }
 
     // Otherwise, attempt to auto-detect an active one
-    for (const spyFactory of detectableSpyFactories) {
-        if (spyFactory.canSpy(request)) {
-            return spyFactory;
+    for (const getter of detectableSpyFactoryGetters) {
+        const library = getter(request);
+
+        if (library !== undefined) {
+            return library;
         }
     }
 
-    // If the
-    return fallbackSpyFactory;
+    return getFallbackSpyFactory();
 };

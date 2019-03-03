@@ -23,11 +23,11 @@ require("console-fail-test").cft({
 ### Test Frameworks
 
 Test frameworks that are ✨ auto-detectable can be supported by just running `console-fail-test/setup.js` before tests.
-For others, use the Node API with their API name:
+For others, use the Node API with their API request:
 
 ```js
 require("console-fail-test").cft({
-    testFramework: "ava",
+    testFramework: require("ava"),
 });
 ```
 
@@ -36,7 +36,7 @@ require("console-fail-test").cft({
     <tr>
       <td>Framework</td>
       <td>Support?</td>
-      <td>API Name</td>
+      <td>API Request</td>
       <td>Documentation</td>
     </tr>
   </thead>
@@ -164,7 +164,7 @@ require("console-fail-test").cft({
 
 If a supported spy library isn't detected, an internal fallback will be used to spy on `console` methods.
 
-You can request a specific test library using the Node API with its API name:
+You can request a specific test library using the Node API with its API request:
 
 ```js
 require("console-fail-test").cft({
@@ -177,7 +177,7 @@ require("console-fail-test").cft({
     <tr>
       <td>Library</td>
       <td>Support?</td>
-      <td>API Name</td>
+      <td>API Request</td>
       <td>Spy</td>
       <td>Documentation</td>
     </tr>
@@ -227,7 +227,7 @@ require("console-fail-test").cft({
         <span aria-label="supported" role="img">✅️</span>
       </td>
       <td>
-        <code>"sinon"</code>
+        <code>require("sinon")</code>
       </td>
       <td>
         <a href="https://sinonjs.org/releases/latest/spies">

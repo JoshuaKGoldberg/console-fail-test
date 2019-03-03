@@ -3,6 +3,6 @@ export type CftRequest = {
     testFramework?: SupportedTestFramework;
 };
 
-export type SupportedSpyLibrary = "fallback" | "jasmine" | "jest" | "sinon";
+export type SupportedSpyLibrary = "fallback" | "jasmine" | "jest" | "sinon" | unknown;
 
-export type SupportedTestFramework = "mocha" | "jasmine" | "jest";
+export type SupportedTestFramework = "mocha" | "jasmine" | "jest" | unknown;

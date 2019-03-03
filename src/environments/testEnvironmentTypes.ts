@@ -1,6 +1,7 @@
 import { MethodCall } from "../spies/spyTypes";
+import { CftRequest } from "../types";
 
-export type TestEnvironmentGetter = () => TestEnvironment | undefined;
+export type TestEnvironmentGetter = (request: CftRequest) => TestEnvironment | undefined;
 
 export type TestEnvironment = {
     after: (callback: (hooks: TestAfterHooks) => void) => void;

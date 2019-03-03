@@ -32,9 +32,9 @@ If you use a test framework console-fail-test doesn't yet support:
 
 1. Find or file an issue tagged with [test framework support](https://github.com/RyzacInc/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22test+framework+support%22) and wait until it's marked as [accepting prs](https://github.com/RyzacInc/console-fail-test/labels/accepting%20prs)
 2. Add a new file under [`src/environments`](../src/environments) that exports a function matching `TestEnvironmentGetter`:
-    - If the environment doesn't seem to exist, return `undefined`
-    - If the environment does seem to exist, return an object with hooks to be called by [`cft.ts`](../src/cft.ts)
-3. Add that failer to `allTestEnvironments` in [`src/environments/allTestEnvironments.ts`](../src/environments/allTestEnvironments.ts)
+    - If the environment isn't provided and doesn't seem to exist, return `undefined`
+    - If the environment is provided or does seem to exist, return an object with hooks to be called by [`cft.ts`](../src/cft.ts)
+3. Add that getter to `testEnvironmentsByName` and `detectableTestEnvironmentGetters` in [`src/environments/selectTestEnvironment.ts`](../src/environments/selectTestEnvironment.ts)
 
 See [`src/environments/jest.ts`](../src/environments/jest.ts) as an example.
 
@@ -49,10 +49,11 @@ For example, if `jest` and `jest.fn` are available, it's assumed that Jest's spi
 If you use a spy library console-fail-test doesn't yet support:
 
 1. Find or file an issue tagged with [spy library support](https://github.com/RyzacInc/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22spy+library+support%22) and wait until it's marked as [accepting prs](https://github.com/RyzacInc/console-fail-test/labels/accepting%20prs)
-2. Add a new file under [`src/spies`](../src/spies) that exports an object matching `SpyFactory`:
-    - `canSpy`: returns whether this spy type is globally available
-    - `spyOn`: given a container object and a method name available on that container, spies on that method on the container
+2. Add a new file under [`src/spies`](../src/spies) that exports a function matching matching `SpyFactoryGetter`:
+    - If the spy library isn't provided and doesn't seem to exist, return `undefined`
+    - If the spy library is provided or does seem to exist, return a method that, given a container object and method name, spies on that method on the container
+3. Add that getter to `spyFactoriesByName` and `detectableSpyFactoryGetters` in [src/spies/selectSpyFactory.ts](../src/spies/selectSpyFactory.ts).
 
-The object containing `getCalls` and `restore` returned by `spyOn` will be used by [`cft.ts`](../src/cft.ts) to check whether the method was called.
+The returned object containing `getCalls` and `restore` returned by `spyOn` will be used by [`cft.ts`](../src/cft.ts) to check whether the method was called.
 
 See [`src/spies/jest.ts`](../src/spies/jest.ts) as an example.

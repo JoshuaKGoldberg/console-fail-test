@@ -1,16 +1,20 @@
 import { createStack } from "../stack";
+import { CftRequest } from "../types";
 
-import { MethodCall, SpyFactory } from "./spyTypes";
+import { MethodCall, SpyFactory, SpyFactoryGetter } from "./spyTypes";
 
-declare const jest: {
+declare type Jest = {
     fn(implementation: Function): void;
 };
 
-export const jestSpyFactory: SpyFactory = {
-    canSpy() {
-        return typeof jest !== "undefined" && typeof jest.fn !== "undefined";
-    },
-    spyOn(container: any, methodName: string) {
+declare const jest: Jest | undefined;
+
+const isJestModule = (spyLibrary: unknown): spyLibrary is Jest => {
+    return typeof spyLibrary === "object" && typeof (spyLibrary as Partial<Jest>).fn === "function";
+};
+
+const createJestSpyFactory = (spyLibrary: Jest): SpyFactory => {
+    return (container: any, methodName: string) => {
         const methodCalls: MethodCall[] = [];
         const originalMethod = container[methodName];
 
@@ -23,7 +27,7 @@ export const jestSpyFactory: SpyFactory = {
             return originalMethod.apply(this, args);
         };
 
-        container[methodName] = jest.fn(methodSpy);
+        container[methodName] = spyLibrary.fn(methodSpy);
 
         return {
             getCalls: () => methodCalls,
@@ -31,5 +35,17 @@ export const jestSpyFactory: SpyFactory = {
                 container[methodName] = originalMethod;
             },
         };
-    },
+    };
+};
+
+export const getJestSpyFactory: SpyFactoryGetter = ({ spyLibrary }: CftRequest) => {
+    if (isJestModule(spyLibrary)) {
+        return createJestSpyFactory(spyLibrary);
+    }
+
+    if (typeof jest !== "undefined" && isJestModule(jest)) {
+        return createJestSpyFactory(jest);
+    }
+
+    return undefined;
 };

@@ -16,5 +16,5 @@ Alternately, if you have a setup file already being run first, or you'd like to 
 ```js
 // some.test.js
 
-require("console-fail-test").ctf();
+require("console-fail-test").cft();
 ```
