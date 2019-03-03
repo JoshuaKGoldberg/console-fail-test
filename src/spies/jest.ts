@@ -2,10 +2,6 @@ import { createStack } from "../stack";
 
 import { MethodCall, SpyFactory } from "./spyTypes";
 
-export type JestMockMethod = Function & {
-    mockRestore(): void;
-};
-
 declare const jest: {
     fn(implementation: Function): void;
 };
