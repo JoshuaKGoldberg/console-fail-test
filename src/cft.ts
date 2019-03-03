@@ -37,8 +37,6 @@ export const cft = (request: CftRequest = {}) => {
             return;
         }
 
-        const complaint = testEnvironment.formatComplaint(createComplaint(methodsWithCalls));
-
-        reportComplaint(complaint);
+        reportComplaint(createComplaint(methodsWithCalls));
     });
 };

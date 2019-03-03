@@ -20,7 +20,11 @@ export const getJasmineEnvironment: TestEnvironmentGetter = () => {
         after(callback: (afterHooks: TestAfterHooks) => void) {
             afterEach(() => {
                 callback({
-                    reportComplaint(error: Error) {
+                    reportComplaint({ error }) {
+                        // Jasmine prints the error stack along with its message, resulting in a duplicate message
+                        // tslint:disable-next-line:no-non-null-assertion
+                        error.stack = error.stack!.substring(error.message.length);
+
                         throw error;
                     },
                 });
@@ -30,11 +34,5 @@ export const getJasmineEnvironment: TestEnvironmentGetter = () => {
             beforeEach(callback);
         },
         filterMethodCalls: ({ methodCalls }) => methodCalls,
-        formatComplaint: (complaint: Error) => {
-            // Jasmine prints the error stack along with its message, resulting in a duplicate message
-            // tslint:disable-next-line:no-non-null-assertion
-            complaint.stack = complaint.stack!.substring(complaint.message.length);
-            return complaint;
-        },
     };
 };
