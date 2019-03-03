@@ -117,12 +117,14 @@ require("console-fail-test").cft({
     <tr>
       <td>node-tap</td>
       <td>
-        <span aria-label="not yet supported" role="img">⚙️</span>
+        <span aria-label="supported" role="img">✅️</span>
       </td>
-      <td />
       <td>
-        <a href="https://github.com/RyzacInc/console-fail-test/issues/18">
-          <code>/issues/18</code>
+        <code>require("node-tap")</code>
+      </td>
+      <td>
+        <a href="./docs/NodeTap.md">
+          <code>NodeTap.md</code>
         </a>
       </td>
     </tr>
