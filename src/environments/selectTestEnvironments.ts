@@ -3,6 +3,7 @@ import { CftRequest, SupportedTestFramework } from "../types";
 import { getAvaEnvironment } from "./ava";
 import { getJasmineEnvironment } from "./jasmine";
 import { getJestEnvironment } from "./jest";
+import { getLabEnvironment } from "./lab";
 import { getMochaEnvironment } from "./mocha";
 import { TestEnvironmentGetter } from "./testEnvironmentTypes";
 
@@ -15,6 +16,7 @@ const testEnvironmentsByName = new Map<SupportedTestFramework, TestEnvironmentGe
 const detectableTestEnvironmentGetters: TestEnvironmentGetter[] = [
     // These environments only work with received modules, so they should come first
     getAvaEnvironment,
+    getLabEnvironment,
 
     // Jest should come before Jasmine because Jest includes a monkey-patched Jasmine
     getJestEnvironment,

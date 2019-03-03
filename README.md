@@ -103,12 +103,14 @@ require("console-fail-test").cft({
     <tr>
       <td>lab</td>
       <td>
-        <span aria-label="not yet supported" role="img">⚙️</span>
+        <span aria-label="supported" role="img">✅</span>
       </td>
-      <td />
       <td>
-        <a href="https://github.com/RyzacInc/console-fail-test/issues/20">
-          <code>/issues/20</code>
+        <code>exports.lab</code>
+      </td>
+      <td>
+        <a href="./docs/Lab.md">
+          <code>Lab.md</code>
         </a>
       </td>
     </tr>
