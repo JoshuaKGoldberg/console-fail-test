@@ -42,6 +42,20 @@ require("console-fail-test").cft({
   </thead>
   <tbody>
     <tr>
+      <td>Ava</td>
+      <td>
+        <span aria-label="supported" role="img">✅️</span>
+      </td>
+      <td>
+        <code>require("ava")</code>
+      </td>
+      <td>
+        <a href="./docs/Ava.md">
+          <code>Ava.md</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>Mocha</td>
       <td>
         <span aria-label="supported" role="img">✅️</span>
@@ -80,18 +94,6 @@ require("console-fail-test").cft({
       <td>
         <a href="./docs/Jest.md">
           <code>Jest.md</code>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>Ava</td>
-      <td>
-        <span aria-label="not yet supported" role="img">⚙️</span>
-      </td>
-      <td />
-      <td>
-        <a href="https://github.com/RyzacInc/console-fail-test/issues/16">
-          <code>/issues/16</code>
         </a>
       </td>
     </tr>
