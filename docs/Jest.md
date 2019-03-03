@@ -27,3 +27,11 @@ require("console-fail-test").cft();
 Global `console` methods will be replaced by `jest.fn()` spies.
 You can inspect them at runtime as usual per Jest spies.
 See Jest's [mock functions docs](https://jestjs.io/docs/en/mock-functions.html).
+
+If you'd like to use Jasmine's spies instead of Jest's, use the Node API with the `spyLibrary` option:
+
+```js
+require("console-fail-test").cft({
+    spyLibrary: "jasmine",
+});
+```

@@ -8,17 +8,35 @@ Gently fails test runs if the console was used during them.
 
 ## Usage
 
-`console-fail-test` is meant to support any (test framework) x (spy library) combination.
-It will auto-detect your combination and use the most appropriate environment hooks and function spies it can find.
-See [open test framework support issues](https://github.com/RyzacInc/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22test+framework+support%22) for progress on more!
+`console-fail-test` is meant to support any _(test framework)_ & _(spy library)_ combination.
+It will auto-detect your combination if possible and use the most appropriate environment hooks and function spies it can find.
+
+In general, you can use the Node API to request specific test frameworks and spy libraries:
+
+```js
+require("console-fail-test").cft({
+    testFramework: "jest",
+    spyLibrary: "jasmine",
+});
+```
 
 ### Test Frameworks
+
+Test frameworks that are ✨ auto-detectable can be supported by just running `console-fail-test/setup.js` before tests.
+For others, use the Node API with their API name:
+
+```js
+require("console-fail-test").cft({
+    testFramework: "ava",
+});
+```
 
 <table>
   <thead>
     <tr>
       <td>Framework</td>
       <td>Support?</td>
+      <td>API Name</td>
       <td>Documentation</td>
     </tr>
   </thead>
@@ -27,6 +45,9 @@ See [open test framework support issues](https://github.com/RyzacInc/console-fai
       <td>Mocha</td>
       <td>
         <span aria-label="supported" role="img">✅️</span>
+      </td>
+      <td>
+        <code>"mocha"</code>
       </td>
       <td>
         <a href="./docs/Mocha.md">
@@ -40,6 +61,9 @@ See [open test framework support issues](https://github.com/RyzacInc/console-fai
         <span aria-label="supported" role="img">✅️</span>
       </td>
       <td>
+        <code>"jasmine"</code>
+      </td>
+      <td>
         <a href="./docs/Jasmine.md">
           <code>Jasmine.md</code>
         </a>
@@ -49,6 +73,9 @@ See [open test framework support issues](https://github.com/RyzacInc/console-fai
       <td>Jest</td>
       <td>
         <span aria-label="supported" role="img">✅️</span>
+      </td>
+      <td>
+        <code>"jest"</code>
       </td>
       <td>
         <a href="./docs/Jest.md">
@@ -61,6 +88,7 @@ See [open test framework support issues](https://github.com/RyzacInc/console-fai
       <td>
         <span aria-label="not yet supported" role="img">⚙️</span>
       </td>
+      <td />
       <td>
         <a href="https://github.com/RyzacInc/console-fail-test/issues/16">
           <code>/issues/16</code>
@@ -72,6 +100,7 @@ See [open test framework support issues](https://github.com/RyzacInc/console-fai
       <td>
         <span aria-label="not yet supported" role="img">⚙️</span>
       </td>
+      <td />
       <td>
         <a href="https://github.com/RyzacInc/console-fail-test/issues/20">
           <code>/issues/20</code>
@@ -83,6 +112,7 @@ See [open test framework support issues](https://github.com/RyzacInc/console-fai
       <td>
         <span aria-label="not yet supported" role="img">⚙️</span>
       </td>
+      <td />
       <td>
         <a href="https://github.com/RyzacInc/console-fail-test/issues/18">
           <code>/issues/18</code>
@@ -94,6 +124,7 @@ See [open test framework support issues](https://github.com/RyzacInc/console-fai
       <td>
         <span aria-label="not yet supported" role="img">⚙️</span>
       </td>
+      <td />
       <td>
         <a href="https://github.com/RyzacInc/console-fail-test/issues/19">
           <code>/issues/19</code>
@@ -105,6 +136,7 @@ See [open test framework support issues](https://github.com/RyzacInc/console-fai
       <td>
         <span aria-label="not yet supported" role="img">⚙️</span>
       </td>
+      <td />
       <td>
         <a href="https://github.com/RyzacInc/console-fail-test/issues/17">
           <code>/issues/17</code>
@@ -116,6 +148,7 @@ See [open test framework support issues](https://github.com/RyzacInc/console-fai
       <td>
         <span aria-label="not yet supported" role="img">⚙️</span>
       </td>
+      <td />
       <td>
         <a href="https://github.com/RyzacInc/console-fail-test/issues/15">
           <code>/issues/15</code>
@@ -125,15 +158,26 @@ See [open test framework support issues](https://github.com/RyzacInc/console-fai
   </tbody>
 </table>
 
+> See [open test framework support issues](https://github.com/RyzacInc/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22test+framework+support%22) for progress!
+
 ### Spy Libraries
 
 If a supported spy library isn't detected, an internal fallback will be used to spy on `console` methods.
+
+You can request a specific test library using the Node API with its API name:
+
+```js
+require("console-fail-test").cft({
+    spyLibrary: "sinon",
+});
+```
 
 <table>
   <thead>
     <tr>
       <td>Library</td>
       <td>Support?</td>
+      <td>API Name</td>
       <td>Spy</td>
       <td>Documentation</td>
     </tr>
@@ -143,6 +187,9 @@ If a supported spy library isn't detected, an internal fallback will be used to 
       <td>Jasmine</td>
       <td>
         <span aria-label="supported" role="img">✅️</span>
+      </td>
+      <td>
+        <code>"jasmine"</code>
       </td>
       <td>
         <a href="https://jasmine.github.io/2.0/introduction.html#section-Spies">
@@ -161,6 +208,9 @@ If a supported spy library isn't detected, an internal fallback will be used to 
         <span aria-label="supported" role="img">✅️</span>
       </td>
       <td>
+        <code>"jest"</code>
+      </td>
+      <td>
         <a href="https://jestjs.io/docs/en/mock-functions.html">
           <code>jest.fn()</code>
         </a>
@@ -175,6 +225,9 @@ If a supported spy library isn't detected, an internal fallback will be used to 
       <td>Sinon</td>
       <td>
         <span aria-label="supported" role="img">✅️</span>
+      </td>
+      <td>
+        <code>"sinon"</code>
       </td>
       <td>
         <a href="https://sinonjs.org/releases/latest/spies">

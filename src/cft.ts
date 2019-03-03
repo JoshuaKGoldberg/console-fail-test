@@ -1,12 +1,13 @@
 import { createComplaint } from "./complaining";
 import { consoleMethodNames } from "./console";
-import { getTestEnvironment } from "./environments/allTestEnvironments";
-import { getSpyFactory } from "./spies/allSpyFactories";
+import { selectTestEnvironment } from "./environments/selectTestEnvironments";
+import { getSpyFactory } from "./spies/selectSpyFactory";
 import { MethodCall, MethodSpy } from "./spies/spyTypes";
+import { CftRequest } from "./types";
 
-export const cft = () => {
-    const spyFactory = getSpyFactory();
-    const testEnvironment = getTestEnvironment();
+export const cft = (request: CftRequest = {}) => {
+    const spyFactory = getSpyFactory(request);
+    const testEnvironment = selectTestEnvironment(request);
     const methodSpies: { [i: string]: MethodSpy } = {};
 
     testEnvironment.before(() => {
