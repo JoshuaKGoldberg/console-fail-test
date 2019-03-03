@@ -1,3 +1,5 @@
+import { CftRequest } from "../types";
+
 /**
  * Creates method spies that abstract the spy library implementation.
  */
@@ -5,7 +7,7 @@ export type SpyFactory = {
     /**
      * @returns Whether this spy factory's library is usable (has been loaded).
      */
-    canSpy(): boolean;
+    canSpy(request: CftRequest): boolean;
 
     /**
      * Spies on calls to a method on a container by name.
