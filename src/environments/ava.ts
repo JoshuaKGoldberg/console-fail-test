@@ -37,17 +37,13 @@ export const getAvaEnvironment: TestEnvironmentGetter = ({ testFramework }: CftR
         after(callback: (afterHooks: TestAfterHooks) => void) {
             testFramework.afterEach(() => {
                 callback({
-                    reportComplaint: (complaint: Error) => {
-                        throw complaint;
+                    reportComplaint: ({ error }) => {
+                        throw error;
                     },
                 });
             });
         },
         before: testFramework.beforeEach,
         filterMethodCalls: ({ methodCalls }) => methodCalls,
-        formatComplaint: (error: Error): Error => {
-            error.message = error.message.replace(/\n/g, "\n  ");
-            return error;
-        },
     };
 };

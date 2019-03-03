@@ -5,6 +5,7 @@ import { getJasmineEnvironment } from "./jasmine";
 import { getJestEnvironment } from "./jest";
 import { getLabEnvironment } from "./lab";
 import { getMochaEnvironment } from "./mocha";
+import { getNodeTapEnvironment } from "./nodeTap";
 import { TestEnvironmentGetter } from "./testEnvironmentTypes";
 
 const testEnvironmentsByName = new Map<SupportedTestFramework, TestEnvironmentGetter>([
@@ -17,6 +18,7 @@ const detectableTestEnvironmentGetters: TestEnvironmentGetter[] = [
     // These environments only work with received modules, so they should come first
     getAvaEnvironment,
     getLabEnvironment,
+    getNodeTapEnvironment,
 
     // Jest should come before Jasmine because Jest includes a monkey-patched Jasmine
     getJestEnvironment,
