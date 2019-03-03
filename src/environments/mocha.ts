@@ -33,8 +33,9 @@ export const getMochaEnvironment: TestEnvironmentGetter = () => {
                 }
 
                 callback({
-                    reportComplaint: (complaint: Error) => {
-                        this.test.error(complaint);
+                    reportComplaint: ({ error }) => {
+                        error.message = error.message.replace(/\n/g, "\n     ");
+                        this.test.error(error);
                     },
                 });
             });
@@ -55,10 +56,6 @@ export const getMochaEnvironment: TestEnvironmentGetter = () => {
             }
 
             return methodCalls;
-        },
-        formatComplaint: (error: Error): Error => {
-            error.message = error.message.replace(/\n/g, "\n       ");
-            return error;
         },
     };
 };
