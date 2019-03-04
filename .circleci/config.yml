@@ -37,8 +37,11 @@ jobs:
                   command: echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
 
             - run:
-                  name: npm publish
-                  command: npm publish
+                  name: npm publish if new version
+                  command: |
+                      currentVersion=`npm show console-fail-test version`
+                      nextVersion=`node -e "console.log(require(./package.json').version)"`
+                      [ "$currentVersion" == "$nextVersion" ] && npm publish;
 
 workflows:
     version: 2
