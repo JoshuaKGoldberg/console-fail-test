@@ -8,20 +8,20 @@ jobs:
 
         steps:
             - checkout
-
             - restore_cache:
                   keys:
                       - dependency-cache-{{ checksum "yarn.lock" }}
                       - dependency-cache-
-
             - run: yarn
-
             - save_cache:
                   paths:
                       - node_modules
                   key: dependency-cache-{{ checksum "yarn.lock" }}
-
             - run: yarn run verify
+            - persist_to_workspace:
+                  root: "."
+                  paths:
+                      - src
 
     publish:
         docker:
@@ -31,11 +31,9 @@ jobs:
 
         steps:
             - checkout
-
             - run:
                   name: Add NPM auth token file
                   command: echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
-
             - run:
                   name: npm publish if new version
                   command: |
@@ -52,6 +50,3 @@ workflows:
                   context: org-global
                   requires:
                       - build
-                  filters:
-                      branches:
-                          only: master
