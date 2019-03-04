@@ -41,7 +41,7 @@ jobs:
                   command: |
                       currentVersion=`npm show console-fail-test version`
                       nextVersion=`node -e "console.log(require('./package.json').version)"`
-                      [ "$currentVersion" != "$nextVersion" ] && npm publish;
+                      [ "$currentVersion" != "$nextVersion" ] && npm publish || true;
 
 workflows:
     version: 2
