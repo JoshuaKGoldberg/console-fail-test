@@ -24,6 +24,11 @@ jobs:
             - run: yarn run verify
 
     publish:
+        docker:
+            - image: circleci/node:latest
+
+        working_directory: ~/repo
+
         steps:
             - checkout
 
