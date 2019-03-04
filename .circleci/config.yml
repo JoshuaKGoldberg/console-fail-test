@@ -40,7 +40,7 @@ jobs:
                   name: npm publish if new version
                   command: |
                       currentVersion=`npm show console-fail-test version`
-                      nextVersion=`node -e "console.log(require(./package.json').version)"`
+                      nextVersion=`node -e "console.log(require('./package.json').version)"`
                       [ "$currentVersion" != "$nextVersion" ] && npm publish;
 
 workflows:
