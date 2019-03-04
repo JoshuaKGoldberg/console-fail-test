@@ -23,8 +23,35 @@ jobs:
 
             - run: yarn run verify
 
+    publish:
+        docker:
+            - image: circleci/node:latest
+
+        working_directory: ~/repo
+
+        steps:
+            - checkout
+
+            - run:
+                  name: Add NPM auth token file
+                  command: echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
+
+            - run:
+                  name: npm publish if new version
+                  command: |
+                      currentVersion=`npm show console-fail-test version`
+                      nextVersion=`node -e "console.log(require(./package.json').version)"`
+                      [ "$currentVersion" != "$nextVersion" ] && npm publish;
+
 workflows:
     version: 2
     build_and_end_to_end:
         jobs:
             - build
+            - publish:
+                  context: org-global
+                  requires:
+                      - build
+                  filters:
+                      branches:
+                          only: master
