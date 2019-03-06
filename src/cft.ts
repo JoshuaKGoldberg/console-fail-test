@@ -4,14 +4,17 @@ import { selectTestEnvironment } from "./environments/selectTestEnvironments";
 import { getSpyFactory } from "./spies/selectSpyFactory";
 import { MethodCall, MethodSpy } from "./spies/spyTypes";
 import { CftRequest } from "./types";
+import { setDefaults } from "./defaults";
 
-export const cft = (request: CftRequest = {}) => {
+export const cft = (_request: Partial<CftRequest>) => {
+    const request = setDefaults(_request);
     const spyFactory = getSpyFactory(request);
     const testEnvironment = selectTestEnvironment(request);
     const methodSpies: { [i: string]: MethodSpy } = {};
+    const relevantMethodNames = consoleMethodNames.filter((name) => !!request.console[name as keyof typeof request.console]);
 
     testEnvironment.before(() => {
-        for (const methodName of consoleMethodNames) {
+        for (const methodName of relevantMethodNames) {
             methodSpies[methodName] = spyFactory(console, methodName);
         }
     });
@@ -19,7 +22,7 @@ export const cft = (request: CftRequest = {}) => {
     testEnvironment.after(({ reportComplaint }) => {
         const methodsWithCalls: [keyof Console, MethodCall[]][] = [];
 
-        for (const methodName of consoleMethodNames) {
+        for (const methodName of relevantMethodNames) {
             const spy = methodSpies[methodName];
             const calls = testEnvironment.filterMethodCalls({
                 methodCalls: spy.getCalls(),
