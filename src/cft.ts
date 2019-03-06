@@ -1,10 +1,10 @@
 import { createComplaint } from "./complaining";
 import { consoleMethodNames } from "./console";
+import { setDefaults } from "./defaults";
 import { selectTestEnvironment } from "./environments/selectTestEnvironments";
 import { getSpyFactory } from "./spies/selectSpyFactory";
 import { MethodCall, MethodSpy } from "./spies/spyTypes";
 import { CftRequest } from "./types";
-import { setDefaults } from "./defaults";
 
 export const cft = (rawRequest: Partial<CftRequest>) => {
     const request = setDefaults(rawRequest);
