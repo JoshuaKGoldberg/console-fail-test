@@ -1,5 +1,5 @@
 export type CftRequest = {
-    console: ConsoleObject;
+    console: ConsoleSettings;
     spyLibrary?: SupportedSpyLibrary;
     testFramework?: SupportedTestFramework;
 };
@@ -8,4 +8,4 @@ export type SupportedSpyLibrary = "fallback" | "jasmine" | "jest" | "sinon" | un
 
 export type SupportedTestFramework = "mocha" | "jasmine" | "jest" | unknown;
 
-export type ConsoleObject = { [P in keyof Console]?: Console[P] extends Function ? boolean : never };
+export type ConsoleSettings = { [P in keyof Console]?: Console[P] extends Function ? boolean : never };

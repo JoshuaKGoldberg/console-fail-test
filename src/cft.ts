@@ -6,12 +6,12 @@ import { MethodCall, MethodSpy } from "./spies/spyTypes";
 import { CftRequest } from "./types";
 import { setDefaults } from "./defaults";
 
-export const cft = (_request: Partial<CftRequest>) => {
-    const request = setDefaults(_request);
+export const cft = (rawRequest: Partial<CftRequest>) => {
+    const request = setDefaults(rawRequest);
     const spyFactory = getSpyFactory(request);
     const testEnvironment = selectTestEnvironment(request);
     const methodSpies: { [i: string]: MethodSpy } = {};
-    const relevantMethodNames = consoleMethodNames.filter((name) => !!request.console[name as keyof typeof request.console]);
+    const relevantMethodNames = consoleMethodNames.filter((name) => !!request.console[name]);
 
     testEnvironment.before(() => {
         for (const methodName of relevantMethodNames) {

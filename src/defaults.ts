@@ -4,6 +4,6 @@ const defaults = {
     console: {},
 };
 
-export const setDefaults = (request: Partial<CftRequest> = {}) => {
+export const setDefaults = (request: Partial<CftRequest> = {}): CftRequest => {
     return { ...defaults, ...request };
 };
