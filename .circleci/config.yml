@@ -33,7 +33,6 @@ jobs:
             - checkout
             - attach_workspace:
                   at: "."
-            - run: yarn run compile
             - run:
                   name: Add NPM auth token file
                   command: echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
