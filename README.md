@@ -254,12 +254,12 @@ require("console-fail-test").cft({
 
 ## Ignoring `console` methods
 
-By default, `console-fail-test` will error on _any_ called `console` method. If you'd like ignore certain methods, pass a `console` object to the `cft` API when you set it up:
+By default, `console-fail-test` will error on _any_ called `console` method. If you'd like allow certain methods, pass a `console` object to the `cft` API when you set it up:
 
 ```js
 require("console-fail-test").cft({
     console: {
-        warn: false, // won't error on any instance of console.warn
+        warn: true, // won't error on any instance of console.warn
     },
 });
 ```
