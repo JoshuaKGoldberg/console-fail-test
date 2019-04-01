@@ -283,3 +283,31 @@ It's got some nifty features:
 Look how fancy the terminal output is with Jest!
 
 ![Terminal output showing details on each console call failing a test](./images/sample.png)
+
+## Development
+
+Requires:
+
+-   [Node.js](https://nodejs.org) >10 (LTS)
+-   [Yarn](https://yarnpkg.com/en)
+
+After [forking the repo from GitHub](https://help.github.com/articles/fork-a-repo):
+
+```
+git clone https://github.com/<your-name-here>/console-fail-test
+cd console-fail-test
+yarn
+yarn run verify
+```
+
+`yarn run verify` will run a full build and set up the package to be consumed locally.
+
+### Contribution Guidelines
+
+We'd love to have you contribute!
+Check the [issue tracker](https://github.com/Codecademy/console-fail-test/issues) for issues labeled [`accepting prs`](https://github.com/Codecademy/console-fail-test/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22accepting+prs%22) to find bug fixes and feature requests the community can work on.
+If this is your first time working with this code, the [`good first issue`](https://github.com/Codecademy/guidelines/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22food+first+issue%22+) label indicates good introductory issues.
+
+Please note that this project is released with a [Contributor Covenant](https://www.contributor-covenant.org).
+By participating in this project you agree to abide by its terms.
+See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
