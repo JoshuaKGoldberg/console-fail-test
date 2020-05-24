@@ -27,7 +27,7 @@ export const getMochaEnvironment: TestEnvironmentGetter = () => {
 
     return {
         after(callback: (afterHooks: TestAfterHooks) => void) {
-            afterEach(function(this: Mocha) {
+            afterEach(function (this: Mocha) {
                 if (this.currentTest.state !== "passed") {
                     return;
                 }

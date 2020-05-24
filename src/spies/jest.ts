@@ -18,7 +18,7 @@ const createJestSpyFactory = (spyLibrary: Jest): SpyFactory => {
         const methodCalls: MethodCall[] = [];
         const originalMethod = container[methodName];
 
-        const methodSpy = function(this: unknown, ...args: unknown[]) {
+        const methodSpy = function (this: unknown, ...args: unknown[]) {
             methodCalls.push({
                 args,
                 stack: createStack(),
