@@ -6,7 +6,7 @@ export const getFallbackSpyFactory = (): SpyFactory => (container: any, methodNa
     const methodCalls: MethodCall[] = [];
     const originalMethod = container[methodName];
 
-    const spyMethod = function(this: unknown, ...args: unknown[]) {
+    const spyMethod = function (this: unknown, ...args: unknown[]) {
         methodCalls.push({
             args,
             stack: createStack(),

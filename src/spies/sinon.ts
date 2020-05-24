@@ -23,7 +23,7 @@ const createSinonSpyFactory = (spyLibrary: Sinon): SpyFactory => {
         const methodCalls: MethodCall[] = [];
         const originalMethod = container[methodName];
 
-        const spyMethod = spyLibrary.spy(function(this: unknown, ...args: unknown[]) {
+        const spyMethod = spyLibrary.spy(function (this: unknown, ...args: unknown[]) {
             methodCalls.push({
                 args,
                 stack: createStack(),

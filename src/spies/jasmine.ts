@@ -18,7 +18,7 @@ const createJasmineSpyFactory = (spyLibrary: Jasmine): SpyFactory => {
         const methodCalls: MethodCall[] = [];
         const originalMethod = container[methodName];
 
-        container[methodName] = spyLibrary.createSpy().and.callFake(function(this: unknown, ...args: unknown[]) {
+        container[methodName] = spyLibrary.createSpy().and.callFake(function (this: unknown, ...args: unknown[]) {
             methodCalls.push({
                 args,
                 stack: createStack(),
