@@ -11,9 +11,6 @@
         "tslint-config-prettier": "^1.18.0",
         "typescript": "^3.3.3333"
     },
-    "engines": {
-        "node": "^8 || ^9 || ^10 || ^11 || ^12 || ^13"
-    },
     "main": "src/index.js",
     "husky": {
         "hooks": {
