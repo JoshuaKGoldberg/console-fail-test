@@ -20,7 +20,7 @@ export const formatComplaintLineWithIndex = (call: MethodCall, i: number) => `${
 export const formatComplaintCall = (call: MethodCall) => call.args.map(formatComplaintLineArg).join(", ");
 
 export const formatComplaintLineArg = (arg: unknown) => {
-    const text = JSON.stringify(arg);
+    const text = JSON.stringify(arg) ?? JSON.stringify(`${arg}`);
     const endlineMatch = text.match(/\n|(\\n)/);
 
     return endlineMatch === null ? text : `${text.substring(0, endlineMatch.index)}...`;
