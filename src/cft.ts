@@ -7,39 +7,39 @@ import { MethodCall, MethodSpy } from "./spies/spyTypes";
 import { CftRequest } from "./types";
 
 export const cft = (rawRequest: Partial<CftRequest>) => {
-    const request = setDefaults(rawRequest);
-    const spyFactory = getSpyFactory(request);
-    const testEnvironment = selectTestEnvironment(request);
-    const methodSpies: { [i: string]: MethodSpy } = {};
-    const relevantMethodNames = consoleMethodNames.filter((name) => !request.console[name]);
+  const request = setDefaults(rawRequest);
+  const spyFactory = getSpyFactory(request);
+  const testEnvironment = selectTestEnvironment(request);
+  const methodSpies: { [i: string]: MethodSpy } = {};
+  const relevantMethodNames = consoleMethodNames.filter((name) => !request.console[name]);
 
-    testEnvironment.before(() => {
-        for (const methodName of relevantMethodNames) {
-            methodSpies[methodName] = spyFactory(console, methodName);
-        }
-    });
+  testEnvironment.before(() => {
+    for (const methodName of relevantMethodNames) {
+      methodSpies[methodName] = spyFactory(console, methodName);
+    }
+  });
 
-    testEnvironment.after(({ reportComplaint }) => {
-        const methodsWithCalls: [keyof Console, MethodCall[]][] = [];
+  testEnvironment.after(({ reportComplaint }) => {
+    const methodsWithCalls: [keyof Console, MethodCall[]][] = [];
 
-        for (const methodName of relevantMethodNames) {
-            const spy = methodSpies[methodName];
-            const calls = testEnvironment.filterMethodCalls({
-                methodCalls: spy.getCalls(),
-                methodName,
-            });
+    for (const methodName of relevantMethodNames) {
+      const spy = methodSpies[methodName];
+      const calls = testEnvironment.filterMethodCalls({
+        methodCalls: spy.getCalls(),
+        methodName,
+      });
 
-            spy.restore();
+      spy.restore();
 
-            if (calls.length !== 0) {
-                methodsWithCalls.push([methodName, calls]);
-            }
-        }
+      if (calls.length !== 0) {
+        methodsWithCalls.push([methodName, calls]);
+      }
+    }
 
-        if (methodsWithCalls.length === 0) {
-            return;
-        }
+    if (methodsWithCalls.length === 0) {
+      return;
+    }
 
-        reportComplaint(createComplaint(methodsWithCalls));
-    });
+    reportComplaint(createComplaint(methodsWithCalls));
+  });
 };

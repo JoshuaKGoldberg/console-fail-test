@@ -11,6 +11,6 @@ Call the Node API in each test file that should be checked for console calls:
 // some.test.js
 
 require("console-fail-test").cft({
-    testFramework: require("node-tap"),
+  testFramework: require("node-tap"),
 });
 ```

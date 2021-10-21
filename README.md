@@ -18,8 +18,8 @@ In general, you can use the Node API to request specific test frameworks and spy
 
 ```js
 require("console-fail-test").cft({
-    testFramework: "jest",
-    spyLibrary: "jasmine",
+  testFramework: "jest",
+  spyLibrary: "jasmine",
 });
 ```
 
@@ -30,7 +30,7 @@ For others, use the Node API with their API request:
 
 ```js
 require("console-fail-test").cft({
-    testFramework: require("ava"),
+  testFramework: require("ava"),
 });
 ```
 
@@ -180,7 +180,7 @@ You can request a specific test library using the Node API with its API request:
 
 ```js
 require("console-fail-test").cft({
-    spyLibrary: "sinon",
+  spyLibrary: "sinon",
 });
 ```
 
@@ -261,9 +261,9 @@ By default, `console-fail-test` will error on _any_ called `console` method. If 
 
 ```js
 require("console-fail-test").cft({
-    console: {
-        warn: true, // won't error on any instance of console.warn
-    },
+  console: {
+    warn: true, // won't error on any instance of console.warn
+  },
 });
 ```
 
@@ -271,15 +271,15 @@ require("console-fail-test").cft({
 
 Logging to the console during tests can be a sign of
 
--   🚫 warnings from third-party libraries such as React for improper usage
--   🤕 temporary code that shouldn't be checked into your project
--   📢 unnecessary spam in your tests window
+- 🚫 warnings from third-party libraries such as React for improper usage
+- 🤕 temporary code that shouldn't be checked into your project
+- 📢 unnecessary spam in your tests window
 
 This little library throws an error after each test if a console method was called during it.
 It's got some nifty features:
 
--   📊 Summary of which methods are called with calling arguments
--   🛫 Failures are thrown _after_ tests finish, so your tests will fail normally if they should
+- 📊 Summary of which methods are called with calling arguments
+- 🛫 Failures are thrown _after_ tests finish, so your tests will fail normally if they should
 
 Look how fancy the terminal output is with Jest!
 
@@ -289,8 +289,8 @@ Look how fancy the terminal output is with Jest!
 
 Requires:
 
--   [Node.js](https://nodejs.org) >10 (LTS)
--   [Yarn](https://yarnpkg.com/en)
+- [Node.js](https://nodejs.org) >10 (LTS)
+- [Yarn](https://yarnpkg.com/en)
 
 After [forking the repo from GitHub](https://help.github.com/articles/fork-a-repo):
 

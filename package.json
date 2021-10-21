@@ -1,37 +1,44 @@
 {
-    "author": "Codecademy",
-    "name": "console-fail-test",
-    "description": "Gently fails test runs if the console was used during them.",
-    "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^3.0.0",
-        "@typescript-eslint/parser": "^3.0.0",
-        "eslint": "^7.1.0",
-        "eslint-config-prettier": "^6.11.0",
-        "husky": "^4.2.5",
-        "npm-run-all": "^4.1.5",
-        "prettier": "^2.0.5",
-        "pretty-quick": "^2.0.1",
-        "typescript": "^3.9.3"
-    },
-    "main": "src/index.js",
-    "husky": {
-        "hooks": {
-            "pre-commit": "pretty-quick --staged --write"
-        }
-    },
-    "keywords": ["console", "fail", "info", "jest", "log", "test", "warn"],
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Codecademy/console-fail-test.git"
-    },
-    "scripts": {
-        "compile": "tsc",
-        "lint": "eslint src/**/*.ts",
-        "prettier:write": "prettier --config .prettierrc.json --write",
-        "prettier:write:all": "yarn run prettier:write ./{.,src}/**/*.{json,md,ts,yml}",
-        "verify": "run-s compile lint"
-    },
-    "version": "0.1.5",
-    "dependencies": {}
+  "author": "Codecademy",
+  "name": "console-fail-test",
+  "description": "Gently fails test runs if the console was used during them.",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.0.0",
+    "@typescript-eslint/parser": "^3.0.0",
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "husky": "^4.2.5",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
+    "typescript": "^3.9.3"
+  },
+  "main": "src/index.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged --write"
+    }
+  },
+  "keywords": [
+    "console",
+    "fail",
+    "info",
+    "jest",
+    "log",
+    "test",
+    "warn"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Codecademy/console-fail-test.git"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "format": "yarn prettier --write",
+    "format:verify": "yarn prettier --list-different \"**/*.{js,json,md,ts,yml}\"",
+    "format:write-all": "yarn format:verify --write",
+    "lint": "yarn eslint \"src/**/*.ts\" --max-warnings 0 --report-unused-disable-directives"
+  },
+  "version": "0.1.5"
 }
