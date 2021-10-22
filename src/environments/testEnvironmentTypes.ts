@@ -4,18 +4,18 @@ import { CftRequest } from "../types";
 export type TestEnvironmentGetter = (request: CftRequest) => TestEnvironment | undefined;
 
 export type TestEnvironment = {
-    after: (callback: (hooks: TestAfterHooks) => void) => void;
-    before: (callback: () => void) => void;
-    filterMethodCalls: (filter: MethodCallsAndName) => MethodCall[];
+  after: (callback: (hooks: TestAfterHooks) => void) => void;
+  before: (callback: () => void) => void;
+  filterMethodCalls: (filter: MethodCallsAndName) => MethodCall[];
 };
 
 export type TestAfterHooks = {
-    reportComplaint: (complaint: TestComplaint) => void;
+  reportComplaint: (complaint: TestComplaint) => void;
 };
 
 export type MethodCallsAndName = {
-    methodCalls: MethodCall[];
-    methodName: string;
+  methodCalls: MethodCall[];
+  methodName: string;
 };
 
 /**
@@ -25,6 +25,6 @@ export type MethodCallsAndName = {
  * log a separate failure for each of the `methodComplaints`.
  */
 export type TestComplaint = {
-    error: Error;
-    methodComplaints: MethodCallsAndName[];
+  error: Error;
+  methodComplaints: MethodCallsAndName[];
 };

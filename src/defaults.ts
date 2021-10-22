@@ -1,9 +1,9 @@
 import { CftRequest } from "./types";
 
 const defaults = {
-    console: {},
+  console: {},
 };
 
 export const setDefaults = (request: Partial<CftRequest> = {}): CftRequest => {
-    return { ...defaults, ...request };
+  return { ...defaults, ...request };
 };

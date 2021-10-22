@@ -12,6 +12,6 @@ Call the Node API in each test file that should be checked for console calls wit
 const { it } = (exports.lab = require("lab").script());
 
 require("console-fail-test").cft({
-    testFramework: exports.lab,
+  testFramework: exports.lab,
 });
 ```
