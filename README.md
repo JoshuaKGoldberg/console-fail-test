@@ -138,7 +138,7 @@ require("console-fail-test").cft({
       </td>
       <td />
       <td>
-        <a href="https://github.com/RyzacInc/console-fail-test/issues/19">
+        <a href="https://github.com/Codecademy/console-fail-test/issues/19">
           <code>/issues/19</code>
         </a>
       </td>
@@ -150,7 +150,7 @@ require("console-fail-test").cft({
       </td>
       <td />
       <td>
-        <a href="https://github.com/RyzacInc/console-fail-test/issues/17">
+        <a href="https://github.com/Codecademy/console-fail-test/issues/17">
           <code>/issues/17</code>
         </a>
       </td>
@@ -162,7 +162,7 @@ require("console-fail-test").cft({
       </td>
       <td />
       <td>
-        <a href="https://github.com/RyzacInc/console-fail-test/issues/15">
+        <a href="https://github.com/Codecademy/console-fail-test/issues/15">
           <code>/issues/15</code>
         </a>
       </td>
@@ -170,7 +170,7 @@ require("console-fail-test").cft({
   </tbody>
 </table>
 
-> See [open test framework support issues](https://github.com/RyzacInc/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22test+framework+support%22) for progress!
+> See [open test framework support issues](https://github.com/Codecademy/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22test+framework+support%22) for progress!
 
 ### Spy Libraries
 
