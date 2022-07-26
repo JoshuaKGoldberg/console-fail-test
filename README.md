@@ -1,10 +1,8 @@
 # console-fail-test
 
-[![Circle CI](https://circleci.com/gh/Codecademy/console-fail-test.svg?style=svg)](https://circleci.com/gh/Codecademy/console-fail-test)
+[![Circle CI](https://circleci.com/gh/JoshuaKGoldberg/console-fail-test.svg?style=svg)](https://circleci.com/gh/JoshuaKGoldberg/console-fail-test)
 [![NPM version](https://img.shields.io/npm/v/console-fail-test.svg)](https://npmjs.org/package/console-fail-test)
 [![Downloads](http://img.shields.io/npm/dm/console-fail-test.svg)](https://npmjs.org/package/console-fail-test)
-[![Greenkeeper](https://badges.greenkeeper.io/Codecademy/console-fail-test.svg)](https://greenkeeper.io/)
-[![Join the chat at https://gitter.im/Codecademy/console-fail-test](https://badges.gitter.im/Codecademy/console-fail-test.svg)](https://gitter.im/Codecademy/console-fail-test?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-14cc21.svg)
 
 Gently fails test runs if the console was used during them.
@@ -138,7 +136,7 @@ require("console-fail-test").cft({
       </td>
       <td />
       <td>
-        <a href="https://github.com/Codecademy/console-fail-test/issues/19">
+        <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/19">
           <code>/issues/19</code>
         </a>
       </td>
@@ -150,7 +148,7 @@ require("console-fail-test").cft({
       </td>
       <td />
       <td>
-        <a href="https://github.com/Codecademy/console-fail-test/issues/17">
+        <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/17">
           <code>/issues/17</code>
         </a>
       </td>
@@ -162,7 +160,7 @@ require("console-fail-test").cft({
       </td>
       <td />
       <td>
-        <a href="https://github.com/Codecademy/console-fail-test/issues/15">
+        <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/15">
           <code>/issues/15</code>
         </a>
       </td>
@@ -170,7 +168,7 @@ require("console-fail-test").cft({
   </tbody>
 </table>
 
-> See [open test framework support issues](https://github.com/Codecademy/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22test+framework+support%22) for progress!
+> See [open test framework support issues](https://github.com/JoshuaKGoldberg/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22test+framework+support%22) for progress!
 
 ### Spy Libraries
 
@@ -306,8 +304,8 @@ yarn run verify
 ### Contribution Guidelines
 
 We'd love to have you contribute!
-Check the [issue tracker](https://github.com/Codecademy/console-fail-test/issues) for issues labeled [`accepting prs`](https://github.com/Codecademy/console-fail-test/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22accepting+prs%22) to find bug fixes and feature requests the community can work on.
-If this is your first time working with this code, the [`good first issue`](https://github.com/Codecademy/guidelines/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22+) label indicates good introductory issues.
+Check the [issue tracker](https://github.com/JoshuaKGoldberg/console-fail-test/issues) for issues labeled [`accepting prs`](https://github.com/JoshuaKGoldberg/console-fail-test/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22accepting+prs%22) to find bug fixes and feature requests the community can work on.
+If this is your first time working with this code, the [`good first issue`](https://github.com/JoshuaKGoldberg/console-fail-test/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22+) label indicates good introductory issues.
 
 Please note that this project is released with a [Contributor Covenant](https://www.contributor-covenant.org).
 By participating in this project you agree to abide by its terms.

@@ -6,7 +6,7 @@ import { getSpyFactory } from "./spies/selectSpyFactory";
 import { MethodCall, MethodSpy } from "./spies/spyTypes";
 import { CftRequest } from "./types";
 
-export const cft = (rawRequest: Partial<CftRequest>) => {
+export const cft = (rawRequest?: Partial<CftRequest>) => {
   const request = setDefaults(rawRequest);
   const spyFactory = getSpyFactory(request);
   const testEnvironment = selectTestEnvironment(request);

@@ -1,5 +1,5 @@
 {
-  "author": "Codecademy",
+  "author": "Josh Goldberg <me@joshuakgoldberg.com>",
   "name": "console-fail-test",
   "description": "Gently fails test runs if the console was used during them.",
   "devDependencies": {
@@ -31,7 +31,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Codecademy/console-fail-test.git"
+    "url": "git+https://github.com/JoshuaKGoldberg/console-fail-test.git"
   },
   "scripts": {
     "compile": "tsc",

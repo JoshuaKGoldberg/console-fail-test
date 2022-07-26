@@ -3,7 +3,7 @@
 Thanks so much for your interest! 🙌
 
 We'd love to work with you.
-Please check for open issues before filing your own; if you'd like to send a pull request, make sure there's an open issue marked [accepting prs](https://github.com/Codecademy/console-fail-test/labels/accepting%20prs) first.
+Please check for open issues before filing your own; if you'd like to send a pull request, make sure there's an open issue marked [accepting prs](https://github.com/JoshuaKGoldberg/console-fail-test/labels/accepting%20prs) first.
 
 ## Local Setup
 
@@ -30,7 +30,7 @@ For example, if `jest` is available, it's assumed that Jest is the executing tes
 
 If you use a test framework console-fail-test doesn't yet support:
 
-1. Find or file an issue tagged with [test framework support](https://github.com/Codecademy/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22test+framework+support%22) and wait until it's marked as [accepting prs](https://github.com/Codecademy/console-fail-test/labels/accepting%20prs)
+1. Find or file an issue tagged with [test framework support](https://github.com/JoshuaKGoldberg/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22test+framework+support%22) and wait until it's marked as [accepting prs](https://github.com/JoshuaKGoldberg/console-fail-test/labels/accepting%20prs)
 2. Add a new file under [`src/environments`](../src/environments) that exports a function matching `TestEnvironmentGetter`:
    - If the environment isn't provided and doesn't seem to exist, return `undefined`
    - If the environment is provided or does seem to exist, return an object with hooks to be called by [`cft.ts`](../src/cft.ts)
@@ -48,7 +48,7 @@ For example, if `jest` and `jest.fn` are available, it's assumed that Jest's spi
 
 If you use a spy library console-fail-test doesn't yet support:
 
-1. Find or file an issue tagged with [spy library support](https://github.com/Codecademy/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22spy+library+support%22) and wait until it's marked as [accepting prs](https://github.com/Codecademy/console-fail-test/labels/accepting%20prs)
+1. Find or file an issue tagged with [spy library support](https://github.com/JoshuaKGoldberg/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22spy+library+support%22) and wait until it's marked as [accepting prs](https://github.com/JoshuaKGoldberg/console-fail-test/labels/accepting%20prs)
 2. Add a new file under [`src/spies`](../src/spies) that exports a function matching matching `SpyFactoryGetter`:
    - If the spy library isn't provided and doesn't seem to exist, return `undefined`
    - If the spy library is provided or does seem to exist, return a method that, given a container object and method name, spies on that method on the container

@@ -15,7 +15,7 @@ declare type Mocha = {
 export const getMochaEnvironment: TestEnvironmentGetter = () => {
   // Until there is some kind of global `mocha` variable that can be referenced,
   // we check the stringified versions of its used hook methods
-  // See https://github.com/Codecademy/console-fail-test/issues/10
+  // See https://github.com/JoshuaKGoldberg/console-fail-test/issues/10
   if (
     typeof afterEach === "undefined" ||
     typeof beforeEach === "undefined" ||

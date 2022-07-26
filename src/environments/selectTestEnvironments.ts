@@ -25,7 +25,7 @@ const detectableTestEnvironmentGetters: TestEnvironmentGetter[] = [
   getJasmineEnvironment,
 
   // Mocha should be last because it's difficult to accurately detect
-  // See https://github.com/Codecademy/console-fail-test/issues/10
+  // See https://github.com/JoshuaKGoldberg/console-fail-test/issues/10
   getMochaEnvironment,
 ];
 
