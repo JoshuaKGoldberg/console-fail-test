@@ -13,18 +13,29 @@ export const getJestEnvironment: TestEnvironmentGetter = () => {
     return undefined;
   }
 
+  /* eslint-disable @typescript-eslint/no-empty-function */
+  let afterEachCallback = () => {};
+  let beforeEachCallback = () => {};
+  /* eslint-enable @typescript-eslint/no-empty-function */
+
+  afterEach(() => {
+    afterEachCallback();
+  });
+
+  beforeEach(() => {
+    beforeEachCallback();
+  });
+
   return {
     after(callback: (afterHooks: TestAfterHooks) => void) {
-      afterEach(() => {
-        callback({
-          reportComplaint({ error }) {
-            throw error;
-          },
-        });
+      afterEachCallback = () => callback({
+        reportComplaint({ error }) {
+          throw error;
+        },
       });
     },
     before: (callback: () => void) => {
-      beforeEach(callback);
+      beforeEachCallback = callback
     },
     filterMethodCalls: ({ methodCalls }) => methodCalls,
   };
