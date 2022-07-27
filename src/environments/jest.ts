@@ -12,19 +12,27 @@ export const getJestEnvironment: TestEnvironmentGetter = () => {
   ) {
     return undefined;
   }
+  let afterEachCallback = () => {};
+  let beforeEachCallback = () => {};
+
+  afterEach(() => {
+    afterEachCallback();
+  });
+
+  beforeEach(() => {
+    beforeEachCallback();
+  });
 
   return {
     after(callback: (afterHooks: TestAfterHooks) => void) {
-      afterEach(() => {
-        callback({
-          reportComplaint({ error }) {
-            throw error;
-          },
-        });
+      afterEachCallback = () => callback({
+        reportComplaint({ error }) {
+          throw error;
+        },
       });
     },
     before: (callback: () => void) => {
-      beforeEach(callback);
+      beforeEachCallback = callback
     },
     filterMethodCalls: ({ methodCalls }) => methodCalls,
   };
