@@ -3,9 +3,9 @@ import { CftRequest } from "../types";
 
 import { MethodCall, SpyFactory, SpyFactoryGetter } from "./spyTypes";
 
-declare type Jasmine = {
+declare interface Jasmine {
   createSpy(): Function & any;
-};
+}
 
 declare const jasmine: Jasmine | undefined;
 

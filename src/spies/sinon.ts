@@ -8,9 +8,9 @@ type SinonSpy = Function & {
   restore(): void;
 };
 
-declare type Sinon = {
+declare interface Sinon {
   spy(callback: Function): SinonSpy;
-};
+}
 
 declare const sinon: Sinon | undefined;
 

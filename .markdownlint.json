@@ -1,0 +1,7 @@
+{
+  "first-line-h1": false,
+  "no-bare-urls": false,
+  "no-inline-html": false,
+  "no-hard-tabs": false,
+  "line-length": false
+}

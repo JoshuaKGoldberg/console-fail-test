@@ -1,10 +1,9 @@
 {
-  "files.exclude": {
-    "**/*.js": {
-      "when": "$(basename).ts"
-    },
-    "**/*.d.ts": {
-      "when": "$(basename).ts"
-    }
-  }
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

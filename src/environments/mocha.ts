@@ -3,14 +3,14 @@ import { TestAfterHooks, TestEnvironmentGetter } from "./testEnvironmentTypes";
 declare const afterEach: (callback: (this: Mocha) => void) => void;
 declare const beforeEach: (callback: (this: Mocha) => void) => void;
 
-declare type Mocha = {
+declare interface Mocha {
   currentTest: {
     state: string;
   };
   test: {
     error(error: Error): void;
   };
-};
+}
 
 export const getMochaEnvironment: TestEnvironmentGetter = () => {
   // Until there is some kind of global `mocha` variable that can be referenced,

@@ -2,7 +2,7 @@ import { CftRequest } from "../types";
 
 import { TestAfterHooks, TestEnvironmentGetter } from "./testEnvironmentTypes";
 
-declare type Ava = {
+declare interface Ava {
   afterEach(callback: Function): void;
   beforeEach(callback: Function): void;
   cb: Function;
@@ -13,7 +13,7 @@ declare type Ava = {
   serial: Function & {
     cb: Function;
   };
-};
+}
 
 const isAva = (testFramework: unknown): testFramework is Ava => {
   return (

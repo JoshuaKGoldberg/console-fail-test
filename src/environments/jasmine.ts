@@ -22,7 +22,6 @@ export const getJasmineEnvironment: TestEnvironmentGetter = () => {
         callback({
           reportComplaint({ error }) {
             // Jasmine prints the error stack along with its message, resulting in a duplicate message
-            // tslint:disable-next-line:no-non-null-assertion
             error.stack = error.stack!.substring(error.message.length);
 
             throw error;

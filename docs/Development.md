@@ -40,7 +40,7 @@ See [`src/environments/jest.ts`](../src/environments/jest.ts) as an example.
 
 ## Spy Library Detection
 
-As with test frameworks, console-fail-test detects the global presense of common spy libraries to determine what to spy on console methods with.
+As with test frameworks, console-fail-test detects the global presence of common spy libraries to determine what to spy on console methods with.
 This logic similarly iterates through a list of known spy libraries and chooses the first that seems to match what's globally available.
 For example, if `jest` and `jest.fn` are available, it's assumed that Jest's spies are to be used as spy functions.
 
