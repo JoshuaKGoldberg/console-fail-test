@@ -1,9 +1,10 @@
 # console-fail-test
 
-[![Circle CI](https://circleci.com/gh/JoshuaKGoldberg/console-fail-test.svg?style=svg)](https://circleci.com/gh/JoshuaKGoldberg/console-fail-test)
-[![NPM version](https://img.shields.io/npm/v/console-fail-test.svg)](https://npmjs.org/package/console-fail-test)
+[![GitHub CI](https://github.com/JoshuaKGoldberg/console-fail-test/actions/workflows/compile.yml/badge.svg)](https://github.com/JoshuaKGoldberg/console-fail-test/actions/workflows/compile.yml)
+[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
+![TypeScript: Strict](https://img.shields.io/badge/typescript-strict-brightgreen.svg)
+[![NPM version](https://badge.fury.io/js/console-fail-test.svg)](http://badge.fury.io/js/console-fail-test)
 [![Downloads](http://img.shields.io/npm/dm/console-fail-test.svg)](https://npmjs.org/package/console-fail-test)
-![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-14cc21.svg)
 
 Gently fails test runs if the console was used during them.
 
@@ -12,13 +13,18 @@ Gently fails test runs if the console was used during them.
 `console-fail-test` is meant to support any _(test framework)_ & _(spy library)_ combination.
 It will auto-detect your combination if possible and use the most appropriate environment hooks and function spies it can find.
 
-In general, you can use the Node API to request specific test frameworks and spy libraries:
+For example, in a Jest config:
 
 ```js
-require("console-fail-test").cft({
-  testFramework: "jest",
-  spyLibrary: "jasmine",
-});
+// jest.config.js
+setupFilesAfterEnv: ["console-fail-test/setup.js"],
+```
+
+Alternately, you can manually call the Node API before your tests:
+
+```js
+// setup
+require("console-fail-test").cft();
 ```
 
 ### Test Frameworks
@@ -292,14 +298,11 @@ Requires:
 
 After [forking the repo from GitHub](https://help.github.com/articles/fork-a-repo):
 
-```
+```shell
 git clone https://github.com/<your-name-here>/console-fail-test
 cd console-fail-test
 yarn
-yarn run verify
 ```
-
-`yarn run verify` will run a full build and set up the package to be consumed locally.
 
 ### Contribution Guidelines
 

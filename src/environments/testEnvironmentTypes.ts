@@ -3,20 +3,20 @@ import { CftRequest } from "../types";
 
 export type TestEnvironmentGetter = (request: CftRequest) => TestEnvironment | undefined;
 
-export type TestEnvironment = {
+export interface TestEnvironment {
   after: (callback: (hooks: TestAfterHooks) => void) => void;
   before: (callback: () => void) => void;
   filterMethodCalls: (filter: MethodCallsAndName) => MethodCall[];
-};
+}
 
-export type TestAfterHooks = {
+export interface TestAfterHooks {
   reportComplaint: (complaint: TestComplaint) => void;
-};
+}
 
-export type MethodCallsAndName = {
+export interface MethodCallsAndName {
   methodCalls: MethodCall[];
   methodName: string;
-};
+}
 
 /**
  * @remarks
@@ -24,7 +24,7 @@ export type MethodCallsAndName = {
  * However, if the test framework doesn't format multiline error messages well, it might instead
  * log a separate failure for each of the `methodComplaints`.
  */
-export type TestComplaint = {
+export interface TestComplaint {
   error: Error;
   methodComplaints: MethodCallsAndName[];
-};
+}

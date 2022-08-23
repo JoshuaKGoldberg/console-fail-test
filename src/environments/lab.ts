@@ -2,14 +2,14 @@ import { CftRequest } from "../types";
 
 import { TestAfterHooks, TestEnvironmentGetter } from "./testEnvironmentTypes";
 
-declare type Lab = {
+declare interface Lab {
   afterEach(callback: Function): void;
   beforeEach(callback: Function): void;
   setOnly: Function;
   _current: {
     tests: unknown[];
   };
-};
+}
 
 const isLab = (testFramework: unknown): testFramework is Lab => {
   return (

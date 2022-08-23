@@ -3,9 +3,9 @@ import { CftRequest } from "../types";
 
 import { MethodCall, SpyFactory, SpyFactoryGetter } from "./spyTypes";
 
-declare type Jest = {
+declare interface Jest {
   fn(implementation: Function): void;
-};
+}
 
 declare const jest: Jest | undefined;
 

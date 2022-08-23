@@ -10,7 +10,7 @@ export const cft = (rawRequest?: Partial<CftRequest>) => {
   const request = setDefaults(rawRequest);
   const spyFactory = getSpyFactory(request);
   const testEnvironment = selectTestEnvironment(request);
-  const methodSpies: { [i: string]: MethodSpy } = {};
+  const methodSpies: Record<string, MethodSpy> = {};
   const relevantMethodNames = consoleMethodNames.filter((name) => !request.console[name]);
 
   testEnvironment.before(() => {

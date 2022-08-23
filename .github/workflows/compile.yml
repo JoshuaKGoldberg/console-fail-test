@@ -1,18 +1,15 @@
-name: Publish
+name: Compile
 
 on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
-  publish:
+  compile:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: .github/actions/prepare
       - run: yarn compile
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          greater-version-only: true
-          token: ${{ secrets.NPM_TOKEN }}

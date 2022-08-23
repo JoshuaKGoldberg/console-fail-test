@@ -10,7 +10,7 @@ export type SpyFactory = (container: any, methodName: string) => MethodSpy;
 /**
  * Record for a single method being spied upon.
  */
-export type MethodSpy = {
+export interface MethodSpy {
   /**
    * @returns For each call to the spy, its arguments and stack.
    */
@@ -20,9 +20,9 @@ export type MethodSpy = {
    * Restores the original method on the container.
    */
   restore(): void;
-};
+}
 
-export type MethodCall = {
+export interface MethodCall {
   args: unknown[];
   stack: string[];
-};
+}

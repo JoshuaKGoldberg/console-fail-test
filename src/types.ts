@@ -1,8 +1,8 @@
-export type CftRequest = {
+export interface CftRequest {
   console: ConsoleSettings;
   spyLibrary?: SupportedSpyLibrary;
   testFramework?: SupportedTestFramework;
-};
+}
 
 export type SupportedSpyLibrary = "fallback" | "jasmine" | "jest" | "sinon" | unknown;
 

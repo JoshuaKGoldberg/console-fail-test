@@ -3,14 +3,14 @@ import { CftRequest } from "../types";
 
 import { TestAfterHooks, TestEnvironmentGetter } from "./testEnvironmentTypes";
 
-declare type NodeTap = {
+declare interface NodeTap {
   afterEach(callback: Function): void;
   beforeEach(callback: Function): void;
   fail(message: string): void;
   jobs: number;
   pool: {};
   name: "TAP";
-};
+}
 
 const isNodeTap = (testFramework: unknown): testFramework is NodeTap => {
   return (
