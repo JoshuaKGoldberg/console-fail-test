@@ -29,7 +29,7 @@ require("console-fail-test").cft();
 
 ### Test Frameworks
 
-Test frameworks that are ✨ auto-detectable can be supported by just running `console-fail-test/setup.js` before tests.
+Test frameworks that are ✨ auto-detectable can be supported by running `console-fail-test/setup.js` before tests.
 For others, use the Node API with their API request:
 
 ```js
