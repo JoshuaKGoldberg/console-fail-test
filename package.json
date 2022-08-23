@@ -43,8 +43,7 @@
     "lint": "yarn eslint \"src/*.ts\"  --max-warnings 0 --report-unused-disable-directives",
     "lint:md": "yarn markdownlint \"**/*.md\" \".github/**/*.md\"",
     "lint:spelling": "cspell \"**\" \".github/**/*\"",
-    "prepare": "husky install",
-    "test": "node src/index.test.js"
+    "prepare": "husky install"
   },
   "version": "0.1.5"
 }
