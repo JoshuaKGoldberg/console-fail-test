@@ -45,5 +45,5 @@
     "lint:spelling": "cspell \"**\" \".github/**/*\"",
     "prepare": "husky install"
   },
-  "version": "0.1.5"
+  "version": "0.1.6"
 }
