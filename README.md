@@ -136,6 +136,18 @@ require("console-fail-test").cft({
       </td>
     </tr>
     <tr>
+      <td>Cypress</td>
+      <td>
+        <span aria-label="not yet supported" role="img">⚙️</span>
+      </td>
+      <td />
+      <td>
+        <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/199">
+          <code>/issues/199</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>QUnit</td>
       <td>
         <span aria-label="not yet supported" role="img">⚙️</span>
@@ -144,6 +156,18 @@ require("console-fail-test").cft({
       <td>
         <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/19">
           <code>/issues/19</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>Playwright</td>
+      <td>
+        <span aria-label="not yet supported" role="img">⚙️</span>
+      </td>
+      <td />
+      <td>
+        <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/198">
+          <code>/issues/198</code>
         </a>
       </td>
     </tr>
@@ -168,6 +192,18 @@ require("console-fail-test").cft({
       <td>
         <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/15">
           <code>/issues/15</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>Vitest</td>
+      <td>
+        <span aria-label="not yet supported" role="img">⚙️</span>
+      </td>
+      <td />
+      <td>
+        <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/197">
+          <code>/issues/197</code>
         </a>
       </td>
     </tr>
