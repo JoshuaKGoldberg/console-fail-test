@@ -1,6 +1,4 @@
-import { CftRequest } from "../types";
-
-import { TestAfterHooks, TestEnvironmentGetter } from "./testEnvironmentTypes";
+import { TestFrameworkSelector } from "./testEnvironmentTypes";
 
 declare interface Lab {
   afterEach(callback: Function): void;
@@ -22,13 +20,13 @@ const isLab = (testFramework: unknown): testFramework is Lab => {
   );
 };
 
-export const getLabEnvironment: TestEnvironmentGetter = ({ testFramework }: CftRequest) => {
+export const selectLabEnvironment: TestFrameworkSelector = ({ testFramework }) => {
   if (!isLab(testFramework)) {
     return undefined;
   }
 
   return {
-    after(callback: (afterHooks: TestAfterHooks) => void) {
+    afterEach: (callback) => {
       testFramework.afterEach(() => {
         callback({
           reportComplaint({ error }) {
@@ -37,7 +35,6 @@ export const getLabEnvironment: TestEnvironmentGetter = ({ testFramework }: CftR
         });
       });
     },
-    before: testFramework.beforeEach,
-    filterMethodCalls: ({ methodCalls }) => methodCalls,
+    beforeEach: testFramework.beforeEach,
   };
 };

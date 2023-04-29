@@ -1,35 +1,35 @@
 import { CftRequest, SupportedTestFramework } from "../types";
 
-import { getAvaEnvironment } from "./ava";
-import { getJasmineEnvironment } from "./jasmine";
-import { getJestEnvironment } from "./jest";
-import { getLabEnvironment } from "./lab";
-import { getMochaEnvironment } from "./mocha";
-import { getNodeTapEnvironment } from "./nodeTap";
-import { TestEnvironmentGetter } from "./testEnvironmentTypes";
+import { selectAvaEnvironment } from "./ava";
+import { selectJasmineEnvironment } from "./jasmine";
+import { selectJestEnvironment } from "./jest";
+import { selectLabEnvironment } from "./lab";
+import { selectMochaEnvironment } from "./mocha";
+import { selectNodeTapEnvironment } from "./nodeTap";
+import { TestFrameworkSelector } from "./testEnvironmentTypes";
 
-const testEnvironmentsByName = new Map<SupportedTestFramework, TestEnvironmentGetter>([
-  ["mocha", getMochaEnvironment],
-  ["jest", getJestEnvironment],
-  ["jasmine", getJasmineEnvironment],
+const testEnvironmentsByName = new Map<SupportedTestFramework, TestFrameworkSelector>([
+  ["jasmine", selectJasmineEnvironment],
+  ["jest", selectJestEnvironment],
+  ["mocha", selectMochaEnvironment],
 ]);
 
-const detectableTestEnvironmentGetters: TestEnvironmentGetter[] = [
+const detectableTestEnvironmentSelectors: TestFrameworkSelector[] = [
   // These environments only work with received modules, so they should come first
-  getAvaEnvironment,
-  getLabEnvironment,
-  getNodeTapEnvironment,
+  selectAvaEnvironment,
+  selectLabEnvironment,
+  selectNodeTapEnvironment,
 
   // Jest should come before Jasmine because Jest includes a monkey-patched Jasmine
-  getJestEnvironment,
-  getJasmineEnvironment,
+  selectJestEnvironment,
+  selectJasmineEnvironment,
 
   // Mocha should be last because it's difficult to accurately detect
   // See https://github.com/JoshuaKGoldberg/console-fail-test/issues/10
-  getMochaEnvironment,
+  selectMochaEnvironment,
 ];
 
-export const selectTestEnvironment = (request: CftRequest) => {
+export const selectTestFramework = (request: CftRequest) => {
   // If a test environment is requested by name, it must exist
   if (typeof request.testFramework === "string") {
     const getter = testEnvironmentsByName.get(request.testFramework);
@@ -50,7 +50,7 @@ export const selectTestEnvironment = (request: CftRequest) => {
   }
 
   // Otherwise, attempt to auto-detect an active one
-  for (const testEnvironmentGetter of detectableTestEnvironmentGetters) {
+  for (const testEnvironmentGetter of detectableTestEnvironmentSelectors) {
     const environment = testEnvironmentGetter(request);
 
     if (environment !== undefined) {

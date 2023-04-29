@@ -1,10 +1,10 @@
-import { TestAfterHooks, TestEnvironmentGetter } from "./testEnvironmentTypes";
+import { TestFrameworkSelector } from "./testEnvironmentTypes";
 
 declare const afterEach: (callback: () => void) => void;
 declare const beforeEach: (callback: () => void) => void;
 declare const jest: unknown;
 
-export const getJestEnvironment: TestEnvironmentGetter = () => {
+export const selectJestEnvironment: TestFrameworkSelector = () => {
   if (
     typeof afterEach === "undefined" ||
     typeof beforeEach === "undefined" ||
@@ -13,31 +13,23 @@ export const getJestEnvironment: TestEnvironmentGetter = () => {
     return undefined;
   }
 
-  /* eslint-disable @typescript-eslint/no-empty-function */
-  let afterEachCallback = () => {};
-  let beforeEachCallback = () => {};
-  /* eslint-enable @typescript-eslint/no-empty-function */
+  let afterEachCallback: (() => void) | undefined;
+  let beforeEachCallback: (() => void) | undefined;
 
   afterEach(() => {
-    afterEachCallback();
+    afterEachCallback?.();
   });
 
   beforeEach(() => {
-    beforeEachCallback();
+    beforeEachCallback?.();
   });
 
   return {
-    after(callback: (afterHooks: TestAfterHooks) => void) {
-      afterEachCallback = () =>
-        callback({
-          reportComplaint({ error }) {
-            throw error;
-          },
-        });
+    afterEach: (callback) => {
+      afterEachCallback = callback;
     },
-    before: (callback: () => void) => {
+    beforeEach: (callback) => {
       beforeEachCallback = callback;
     },
-    filterMethodCalls: ({ methodCalls }) => methodCalls,
   };
 };

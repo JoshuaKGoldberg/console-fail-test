@@ -1,16 +1,11 @@
-import { createStack } from "../stack";
+import { SpyCallArgs, SpyFactory } from "./spyTypes";
 
-import { MethodCall, SpyFactory } from "./spyTypes";
-
-export const getFallbackSpyFactory = (): SpyFactory => (container: any, methodName: string) => {
-  const methodCalls: MethodCall[] = [];
+export const selectFallbackSpyFactory = (): SpyFactory => (container: any, methodName: string) => {
+  const methodCalls: SpyCallArgs[] = [];
   const originalMethod = container[methodName];
 
-  const spyMethod = function (this: unknown, ...args: unknown[]) {
-    methodCalls.push({
-      args,
-      stack: createStack(),
-    });
+  const spyMethod = function (this: unknown, ...args: SpyCallArgs) {
+    methodCalls.push(args);
 
     return originalMethod.apply(this, args);
   };

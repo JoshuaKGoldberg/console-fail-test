@@ -1,27 +1,27 @@
 import { CftRequest, SupportedSpyLibrary } from "../types";
 
-import { getFallbackSpyFactory } from "./fallback";
-import { getJasmineSpyFactory } from "./jasmine";
-import { getJestSpyFactory } from "./jest";
-import { getSinonSpyFactory } from "./sinon";
-import { SpyFactory, SpyFactoryGetter } from "./spyTypes";
+import { selectFallbackSpyFactory } from "./fallback";
+import { selectJasmineSpyFactory } from "./jasmine";
+import { selectJestSpyFactory } from "./jest";
+import { selectSinonSpyFactory } from "./sinon";
+import { SpyFactoryGetter as SpyFactorySelector } from "./spyTypes";
 
-const spyFactoriesByName = new Map<SupportedSpyLibrary, SpyFactoryGetter>([
-  ["fallback", getFallbackSpyFactory],
-  ["jest", getJestSpyFactory],
-  ["jasmine", getJasmineSpyFactory],
-  ["sinon", getSinonSpyFactory],
+const spyFactoriesByName = new Map<SupportedSpyLibrary, SpyFactorySelector>([
+  ["fallback", selectFallbackSpyFactory],
+  ["jest", selectJestSpyFactory],
+  ["jasmine", selectJasmineSpyFactory],
+  ["sinon", selectSinonSpyFactory],
 ]);
 
-const detectableSpyFactoryGetters: SpyFactoryGetter[] = [
+const detectableSpyFactorySelectors: SpyFactorySelector[] = [
   // Jest should come before Jasmine because Jest includes a monkey-patched Jasmine
-  getJestSpyFactory,
-  getJasmineSpyFactory,
+  selectJestSpyFactory,
+  selectJasmineSpyFactory,
 
-  getSinonSpyFactory,
+  selectSinonSpyFactory,
 ];
 
-export const getSpyFactory = (request: CftRequest): SpyFactory => {
+export const selectSpyFactory = (request: CftRequest) => {
   // If a spy library is requested by name, it must exist
   if (typeof request.spyLibrary === "string") {
     const getter = spyFactoriesByName.get(request.spyLibrary);
@@ -40,7 +40,7 @@ export const getSpyFactory = (request: CftRequest): SpyFactory => {
   }
 
   // Otherwise, attempt to auto-detect an active one
-  for (const getter of detectableSpyFactoryGetters) {
+  for (const getter of detectableSpyFactorySelectors) {
     const library = getter(request);
 
     if (library !== undefined) {
@@ -48,5 +48,5 @@ export const getSpyFactory = (request: CftRequest): SpyFactory => {
     }
   }
 
-  return getFallbackSpyFactory();
+  return selectFallbackSpyFactory();
 };

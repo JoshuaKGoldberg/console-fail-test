@@ -8,6 +8,38 @@
 
 Gently fails test runs if the console was used during them.
 
+## Why?
+
+Logging to the console during tests can be a sign of:
+
+- 🚫 warnings from third-party libraries such as React for improper usage
+- 🤕 temporary code that shouldn't be checked into your project
+- 📢 unnecessary spam in your tests window
+
+This little library throws an error after each test if a console method was called during it.
+It's got some nifty features:
+
+- 📊 Summary of which methods are called with calling arguments
+- 🛫 Failures are thrown _after_ tests finish, so your tests will fail normally if they should
+
+```plaintext
+stdout | src/index.test.ts > index > example test that console.logs
+Whoopsies!
+
+ ❯ src/index.test.ts (4)
+   ❯ index (4)
+     × example test that console.logs
+       ⠙ [ afterEach ]
+     ✓ example test that does not console.log
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯- Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯-
+
+ FAIL  src/index.test.ts > index > example test that console.logs
+Error: Oh no! Your test called the following console method:
+  * log (1 call)
+    > Call 0: "Whoopsies!"
+```
+
 ## Usage
 
 `console-fail-test` is meant to support any _(test framework)_ & _(spy library)_ combination.
@@ -20,23 +52,9 @@ For example, in a Jest config:
 setupFilesAfterEnv: ["console-fail-test/setup.js"],
 ```
 
-Alternately, you can manually call the Node API before your tests:
-
-```js
-// setup
-require("console-fail-test").cft();
-```
-
 ### Test Frameworks
 
-Test frameworks that are ✨ auto-detectable can be supported by just running `console-fail-test/setup.js` before tests.
-For others, use the Node API with their API request:
-
-```js
-require("console-fail-test").cft({
-  testFramework: require("ava"),
-});
-```
+See the _Documentation_ link for each supported framework for how to set up console-fail-test with that framework.
 
 <table>
   <thead>
@@ -51,7 +69,7 @@ require("console-fail-test").cft({
     <tr>
       <td>Ava</td>
       <td>
-        <span aria-label="supported" role="img">✅️</span>
+        ✅️
       </td>
       <td>
         <code>require("ava")</code>
@@ -65,8 +83,8 @@ require("console-fail-test").cft({
     <tr>
       <td>Mocha</td>
       <td>
-        <span aria-label="supported" role="img">✅️</span>
-        <span aria-label="auto detectable" role="img">✨</span>
+        ✅️
+        ✨
       </td>
       <td>
         <code>"mocha"</code>
@@ -80,8 +98,8 @@ require("console-fail-test").cft({
     <tr>
       <td>Jasmine</td>
       <td>
-        <span aria-label="supported" role="img">✅️</span>
-        <span aria-label="auto detectable" role="img">✨</span>
+        ✅️
+        ✨
       </td>
       <td>
         <code>"jasmine"</code>
@@ -95,8 +113,8 @@ require("console-fail-test").cft({
     <tr>
       <td>Jest</td>
       <td>
-        <span aria-label="supported" role="img">✅️</span>
-        <span aria-label="auto detectable" role="img">✨</span>
+        ✅️
+        ✨
       </td>
       <td>
         <code>"jest"</code>
@@ -110,7 +128,7 @@ require("console-fail-test").cft({
     <tr>
       <td>lab</td>
       <td>
-        <span aria-label="supported" role="img">✅</span>
+        ✅
       </td>
       <td>
         <code>exports.lab</code>
@@ -124,7 +142,7 @@ require("console-fail-test").cft({
     <tr>
       <td>node-tap</td>
       <td>
-        <span aria-label="supported" role="img">✅️</span>
+        ✅️
       </td>
       <td>
         <code>require("node-tap")</code>
@@ -137,10 +155,8 @@ require("console-fail-test").cft({
     </tr>
     <tr>
       <td>Cypress</td>
-      <td>
-        <span aria-label="not yet supported" role="img">⚙️</span>
-      </td>
-      <td />
+      <td>⚙️</td>
+      <td></td>
       <td>
         <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/199">
           <code>/issues/199</code>
@@ -149,10 +165,8 @@ require("console-fail-test").cft({
     </tr>
     <tr>
       <td>QUnit</td>
-      <td>
-        <span aria-label="not yet supported" role="img">⚙️</span>
-      </td>
-      <td />
+      <td>⚙️</td>
+      <td></td>
       <td>
         <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/19">
           <code>/issues/19</code>
@@ -161,10 +175,8 @@ require("console-fail-test").cft({
     </tr>
     <tr>
       <td>Playwright</td>
-      <td>
-        <span aria-label="not yet supported" role="img">⚙️</span>
-      </td>
-      <td />
+      <td>⚙️</td>
+      <td></td>
       <td>
         <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/198">
           <code>/issues/198</code>
@@ -173,10 +185,8 @@ require("console-fail-test").cft({
     </tr>
     <tr>
       <td>tape</td>
-      <td>
-        <span aria-label="not yet supported" role="img">⚙️</span>
-      </td>
-      <td />
+      <td>⚙️</td>
+      <td></td>
       <td>
         <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/17">
           <code>/issues/17</code>
@@ -185,10 +195,8 @@ require("console-fail-test").cft({
     </tr>
     <tr>
       <td>TestCafe</td>
-      <td>
-        <span aria-label="not yet supported" role="img">⚙️</span>
-      </td>
-      <td />
+      <td>⚙️</td>
+      <td></td>
       <td>
         <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/15">
           <code>/issues/15</code>
@@ -197,10 +205,8 @@ require("console-fail-test").cft({
     </tr>
     <tr>
       <td>Vitest</td>
-      <td>
-        <span aria-label="not yet supported" role="img">⚙️</span>
-      </td>
-      <td />
+      <td>⚙️</td>
+      <td></td>
       <td>
         <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/197">
           <code>/issues/197</code>
@@ -210,10 +216,9 @@ require("console-fail-test").cft({
   </tbody>
 </table>
 
-> See [open test framework support issues](https://github.com/JoshuaKGoldberg/console-fail-test/issues?q=is%3Aissue+is%3Aopen+label%3A%22test+framework+support%22) for progress!
-
 ### Spy Libraries
 
+If your test framework provides its own spy library, console-fail-test will by default use that library.
 If a supported spy library isn't detected, an internal fallback will be used to spy on `console` methods.
 
 You can request a specific test library using the Node API with its API request:
@@ -238,7 +243,7 @@ require("console-fail-test").cft({
     <tr>
       <td>Jasmine</td>
       <td>
-        <span aria-label="supported" role="img">✅️</span>
+        ✅️
       </td>
       <td>
         <code>"jasmine"</code>
@@ -249,15 +254,15 @@ require("console-fail-test").cft({
         </a>
       </td>
       <td>
-        <a href="./docs/Jasmine.md">
-          <code>Jasmine.md</code>
+        <a href="./docs/Jasmine.md#spies">
+          <code>Jasmine.md#spies</code>
         </a>
       </td>
     </tr>
     <tr>
       <td>Jest</td>
       <td>
-        <span aria-label="supported" role="img">✅️</span>
+        ✅️
       </td>
       <td>
         <code>"jest"</code>
@@ -268,15 +273,15 @@ require("console-fail-test").cft({
         </a>
       </td>
       <td>
-        <a href="./docs/Jest.md">
-          <code>Jest.md</code>
+        <a href="./docs/Jest.md#spies">
+          <code>Jest.md#spies</code>
         </a>
       </td>
     </tr>
     <tr>
       <td>Sinon</td>
       <td>
-        <span aria-label="supported" role="img">✅️</span>
+        ✅️
       </td>
       <td>
         <code>require("sinon")</code>
@@ -287,8 +292,8 @@ require("console-fail-test").cft({
         </a>
       </td>
       <td>
-        <a href="./docs/Sinon.md">
-          <code>Sinon.md</code>
+        <a href="./docs/Sinon.md#spies">
+          <code>Sinon.md#spies</code>
         </a>
       </td>
     </tr>
@@ -307,29 +312,11 @@ require("console-fail-test").cft({
 });
 ```
 
-## Why?
-
-Logging to the console during tests can be a sign of
-
-- 🚫 warnings from third-party libraries such as React for improper usage
-- 🤕 temporary code that shouldn't be checked into your project
-- 📢 unnecessary spam in your tests window
-
-This little library throws an error after each test if a console method was called during it.
-It's got some nifty features:
-
-- 📊 Summary of which methods are called with calling arguments
-- 🛫 Failures are thrown _after_ tests finish, so your tests will fail normally if they should
-
-Look how fancy the terminal output is with Jest!
-
-![Terminal output showing details on each console call failing a test](./images/sample.png)
-
 ## Development
 
 Requires:
 
-- [Node.js](https://nodejs.org) >10 (LTS)
+- [Node.js](https://nodejs.org) >14 (LTS)
 - [Yarn](https://yarnpkg.com/en)
 
 After [forking the repo from GitHub](https://help.github.com/articles/fork-a-repo):

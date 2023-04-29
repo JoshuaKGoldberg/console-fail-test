@@ -1,11 +1,10 @@
 import { formatComplaintCall } from "../complaining";
-import { CftRequest } from "../types";
 
-import { TestAfterHooks, TestEnvironmentGetter } from "./testEnvironmentTypes";
+import { TestFrameworkSelector } from "./testEnvironmentTypes";
 
 declare interface NodeTap {
-  afterEach(callback: Function): void;
-  beforeEach(callback: Function): void;
+  afterEach(callback: (onFinishAfterEach: () => void) => void): void;
+  beforeEach(callback: (onFinishBeforeEach: () => void) => void): void;
   fail(message: string): void;
   jobs: number;
   pool: {};
@@ -24,14 +23,14 @@ const isNodeTap = (testFramework: unknown): testFramework is NodeTap => {
   );
 };
 
-export const getNodeTapEnvironment: TestEnvironmentGetter = ({ testFramework }: CftRequest) => {
+export const selectNodeTapEnvironment: TestFrameworkSelector = ({ testFramework }) => {
   if (!isNodeTap(testFramework)) {
     return undefined;
   }
 
   return {
-    after(callback: (afterHooks: TestAfterHooks) => void) {
-      testFramework.afterEach((onFinishAfterEach: () => void) => {
+    afterEach: (callback) => {
+      testFramework.afterEach((onFinishAfterEach) => {
         callback({
           reportComplaint({ methodComplaints }) {
             for (const { methodName, methodCalls } of methodComplaints) {
@@ -46,12 +45,11 @@ export const getNodeTapEnvironment: TestEnvironmentGetter = ({ testFramework }: 
         onFinishAfterEach();
       });
     },
-    before(callback: () => void) {
-      testFramework.beforeEach((onFinishBeforeEach: () => void) => {
+    beforeEach: (callback) => {
+      testFramework.beforeEach((onFinishBeforeEach) => {
         callback();
         onFinishBeforeEach();
       });
     },
-    filterMethodCalls: ({ methodCalls }) => methodCalls,
   };
 };

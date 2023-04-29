@@ -1,9 +1,9 @@
 import { TestComplaint } from "./environments/testEnvironmentTypes";
-import { MethodCall } from "./spies/spyTypes";
+import { SpyCallArgs } from "./spies/spyTypes";
 
 const lineThreshold = 3;
 
-const formatMethodComplaint = ([methodName, calls]: [keyof Console, MethodCall[]]) => {
+const formatMethodComplaint = ([methodName, calls]: [keyof Console, SpyCallArgs[]]) => {
   const summary = `  * ${methodName} (${calls.length} call${calls.length === 1 ? "" : "s"})`;
 
   const lines = calls
@@ -17,18 +17,18 @@ const formatMethodComplaint = ([methodName, calls]: [keyof Console, MethodCall[]
   return `${summary}\n${lines.map((line) => `    > Call ${line}`).join("\n")}`;
 };
 
-export const formatComplaintLineWithIndex = (call: MethodCall, i: number) =>
+export const formatComplaintLineWithIndex = (call: SpyCallArgs, i: number) =>
   `${i}: ${formatComplaintCall(call)}`;
 
-export const formatComplaintCall = (call: MethodCall) =>
-  call.args.map(formatComplaintLineArg).join(", ");
+export const formatComplaintCall = (call: SpyCallArgs) =>
+  call.map(formatComplaintLineArg).join(", ");
 
 export const formatComplaintLineArg = (arg: unknown) => {
   return JSON.stringify(arg) || JSON.stringify(`${arg}`);
 };
 
 export const createComplaint = (
-  methodsWithCalls: [keyof Console, MethodCall[]][],
+  methodsWithCalls: [keyof Console, SpyCallArgs[]][],
 ): TestComplaint => {
   const methodComplaints = methodsWithCalls.map(formatMethodComplaint).join("\n");
   const s = methodsWithCalls.length === 1 ? "" : "s";
@@ -42,8 +42,8 @@ export const createComplaint = (
   return {
     error,
     methodComplaints: methodsWithCalls.map(([methodName, methodCalls]) => ({
-      methodName,
       methodCalls,
+      methodName,
     })),
   };
 };

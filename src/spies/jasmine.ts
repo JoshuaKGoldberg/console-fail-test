@@ -1,7 +1,4 @@
-import { createStack } from "../stack";
-import { CftRequest } from "../types";
-
-import { MethodCall, SpyFactory, SpyFactoryGetter } from "./spyTypes";
+import { SpyCallArgs, SpyFactory, SpyFactoryGetter } from "./spyTypes";
 
 declare interface Jasmine {
   createSpy(): Function & any;
@@ -18,17 +15,13 @@ const isJasmineModule = (spyLibrary: unknown): spyLibrary is Jasmine => {
 
 const createJasmineSpyFactory = (spyLibrary: Jasmine): SpyFactory => {
   return (container: any, methodName: string) => {
-    const methodCalls: MethodCall[] = [];
+    const methodCalls: SpyCallArgs[] = [];
     const originalMethod = container[methodName];
 
     container[methodName] = spyLibrary
       .createSpy()
-      .and.callFake(function (this: unknown, ...args: unknown[]) {
-        methodCalls.push({
-          args,
-          stack: createStack(),
-        });
-
+      .and.callFake(function (this: unknown, ...args: SpyCallArgs) {
+        methodCalls.push(args);
         return originalMethod.apply(this, args);
       });
 
@@ -41,7 +34,7 @@ const createJasmineSpyFactory = (spyLibrary: Jasmine): SpyFactory => {
   };
 };
 
-export const getJasmineSpyFactory: SpyFactoryGetter = ({ spyLibrary }: CftRequest) => {
+export const selectJasmineSpyFactory: SpyFactoryGetter = ({ spyLibrary }) => {
   if (isJasmineModule(spyLibrary)) {
     return createJasmineSpyFactory(spyLibrary);
   }

@@ -1,4 +1,4 @@
-import { TestAfterHooks, TestEnvironmentGetter } from "./testEnvironmentTypes";
+import { TestFrameworkSelector } from "./testEnvironmentTypes";
 
 declare const afterEach: (callback: (this: Mocha) => void) => void;
 declare const beforeEach: (callback: (this: Mocha) => void) => void;
@@ -12,7 +12,7 @@ declare interface Mocha {
   };
 }
 
-export const getMochaEnvironment: TestEnvironmentGetter = () => {
+export const selectMochaEnvironment: TestFrameworkSelector = () => {
   // Until there is some kind of global `mocha` variable that can be referenced,
   // we check the stringified versions of its used hook methods
   // See https://github.com/JoshuaKGoldberg/console-fail-test/issues/10
@@ -26,7 +26,7 @@ export const getMochaEnvironment: TestEnvironmentGetter = () => {
   }
 
   return {
-    after(callback: (afterHooks: TestAfterHooks) => void) {
+    afterEach: (callback) => {
       afterEach(function (this: Mocha) {
         if (this.currentTest.state !== "passed") {
           return;
@@ -40,8 +40,8 @@ export const getMochaEnvironment: TestEnvironmentGetter = () => {
         });
       });
     },
-    before: beforeEach,
-    filterMethodCalls: ({ methodCalls, methodName }) => {
+    beforeEach,
+    mapSpyCalls: ({ methodCalls, methodName }) => {
       if (methodCalls.length === 0 || methodName !== "log") {
         return methodCalls;
       }
@@ -50,7 +50,7 @@ export const getMochaEnvironment: TestEnvironmentGetter = () => {
       // The last log, if it exists, might be the spec reporter
       // It'd be nice to have more info on what the reporter has logged...
       const lastCall = methodCalls[methodCalls.length - 1];
-      const first = lastCall.args[0];
+      const first = lastCall[0];
       if (typeof first === "string" && first.startsWith("  ")) {
         methodCalls = methodCalls.slice(0, methodCalls.length - 1);
       }

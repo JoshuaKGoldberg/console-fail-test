@@ -1,6 +1,4 @@
-import { CftRequest } from "../types";
-
-import { TestAfterHooks, TestEnvironmentGetter } from "./testEnvironmentTypes";
+import { TestFrameworkSelector } from "./testEnvironmentTypes";
 
 declare interface Ava {
   afterEach(callback: Function): void;
@@ -28,22 +26,17 @@ const isAva = (testFramework: unknown): testFramework is Ava => {
   );
 };
 
-export const getAvaEnvironment: TestEnvironmentGetter = ({ testFramework }: CftRequest) => {
+export const selectAvaEnvironment: TestFrameworkSelector = ({ testFramework }) => {
   if (!isAva(testFramework)) {
     return undefined;
   }
 
   return {
-    after(callback: (afterHooks: TestAfterHooks) => void) {
+    afterEach: (callback) => {
       testFramework.afterEach(() => {
-        callback({
-          reportComplaint: ({ error }) => {
-            throw error;
-          },
-        });
+        callback();
       });
     },
-    before: testFramework.beforeEach,
-    filterMethodCalls: ({ methodCalls }) => methodCalls,
+    beforeEach: testFramework.beforeEach,
   };
 };

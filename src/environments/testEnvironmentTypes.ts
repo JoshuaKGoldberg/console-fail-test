@@ -1,20 +1,39 @@
-import { MethodCall } from "../spies/spyTypes";
+import { SpyCallArgs } from "../spies/spyTypes";
 import { CftRequest } from "../types";
 
-export type TestEnvironmentGetter = (request: CftRequest) => TestEnvironment | undefined;
+export type TestFrameworkSelector = (request: CftRequest) => TestFramework | undefined;
 
-export interface TestEnvironment {
-  after: (callback: (hooks: TestAfterHooks) => void) => void;
-  before: (callback: () => void) => void;
-  filterMethodCalls: (filter: MethodCallsAndName) => MethodCall[];
+export interface TestFramework {
+  /**
+   * Adds a callback to be called after each test.
+   *
+   * @param callback - Called after each test.
+   */
+  afterEach: (callback: (hooks?: TestAfterHooks) => void) => void;
+
+  /**
+   * Adds a callback to be called after each test.
+   *
+   * @param callback - Called after each test.
+   */
+  beforeEach: (callback: () => void) => void;
+
+  /**
+   * Maps each spy method name and calls to the args that should be logged.
+   *
+   * @param call - A method call's args and name.
+   * @returns The args that should be logged.
+   * @remarks If not provided, the method calls are returned directly.
+   */
+  mapSpyCalls?: (call: SpyCallsAndName) => SpyCallArgs[];
 }
 
 export interface TestAfterHooks {
-  reportComplaint: (complaint: TestComplaint) => void;
+  reportComplaint?: (complaint: TestComplaint) => void;
 }
 
-export interface MethodCallsAndName {
-  methodCalls: MethodCall[];
+export interface SpyCallsAndName {
+  methodCalls: SpyCallArgs[];
   methodName: string;
 }
 
@@ -26,5 +45,5 @@ export interface MethodCallsAndName {
  */
 export interface TestComplaint {
   error: Error;
-  methodComplaints: MethodCallsAndName[];
+  methodComplaints: SpyCallsAndName[];
 }
