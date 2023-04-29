@@ -5,15 +5,19 @@ import { selectJasmineSpyFactory } from "./jasmine";
 import { selectJestSpyFactory } from "./jest";
 import { selectSinonSpyFactory } from "./sinon";
 import { SpyFactoryGetter as SpyFactorySelector } from "./spyTypes";
+import { selectVitestSpyFactory } from "./vitest";
 
 const spyFactoriesByName = new Map<SupportedSpyLibrary, SpyFactorySelector>([
   ["fallback", selectFallbackSpyFactory],
   ["jest", selectJestSpyFactory],
   ["jasmine", selectJasmineSpyFactory],
   ["sinon", selectSinonSpyFactory],
+  ["vitest", selectVitestSpyFactory],
 ]);
 
 const detectableSpyFactorySelectors: SpyFactorySelector[] = [
+  selectVitestSpyFactory,
+
   // Jest should come before Jasmine because Jest includes a monkey-patched Jasmine
   selectJestSpyFactory,
   selectJasmineSpyFactory,

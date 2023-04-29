@@ -7,11 +7,13 @@ import { selectLabEnvironment } from "./lab";
 import { selectMochaEnvironment } from "./mocha";
 import { selectNodeTapEnvironment } from "./nodeTap";
 import { TestFrameworkSelector } from "./testEnvironmentTypes";
+import { selectVitestEnvironment } from "./vitest";
 
 const testEnvironmentsByName = new Map<SupportedTestFramework, TestFrameworkSelector>([
   ["jasmine", selectJasmineEnvironment],
   ["jest", selectJestEnvironment],
   ["mocha", selectMochaEnvironment],
+  ["vitest", selectVitestEnvironment],
 ]);
 
 const detectableTestEnvironmentSelectors: TestFrameworkSelector[] = [
@@ -19,6 +21,8 @@ const detectableTestEnvironmentSelectors: TestFrameworkSelector[] = [
   selectAvaEnvironment,
   selectLabEnvironment,
   selectNodeTapEnvironment,
+
+  selectVitestEnvironment,
 
   // Jest should come before Jasmine because Jest includes a monkey-patched Jasmine
   selectJestEnvironment,
