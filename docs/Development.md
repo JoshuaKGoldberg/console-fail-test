@@ -24,7 +24,7 @@ Use `yarn run verify` to run a full build & lint.
 ## Test Framework Detection
 
 console-fail-test detects the executing test framework by iterating through a list of known test frameworks and choosing the first that seems to match what's globally available.
-For example, if `jest` is available, it's assumed that Jest is the executing test framework.
+For example, if a `jest` global variable is available, it's assumed that Jest is the executing test framework.
 
 ### Adding a Test Framework
 
@@ -34,7 +34,14 @@ If you use a test framework console-fail-test doesn't yet support:
 2. Add a new file under [`src/environments`](../src/environments) that exports a function matching `TestEnvironmentGetter`:
    - If the environment isn't provided and doesn't seem to exist, return `undefined`
    - If the environment is provided or does seem to exist, return an object with hooks to be called by [`cft.ts`](../src/cft.ts)
-3. Add that getter to `testEnvironmentsByName` and `detectableTestEnvironmentGetters` in [`src/environments/selectTestEnvironment.ts`](../src/environments/selectTestEnvironment.ts)
+3. Add that getter to `testEnvironmentsByName` and `detectableTestEnvironmentSelectors` in [`src/environments/selectTestEnvironment.ts`](../src/environments/selectTestEnvironment.ts)
+
+The `TestFramework` object potentially returned by a test framework selector will be used by [`cft.ts`](../src/cft.ts) to hook into the test framework:
+
+- `afterEach`: Adds a callback to be called after each test.
+  - console-fail-test will provide a callback that reports on called console methods, such as by throwing an error
+- `beforeEach`: Adds a callback to be called before each test.
+  - console-fail-test will provide a callback that resets console spies
 
 See [`src/environments/jest.ts`](../src/environments/jest.ts) as an example.
 
@@ -42,7 +49,7 @@ See [`src/environments/jest.ts`](../src/environments/jest.ts) as an example.
 
 As with test frameworks, console-fail-test detects the global presence of common spy libraries to determine what to spy on console methods with.
 This logic similarly iterates through a list of known spy libraries and chooses the first that seems to match what's globally available.
-For example, if `jest` and `jest.fn` are available, it's assumed that Jest's spies are to be used as spy functions.
+For example, if a `jest` global variable and `jest.fn` are available, it's assumed that Jest's spies are to be used as spy functions.
 
 ### Adding a Spy Library
 
@@ -54,6 +61,23 @@ If you use a spy library console-fail-test doesn't yet support:
    - If the spy library is provided or does seem to exist, return a method that, given a container object and method name, spies on that method on the container
 3. Add that getter to `spyFactoriesByName` and `detectableSpyFactoryGetters` in [src/spies/selectSpyFactory.ts](../src/spies/selectSpyFactory.ts).
 
-The returned object containing `getCalls` and `restore` returned by `spyOn` will be used by [`cft.ts`](../src/cft.ts) to check whether the method was called.
+The `TestFramework` object potentially returned by a test framework selector include methods that hook into the test framework:
+
+- `afterEach`: Adds a callback to be called after each test.
+  - console-fail-test will provide a callback that reports on called console methods, such as by throwing an error
+- `beforeEach`: Adds a callback to be called before each test.
+  - console-fail-test will provide a callback that resets console spies
+
+The `SpyFactorySelector` function potentially returned by a test framework selector will be used by [`cft.ts`](../src/cft.ts) to create method spies on the console.
+It receives as parameters:
+
+1. `container`: An object whose method is to be spied on. This will practically always be `console`.
+   - Note that in future versions of console-fail-test, this may expand to include other objects.
+2. `methodName`: The key of the method to spy on, such as `"log"`.
+
+The function should return an object with:
+
+- `getCalls`: Returns an array containing the arguments to each call of the function.
+- `restore`: Restores the original method on the container.
 
 See [`src/spies/jest.ts`](../src/spies/jest.ts) as an example.

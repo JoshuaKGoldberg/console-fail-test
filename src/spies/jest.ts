@@ -1,7 +1,4 @@
-import { createStack } from "../stack";
-import { CftRequest } from "../types";
-
-import { MethodCall, SpyFactory, SpyFactoryGetter } from "./spyTypes";
+import { SpyCallArgs, SpyFactory, SpyFactoryGetter } from "./spyTypes";
 
 declare interface Jest {
   fn(implementation: Function): void;
@@ -15,15 +12,11 @@ const isJestModule = (spyLibrary: unknown): spyLibrary is Jest => {
 
 const createJestSpyFactory = (spyLibrary: Jest): SpyFactory => {
   return (container: any, methodName: string) => {
-    const methodCalls: MethodCall[] = [];
+    const methodCalls: SpyCallArgs[] = [];
     const originalMethod = container[methodName];
 
-    const methodSpy = function (this: unknown, ...args: unknown[]) {
-      methodCalls.push({
-        args,
-        stack: createStack(),
-      });
-
+    const methodSpy = function (this: unknown, ...args: SpyCallArgs) {
+      methodCalls.push(args);
       return originalMethod.apply(this, args);
     };
 
@@ -38,7 +31,7 @@ const createJestSpyFactory = (spyLibrary: Jest): SpyFactory => {
   };
 };
 
-export const getJestSpyFactory: SpyFactoryGetter = ({ spyLibrary }: CftRequest) => {
+export const selectJestSpyFactory: SpyFactoryGetter = ({ spyLibrary }) => {
   if (isJestModule(spyLibrary)) {
     return createJestSpyFactory(spyLibrary);
   }

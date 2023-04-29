@@ -1,10 +1,7 @@
-import { createStack } from "../stack";
-import { CftRequest } from "../types";
-
-import { MethodCall, SpyFactory, SpyFactoryGetter } from "./spyTypes";
+import { SpyCallArgs, SpyFactory, SpyFactoryGetter } from "./spyTypes";
 
 type SinonSpy = Function & {
-  getCalls(): unknown[][];
+  getCalls(): SpyCallArgs[];
   restore(): void;
 };
 
@@ -20,15 +17,11 @@ const isSinonModule = (spyLibrary: unknown): spyLibrary is Sinon => {
 
 const createSinonSpyFactory = (spyLibrary: Sinon): SpyFactory => {
   return (container: any, methodName: string) => {
-    const methodCalls: MethodCall[] = [];
+    const methodCalls: SpyCallArgs[] = [];
     const originalMethod = container[methodName];
 
-    const spyMethod = spyLibrary.spy(function (this: unknown, ...args: unknown[]) {
-      methodCalls.push({
-        args,
-        stack: createStack(),
-      });
-
+    const spyMethod = spyLibrary.spy(function (this: unknown, ...args: SpyCallArgs) {
+      methodCalls.push(args);
       return originalMethod.apply(this, args);
     });
 
@@ -43,7 +36,7 @@ const createSinonSpyFactory = (spyLibrary: Sinon): SpyFactory => {
   };
 };
 
-export const getSinonSpyFactory: SpyFactoryGetter = ({ spyLibrary }: CftRequest) => {
+export const selectSinonSpyFactory: SpyFactoryGetter = ({ spyLibrary }) => {
   if (isSinonModule(spyLibrary)) {
     return createSinonSpyFactory(spyLibrary);
   }

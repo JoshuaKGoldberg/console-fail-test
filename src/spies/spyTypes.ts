@@ -4,17 +4,20 @@ export type SpyFactoryGetter = (request: CftRequest) => SpyFactory | undefined;
 
 /**
  * Creates method spies that abstract the spy library implementation.
+ *
+ * @param container - An object whose method is to be spied on.
+ * @param methodName - The key of the method to spy on, such as `"log"`.
  */
-export type SpyFactory = (container: any, methodName: string) => MethodSpy;
+export type SpyFactory = (container: unknown, methodName: string) => MethodSpy;
 
 /**
  * Record for a single method being spied upon.
  */
 export interface MethodSpy {
   /**
-   * @returns For each call to the spy, its arguments and stack.
+   * @returns For each call to the spy, its arguments.
    */
-  getCalls(): MethodCall[];
+  getCalls(): SpyCallArgs[];
 
   /**
    * Restores the original method on the container.
@@ -22,7 +25,4 @@ export interface MethodSpy {
   restore(): void;
 }
 
-export interface MethodCall {
-  args: unknown[];
-  stack: string[];
-}
+export type SpyCallArgs = unknown[];

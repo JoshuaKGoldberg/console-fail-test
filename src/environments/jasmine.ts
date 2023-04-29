@@ -1,4 +1,4 @@
-import { TestAfterHooks, TestEnvironmentGetter } from "./testEnvironmentTypes";
+import { TestFrameworkSelector } from "./testEnvironmentTypes";
 
 declare const afterEach: (callback: () => void) => void;
 declare const beforeEach: (callback: () => void) => void;
@@ -6,7 +6,7 @@ declare const jasmine: {
   Spec: unknown;
 };
 
-export const getJasmineEnvironment: TestEnvironmentGetter = () => {
+export const selectJasmineEnvironment: TestFrameworkSelector = () => {
   if (
     typeof afterEach === "undefined" ||
     typeof beforeEach === "undefined" ||
@@ -17,7 +17,7 @@ export const getJasmineEnvironment: TestEnvironmentGetter = () => {
   }
 
   return {
-    after(callback: (afterHooks: TestAfterHooks) => void) {
+    afterEach: (callback) => {
       afterEach(() => {
         callback({
           reportComplaint({ error }) {
@@ -29,9 +29,8 @@ export const getJasmineEnvironment: TestEnvironmentGetter = () => {
         });
       });
     },
-    before: (callback: () => void) => {
+    beforeEach: (callback) => {
       beforeEach(callback);
     },
-    filterMethodCalls: ({ methodCalls }) => methodCalls,
   };
 };
