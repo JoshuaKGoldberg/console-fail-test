@@ -7,8 +7,12 @@ declare interface Vitest {
 }
 
 declare interface ViSpy {
+  mock: ViSpyMock;
+  mockRestore(): void;
+}
+
+declare interface ViSpyMock {
   calls: SpyCallArgs[];
-  restore(): void;
 }
 
 declare const __vitest_index__: Vitest | undefined;
@@ -26,8 +30,8 @@ const createVitestSpyFactory = (spyLibrary: Vitest): SpyFactory => {
     const spy = spyLibrary.vi.spyOn(container, methodName);
 
     return {
-      getCalls: () => spy.calls,
-      restore: spy.restore,
+      getCalls: () => spy.mock.calls,
+      restore: spy.mock.restore,
     };
   };
 };
