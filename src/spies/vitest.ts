@@ -31,7 +31,7 @@ const createVitestSpyFactory = (spyLibrary: Vitest): SpyFactory => {
 
     return {
       getCalls: () => spy.mock.calls,
-      restore: spy.mock.restore,
+      restore: spy.mockRestore,
     };
   };
 };
