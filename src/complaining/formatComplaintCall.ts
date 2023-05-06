@@ -1,7 +1,11 @@
 import { SpyCallArgs } from "../spies/spyTypes";
 
 const formatComplaintLineArg = (arg: unknown) => {
-  return JSON.stringify(arg) || JSON.stringify(`${arg}`);
+  try {
+    return JSON.stringify(arg) || JSON.stringify(`${arg}`);
+  } catch {
+    return `A recursive object with keys: ${Object.keys(arg as {}).join(", ")}`;
+  }
 };
 
 export const formatComplaintCall = (call: SpyCallArgs) =>
