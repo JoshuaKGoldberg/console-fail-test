@@ -1,4 +1,4 @@
-import { formatComplaintCall } from "../complaining";
+import { formatComplaintCall } from "../complaining/formatComplaintCall";
 import { CftRequest } from "../types";
 
 import { TestAfterHooks, TestEnvironmentGetter } from "./testEnvironmentTypes";

@@ -1,4 +1,4 @@
-import { createComplaint } from "./complaining";
+import { createComplaint } from "./complaining/createComplaint";
 import { consoleMethodNames } from "./console";
 import { setDefaults } from "./defaults";
 import { selectTestEnvironment } from "./environments/selectTestEnvironments";
