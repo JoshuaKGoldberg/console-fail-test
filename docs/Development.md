@@ -81,3 +81,19 @@ The function should return an object with:
 - `restore`: Restores the original method on the container.
 
 See [`src/spies/jest.ts`](../src/spies/jest.ts) as an example.
+
+## Unit Tests
+
+This repository uses [Vitest](https://vitest.dev) for a small amount of unit test coverage.
+You can run it locally on the command-line:
+
+```shell
+pnpm run test
+```
+
+Test environments and spy frameworks don't need to be unit tested just yet.
+
+### Debugging Tests
+
+This repository includes a [VS Code launch configuration](https://code.visualstudio.com/docs/editor/debugging) for debugging unit tests.
+To launch it, open a test file, then run _Debug Current Test File_ from the VS Code Debug panel (or press F5).
