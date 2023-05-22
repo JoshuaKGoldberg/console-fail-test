@@ -9,7 +9,7 @@
 	"license": "MIT",
 	"author": {
 		"name": "Josh Goldberg",
-		"email": "me@joshuakgoldberg.com"
+		"email": "npm@joshuakgoldberg.com"
 	},
 	"type": "module",
 	"main": "./lib/index.js",
