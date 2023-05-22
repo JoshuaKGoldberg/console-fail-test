@@ -1,10 +1,30 @@
-# console-fail-test
+<h1 align="center">console-fail-test</h1>
 
-[![GitHub CI](https://github.com/JoshuaKGoldberg/console-fail-test/actions/workflows/compile.yml/badge.svg)](https://github.com/JoshuaKGoldberg/console-fail-test/actions/workflows/compile.yml)
-[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
-![TypeScript: Strict](https://img.shields.io/badge/typescript-strict-brightgreen.svg)
-[![NPM version](https://badge.fury.io/js/console-fail-test.svg)](http://badge.fury.io/js/console-fail-test)
-[![Downloads](http://img.shields.io/npm/dm/console-fail-test.svg)](https://npmjs.org/package/console-fail-test)
+<p align="center">Gently fails test runs if the console was used during them.</p>
+
+<p align="center">
+	<a href="#contributors" target="_blank">
+<!-- prettier-ignore-start -->
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<img alt="All Contributors: 1" src="https://img.shields.io/badge/all_contributors-1-21bb42.svg" />
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+<!-- prettier-ignore-end -->
+	</a>
+	<a href="https://codecov.io/gh/JoshuaKGoldberg/console-fail-test" target="_blank">
+	<img alt="Codecov Test Coverage" src="https://codecov.io/gh/JoshuaKGoldberg/console-fail-test/branch/main/graph/badge.svg"/>
+	</a>
+	<a href="https://github.com/JoshuaKGoldberg/console-fail-test/blob/main/.github/CODE_OF_CONDUCT.md" target="_blank">
+		<img alt="Contributor Covenant" src="https://img.shields.io/badge/code_of_conduct-enforced-21bb42" />
+	</a>
+	<a href="https://github.com/JoshuaKGoldberg/console-fail-test/blob/main/LICENSE.md" target="_blank">
+		<img alt="License: MIT" src="https://img.shields.io/github/license/JoshuaKGoldberg/console-fail-test?color=21bb42">
+	</a>
+	<a href="https://github.com/sponsors/JoshuaKGoldberg" target="_blank">
+		<img alt="Sponsor: On GitHub" src="https://img.shields.io/badge/sponsor-on_github-21bb42.svg" />
+	</a>
+	<img alt="Style: Prettier" src="https://img.shields.io/badge/style-prettier-21bb42.svg" />
+	<img alt="TypeScript: Strict" src="https://img.shields.io/badge/typescript-strict-21bb42.svg" />
+</p>
 
 Gently fails test runs if the console was used during them.
 
@@ -49,7 +69,9 @@ For example, in a Jest config:
 
 ```js
 // jest.config.js
-setupFilesAfterEnv: ["console-fail-test/setup.js"],
+module.exports = {
+	setupFilesAfterEnv: ["console-fail-test/setup.js"],
+};
 ```
 
 ### Test Frameworks
@@ -230,7 +252,7 @@ You can request a specific test library using the Node API with its API request:
 
 ```js
 require("console-fail-test").cft({
-  spyLibrary: "sinon",
+	spyLibrary: "sinon",
 });
 ```
 
@@ -311,9 +333,9 @@ By default, `console-fail-test` will error on _any_ called `console` method. If 
 
 ```js
 require("console-fail-test").cft({
-  console: {
-    warn: true, // won't error on any instance of console.warn
-  },
+	console: {
+		warn: true, // won't error on any instance of console.warn
+	},
 });
 ```
 
@@ -341,3 +363,25 @@ If this is your first time working with this code, the [`good first issue`](http
 Please note that this project is released with a [Contributor Covenant](https://www.contributor-covenant.org).
 By participating in this project you agree to abide by its terms.
 See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
+
+## Contributors
+
+<!-- spellchecker: disable -->
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.joshuakgoldberg.com"><img src="https://avatars.githubusercontent.com/u/3335181?v=4?s=100" width="100px;" alt="Josh Goldberg"/><br /><sub><b>Josh Goldberg</b></sub></a><br /><a href="#tool-JoshuaKGoldberg" title="Tools">🔧</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+<!-- spellchecker: enable -->
+
+> 💙 This package is based on [@JoshuaKGoldberg](https://github.com/JoshuaKGoldberg)'s [template-typescript-node-package](https://github.com/JoshuaKGoldberg/template-typescript-node-package).`,

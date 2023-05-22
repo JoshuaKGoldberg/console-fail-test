@@ -1,1 +1,1 @@
-require("./src/cft").cft();
+require("./src/cft.js").cft();

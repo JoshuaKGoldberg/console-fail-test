@@ -9,9 +9,9 @@ Use [`setupFilesAfterEnv`](https://jestjs.io/docs/en/configuration.html) to run 
 
 ```js
 // jest.config.js
-// ...
-  setupFilesAfterEnv: ["console-fail-test/setup.js"],
-// ...
+module.exports = {
+	setupFilesAfterEnv: ["console-fail-test/setup.js"],
+};
 ```
 
 Alternately, if you have a setup file already being run first, or you'd like to manually enable this in individual files, you can use the Node API:
@@ -32,6 +32,6 @@ If you'd like to use Jasmine's spies instead of Jest's, use the Node API with th
 
 ```js
 require("console-fail-test").cft({
-  spyLibrary: "jasmine",
+	spyLibrary: "jasmine",
 });
 ```
