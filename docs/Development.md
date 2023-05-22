@@ -71,7 +71,8 @@ The `TestFramework` object potentially returned by a test framework selector inc
 The `SpyFactorySelector` function potentially returned by a test framework selector will be used by [`cft.ts`](../src/cft.ts) to create method spies on the console.
 It receives as parameters:
 
-1. `container`: An object whose method is to be spied on. This will practically always be `console`.
+1. `container`: An object whose method is to be spied on.
+   This will practically always be `console`.
    - Note that in future versions of console-fail-test, this may expand to include other objects.
 2. `methodName`: The key of the method to spy on, such as `"log"`.
 

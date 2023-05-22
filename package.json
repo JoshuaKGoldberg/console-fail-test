@@ -1,5 +1,6 @@
 {
 	"name": "console-fail-test",
+	"version": "0.3.0",
 	"description": "Gently fails test runs if the console was used during them.",
 	"repository": {
 		"type": "git",
@@ -40,7 +41,6 @@
 		"@typescript-eslint/eslint-plugin": "^5.59.6",
 		"@typescript-eslint/parser": "^5.59.6",
 		"@vitest/coverage-istanbul": "^0.31.1",
-		"console-fail-test": "^0.2.3",
 		"cspell": "^6.31.1",
 		"eslint": "^8.41.0",
 		"eslint-config-prettier": "^8.8.0",

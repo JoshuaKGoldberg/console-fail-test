@@ -329,7 +329,8 @@ require("console-fail-test").cft({
 
 ## Ignoring `console` methods
 
-By default, `console-fail-test` will error on _any_ called `console` method. If you'd like allow certain methods, pass a `console` object to the `cft` API when you set it up:
+By default, `console-fail-test` will error on _any_ called `console` method.
+If you'd like allow certain methods, pass a `console` object to the `cft` API when you set it up:
 
 ```js
 require("console-fail-test").cft({
@@ -384,4 +385,4 @@ See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- spellchecker: enable -->
 
-> 💙 This package is based on [@JoshuaKGoldberg](https://github.com/JoshuaKGoldberg)'s [template-typescript-node-package](https://github.com/JoshuaKGoldberg/template-typescript-node-package).`,
+> 💙 This package is based on [@JoshuaKGoldberg](https://github.com/JoshuaKGoldberg)'s [template-typescript-node-package](https://github.com/JoshuaKGoldberg/template-typescript-node-package).,

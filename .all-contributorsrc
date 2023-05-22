@@ -15,7 +15,7 @@
 	"contributorsSortAlphabetically": true,
 	"files": ["README.md"],
 	"imageSize": 100,
-	"projectName": "template-typescript-node-package",
+	"projectName": "console-fail-test",
 	"projectOwner": "JoshuaKGoldberg",
 	"repoHost": "https://github.com",
 	"repoType": "github"

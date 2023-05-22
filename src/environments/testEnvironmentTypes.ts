@@ -5,7 +5,7 @@ export type TestFrameworkSelector = (
 	request: CftRequest
 ) => TestFramework | undefined;
 
-export interface TestFramework {
+interface TestFramework {
 	/**
 	 * Adds a callback to be called after each test.
 	 * @param callback - Called after each test.
@@ -27,11 +27,11 @@ export interface TestFramework {
 	mapSpyCalls?: (call: SpyCallsAndName) => SpyCallArgs[];
 }
 
-export interface TestAfterHooks {
+interface TestAfterHooks {
 	reportComplaint?: (complaint: TestComplaint) => void;
 }
 
-export interface SpyCallsAndName {
+interface SpyCallsAndName {
 	methodCalls: SpyCallArgs[];
 	methodName: string;
 }
