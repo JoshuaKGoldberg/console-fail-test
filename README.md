@@ -302,6 +302,25 @@ require("console-fail-test").cft({
         </a>
       </td>
     </tr>
+    <tr>
+      <td>Vitest</td>
+      <td>
+        ✅️
+      </td>
+      <td>
+        <code>"vitest"</code>
+      </td>
+      <td>
+        <a href="https://vitest.dev/guide/mocking.html#functions">
+          <code>vi.fn()</code>
+        </a>
+      </td>
+      <td>
+        <a href="./docs/Vitest.md#spies">
+          <code>Vitest.md#spies</code>
+        </a>
+      </td>
+    </tr>
   </tbody>
 </table>
 
