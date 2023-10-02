@@ -1,7 +1,6 @@
 {
-	"$schema": "https://unpkg.com/knip@next/schema.json",
-	"entry": ["src/index.ts!", "script/setup*.js"],
-	"ignore": ["src/environments/testEnvironmentTypes.ts"],
-	"ignoreBinaries": ["dedupe", "gh"],
-	"project": ["src/**/*.ts!", "script/**/*.js"]
+	"$schema": "https://unpkg.com/knip@latest/schema.json",
+	"entry": ["src/cft.ts!", "src/index.ts!"],
+	"ignoreExportsUsedInFile": { "interface": true, "type": true },
+	"project": ["src/**/*.ts!"]
 }

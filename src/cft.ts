@@ -17,7 +17,7 @@ export const cft = (rawRequest?: Partial<CftRequest>) => {
 	const testFramework = selectTestFramework(request);
 	const methodSpies: Record<string, MethodSpy> = {};
 	const relevantMethodNames = consoleMethodNames.filter(
-		(name) => !request.console[name]
+		(name) => !request.console[name],
 	);
 
 	// Before each test, we spy on the console's methods
@@ -51,6 +51,6 @@ export const cft = (rawRequest?: Partial<CftRequest>) => {
 			}
 
 			reportComplaint(createComplaint(methodsWithCalls));
-		}
+		},
 	);
 };

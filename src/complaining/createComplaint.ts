@@ -3,7 +3,7 @@ import { SpyCallArgs } from "../spies/spyTypes.js";
 import { formatMethodComplaint } from "./formatMethodComplaint.js";
 
 export const createComplaint = (
-	methodsWithCalls: [keyof Console, SpyCallArgs[]][]
+	methodsWithCalls: [keyof Console, SpyCallArgs[]][],
 ): TestComplaint => {
 	const methodComplaints = methodsWithCalls
 		.map(formatMethodComplaint)
@@ -13,7 +13,7 @@ export const createComplaint = (
 	// It looks like something wrote to the console during your test!
 	// Put a breakpoint on this line and check the methodsWithCalls variable to see details.
 	const error = new Error(
-		`Oh no! Your test called the following console method${s}:\n${methodComplaints}`
+		`Oh no! Your test called the following console method${s}:\n${methodComplaints}`,
 	);
 
 	return {

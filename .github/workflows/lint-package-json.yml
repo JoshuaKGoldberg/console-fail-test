@@ -1,14 +1,12 @@
 jobs:
-  test:
+  lint_package_json:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/prepare
-      - run: pnpm run test --coverage
-      - name: Codecov
-        uses: codecov/codecov-action@v3
+      - run: pnpm lint:package-json
 
-name: Test
+name: Lint Package JSON
 
 on:
   pull_request: ~

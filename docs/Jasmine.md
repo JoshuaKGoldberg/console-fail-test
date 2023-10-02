@@ -19,7 +19,6 @@ Alternately, if you have a helper file already being run first, or you'd like to
 
 ```js
 // someSpec.js
-
 require("console-fail-test").cft();
 ```
 

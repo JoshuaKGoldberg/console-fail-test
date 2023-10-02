@@ -8,6 +8,7 @@ export const consoleMethodNames: (keyof ConsoleSettings)[] = (
 )
 	.filter(
 		(methodName) =>
-			isValidMemberName(methodName) && typeof console[methodName] === "function"
+			isValidMemberName(methodName) &&
+			typeof console[methodName] === "function",
 	)
 	.sort();

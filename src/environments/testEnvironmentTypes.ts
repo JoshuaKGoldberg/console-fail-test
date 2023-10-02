@@ -2,7 +2,7 @@ import { SpyCallArgs } from "../spies/spyTypes.js";
 import { CftRequest } from "../types.js";
 
 export type TestFrameworkSelector = (
-	request: CftRequest
+	request: CftRequest,
 ) => TestFramework | undefined;
 
 export interface TestFramework {

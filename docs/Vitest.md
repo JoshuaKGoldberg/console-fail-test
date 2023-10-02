@@ -24,7 +24,9 @@ import { describe } from "vitest";
 
 require("console-fail-test").cft();
 
-describe(/* ... */);
+describe("a test", () => {
+	/* ... */
+});
 ```
 
 ## Spies

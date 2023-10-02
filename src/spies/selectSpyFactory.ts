@@ -8,8 +8,8 @@ import { selectVitestSpyFactory } from "./vitest.js";
 
 const spyFactoriesByName = new Map<SupportedSpyLibrary, SpyFactorySelector>([
 	["fallback", selectFallbackSpyFactory],
-	["jest", selectJestSpyFactory],
 	["jasmine", selectJasmineSpyFactory],
+	["jest", selectJestSpyFactory],
 	["sinon", selectSinonSpyFactory],
 	["vitest", selectVitestSpyFactory],
 ]);
@@ -30,14 +30,14 @@ export const selectSpyFactory = (request: CftRequest) => {
 		const getter = spyFactoriesByName.get(request.spyLibrary);
 		if (getter === undefined) {
 			throw new Error(
-				`Requested spy library '${request.spyLibrary}' not known by name in console-fail-test.`
+				`Requested spy library '${request.spyLibrary}' not known by name in console-fail-test.`,
 			);
 		}
 
 		const library = getter(request);
 		if (library === undefined) {
 			throw new Error(
-				`Requested spy library '${request.spyLibrary}' does not seem to be active.`
+				`Requested spy library '${request.spyLibrary}' does not seem to be active.`,
 			);
 		}
 

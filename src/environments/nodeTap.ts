@@ -34,12 +34,12 @@ export const selectNodeTapEnvironment: TestFrameworkSelector = ({
 			testFramework.afterEach((onFinishAfterEach) => {
 				callback({
 					reportComplaint({ methodComplaints }) {
-						for (const { methodName, methodCalls } of methodComplaints) {
+						for (const { methodCalls, methodName } of methodComplaints) {
 							for (const methodCall of methodCalls) {
 								testFramework.fail(
 									`console.${methodName} was called with: ${formatComplaintCall(
-										methodCall
-									)}`
+										methodCall,
+									)}`,
 								);
 							}
 						}

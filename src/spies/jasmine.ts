@@ -18,12 +18,13 @@ const createJasmineSpyFactory = (spyLibrary: Jasmine): SpyFactory => {
 		const methodCalls: SpyCallArgs[] = [];
 		const originalMethod = container[methodName];
 
-		container[methodName] = spyLibrary
-			.createSpy()
-			.and.callFake(function (this: unknown, ...args: SpyCallArgs) {
-				methodCalls.push(args);
-				return originalMethod.apply(this, args);
-			});
+		container[methodName] = spyLibrary.createSpy().and.callFake(function (
+			this: unknown,
+			...args: SpyCallArgs
+		) {
+			methodCalls.push(args);
+			return originalMethod.apply(this, args);
+		});
 
 		return {
 			getCalls: () => methodCalls,

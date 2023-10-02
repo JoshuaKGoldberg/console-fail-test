@@ -41,14 +41,14 @@ export const selectTestFramework = (request: CftRequest) => {
 		const getter = testEnvironmentsByName.get(request.testFramework);
 		if (getter === undefined) {
 			throw new Error(
-				`Requested test framework '${request.testFramework}' not known by name in console-fail-test.`
+				`Requested test framework '${request.testFramework}' not known by name in console-fail-test.`,
 			);
 		}
 
 		const environment = getter(request);
 		if (environment === undefined) {
 			throw new Error(
-				`Requested test framework '${request.testFramework}' does not seem to be active.`
+				`Requested test framework '${request.testFramework}' does not seem to be active.`,
 			);
 		}
 
@@ -65,6 +65,6 @@ export const selectTestFramework = (request: CftRequest) => {
 	}
 
 	throw new Error(
-		"Could not auto-detect test environment; consider passing it directly to cft."
+		"Could not auto-detect test environment; consider passing it directly to cft.",
 	);
 };

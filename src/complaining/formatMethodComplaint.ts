@@ -5,7 +5,7 @@ const lineThreshold = 3;
 
 export const formatMethodComplaint = ([methodName, calls]: [
 	keyof Console,
-	SpyCallArgs[]
+	SpyCallArgs[],
 ]) => {
 	const summary = `  * ${methodName} (${calls.length} call${
 		calls.length === 1 ? "" : "s"

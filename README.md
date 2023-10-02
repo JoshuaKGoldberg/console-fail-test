@@ -1,17 +1,17 @@
-<h1 align="center">console-fail-test</h1>
+<h1 align="center">Console Fail Test</h1>
 
-<p align="center">Gently fails test runs if the console was used during them.</p>
+<p align="center">Gently fails test runs if the console was used during them. 📢</p>
 
 <p align="center">
 	<a href="#contributors" target="_blank">
 <!-- prettier-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<img alt="All Contributors: 1" src="https://img.shields.io/badge/all_contributors-1-21bb42.svg" />
+<img alt="All Contributors: 6 👪" src="https://img.shields.io/badge/all_contributors-6_👪-21bb42.svg" />
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- prettier-ignore-end -->
-	</a>
+  </a>
 	<a href="https://codecov.io/gh/JoshuaKGoldberg/console-fail-test" target="_blank">
-	<img alt="Codecov Test Coverage" src="https://codecov.io/gh/JoshuaKGoldberg/console-fail-test/branch/main/graph/badge.svg"/>
+		<img alt="Codecov Test Coverage" src="https://codecov.io/gh/JoshuaKGoldberg/console-fail-test/branch/main/graph/badge.svg"/>
 	</a>
 	<a href="https://github.com/JoshuaKGoldberg/console-fail-test/blob/main/.github/CODE_OF_CONDUCT.md" target="_blank">
 		<img alt="Contributor Covenant" src="https://img.shields.io/badge/code_of_conduct-enforced-21bb42" />
@@ -24,9 +24,8 @@
 	</a>
 	<img alt="Style: Prettier" src="https://img.shields.io/badge/style-prettier-21bb42.svg" />
 	<img alt="TypeScript: Strict" src="https://img.shields.io/badge/typescript-strict-21bb42.svg" />
+	<img alt="npm package version" src="https://img.shields.io/npm/v/console-fail-test?color=21bb42" />
 </p>
-
-Gently fails test runs if the console was used during them.
 
 ## Why?
 
@@ -393,7 +392,12 @@ See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="http://www.joshuakgoldberg.com"><img src="https://avatars.githubusercontent.com/u/3335181?v=4?s=100" width="100px;" alt="Josh Goldberg"/><br /><sub><b>Josh Goldberg</b></sub></a><br /><a href="#tool-JoshuaKGoldberg" title="Tools">🔧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/mackenco"><img src="https://avatars.githubusercontent.com/u/4284340?v=4?s=100" width="100px;" alt="Colin MacKenzie"/><br /><sub><b>Colin MacKenzie</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=mackenco" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.kop.ax/"><img src="https://avatars.githubusercontent.com/u/77674046?v=4?s=100" width="100px;" alt="Dimitri Kopriwa"/><br /><sub><b>Dimitri Kopriwa</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=kopax-polyconseil" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.joshuakgoldberg.com"><img src="https://avatars.githubusercontent.com/u/3335181?v=4?s=100" width="100px;" alt="Josh Goldberg"/><br /><sub><b>Josh Goldberg</b></sub></a><br /><a href="#tool-JoshuaKGoldberg" title="Tools">🔧</a> <a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=JoshuaKGoldberg" title="Code">💻</a> <a href="#maintenance-JoshuaKGoldberg" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/sosukesuzuki"><img src="https://avatars.githubusercontent.com/u/14838850?v=4?s=100" width="100px;" alt="SUZUKI Sosuke"/><br /><sub><b>SUZUKI Sosuke</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=sosukesuzuki" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://gitter.im/"><img src="https://avatars.githubusercontent.com/u/8518239?v=4?s=100" width="100px;" alt="The Gitter Badger"/><br /><sub><b>The Gitter Badger</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=gitter-badger" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/apps/greenkeeper"><img src="https://avatars.githubusercontent.com/in/505?v=4?s=100" width="100px;" alt="greenkeeper[bot]"/><br /><sub><b>greenkeeper[bot]</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=greenkeeper[bot]" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
@@ -404,4 +408,4 @@ See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- spellchecker: enable -->
 
-> 💙 This package is based on [@JoshuaKGoldberg](https://github.com/JoshuaKGoldberg)'s [template-typescript-node-package](https://github.com/JoshuaKGoldberg/template-typescript-node-package).,
+> 💙 This package is based on [@JoshuaKGoldberg](https://github.com/JoshuaKGoldberg)'s [create-typescript-app](https://github.com/JoshuaKGoldberg/create-typescript-app).

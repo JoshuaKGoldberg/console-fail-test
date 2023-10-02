@@ -11,7 +11,7 @@ export type SupportedSpyLibrary =
 	| "sinon"
 	| unknown;
 
-export type SupportedTestFramework = "mocha" | "jasmine" | "jest" | unknown;
+export type SupportedTestFramework = "jasmine" | "jest" | "mocha" | unknown;
 
 export type ConsoleSettings = {
 	[P in keyof Console]?: Console[P] extends Function ? boolean : never;
