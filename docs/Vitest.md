@@ -26,3 +26,9 @@ require("console-fail-test").cft();
 
 describe(/* ... */);
 ```
+
+## Spies
+
+Global `console` methods will be replaced by `vi.fn()` spies.
+You can inspect them at runtime as usual per vitest spies.
+See vitest's [mock functions docs](https://vitest.dev/guide/mocking.html#functions).
