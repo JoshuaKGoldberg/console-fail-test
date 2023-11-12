@@ -1,1 +1,1 @@
-export { cft } from "./cft";
+export { cft } from "./cft.js";

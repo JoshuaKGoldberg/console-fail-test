@@ -1,36 +1,36 @@
-import { TestFrameworkSelector } from "./testEnvironmentTypes";
+import { TestFrameworkSelector } from "./testEnvironmentTypes.js";
 
 declare interface VitestModule {
-  afterEach: (callback: () => void) => void;
-  beforeEach: (callback: () => void) => void;
+	afterEach: (callback: () => void) => void;
+	beforeEach: (callback: () => void) => void;
 }
 
 declare const __vitest_index__: VitestModule | undefined;
 
 export const selectVitestEnvironment: TestFrameworkSelector = () => {
-  if (typeof __vitest_index__ === "undefined") {
-    return undefined;
-  }
+	if (typeof __vitest_index__ === "undefined") {
+		return undefined;
+	}
 
-  const vitest = __vitest_index__;
+	const vitest = __vitest_index__;
 
-  let afterEachCallback: (() => void) | undefined;
-  let beforeEachCallback: (() => void) | undefined;
+	let afterEachCallback: (() => void) | undefined;
+	let beforeEachCallback: (() => void) | undefined;
 
-  vitest.afterEach(() => {
-    afterEachCallback?.();
-  });
+	vitest.afterEach(() => {
+		afterEachCallback?.();
+	});
 
-  vitest.beforeEach(() => {
-    beforeEachCallback?.();
-  });
+	vitest.beforeEach(() => {
+		beforeEachCallback?.();
+	});
 
-  return {
-    afterEach: (callback) => {
-      afterEachCallback = callback;
-    },
-    beforeEach: (callback) => {
-      beforeEachCallback = callback;
-    },
-  };
+	return {
+		afterEach: (callback) => {
+			afterEachCallback = callback;
+		},
+		beforeEach: (callback) => {
+			beforeEachCallback = callback;
+		},
+	};
 };

@@ -12,7 +12,7 @@ In your `vitest.config.ts`, include `console-fail-test/vitest` in your [`setupFi
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
-  setupFiles: ["console-fail-test/setup"],
+	setupFiles: ["console-fail-test/setup"],
 });
 ```
 
@@ -20,9 +20,13 @@ Alternately, if you have a setup file already being run first, or you'd like to 
 
 ```js
 // some.test.js
-import * as vitest from "vitest";
+import { describe } from "vitest";
 
 require("console-fail-test").cft();
+
+describe("a test", () => {
+	/* ... */
+});
 ```
 
 ## Spies

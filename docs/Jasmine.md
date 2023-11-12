@@ -8,9 +8,9 @@ It will be auto-detected if available.
 Use [`helpers`](https://jasmine.github.io/setup/nodejs.html#configuration) to run this before setting up test files:
 
 ```json
-"helpers": [
-    "../node_modules/console-fail-test/setup.js"
-],
+{
+	"helpers": ["../node_modules/console-fail-test/setup.js"]
+}
 ```
 
 Note that helper paths may be resolved relative to your spec directory.
@@ -19,7 +19,6 @@ Alternately, if you have a helper file already being run first, or you'd like to
 
 ```js
 // someSpec.js
-
 require("console-fail-test").cft();
 ```
 

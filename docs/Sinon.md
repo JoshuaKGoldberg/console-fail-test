@@ -7,7 +7,7 @@ Otherwise, pass `require("sinon")` as your `spyLibrary` request:
 
 ```js
 require("console-fail-test").cft({
-  spyLibrary: require("sinon"),
+	spyLibrary: require("sinon"),
 });
 ```
 
