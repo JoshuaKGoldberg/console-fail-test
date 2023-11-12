@@ -14,7 +14,6 @@
 		"commitlint",
 		"contributorsrc",
 		"conventionalcommits",
-		"execa",
 		"knip",
 		"lcov",
 		"markdownlintignore",

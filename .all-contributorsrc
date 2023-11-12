@@ -5,10 +5,31 @@
 	"contributors": [
 		{
 			"avatar_url": "https://avatars.githubusercontent.com/u/3335181?v=4",
-			"contributions": ["tool"],
+			"contributions": ["tool", "code", "maintenance"],
 			"login": "JoshuaKGoldberg",
 			"name": "Josh Goldberg",
 			"profile": "http://www.joshuakgoldberg.com"
+		},
+		{
+			"login": "kopax-polyconseil",
+			"name": "Dimitri Kopriwa",
+			"avatar_url": "https://avatars.githubusercontent.com/u/77674046?v=4",
+			"profile": "https://www.kop.ax/",
+			"contributions": ["code"]
+		},
+		{
+			"login": "mackenco",
+			"name": "Colin MacKenzie",
+			"avatar_url": "https://avatars.githubusercontent.com/u/4284340?v=4",
+			"profile": "https://github.com/mackenco",
+			"contributions": ["code"]
+		},
+		{
+			"login": "sosukesuzuki",
+			"name": "SUZUKI Sosuke",
+			"avatar_url": "https://avatars.githubusercontent.com/u/14838850?v=4",
+			"profile": "https://github.com/sosukesuzuki",
+			"contributions": ["code"]
 		}
 	],
 	"contributorsPerLine": 7,

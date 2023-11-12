@@ -1,7 +1,7 @@
 import { createComplaint } from "./complaining/index.js";
 import { consoleMethodNames } from "./console.js";
 import { setDefaults } from "./defaults.js";
-import { selectTestFramework as selectTestFramework } from "./environments/selectTestFramework.js";
+import { selectTestFramework } from "./environments/selectTestFramework.js";
 import { TestComplaint } from "./environments/testEnvironmentTypes.js";
 import { selectSpyFactory } from "./spies/selectSpyFactory.js";
 import { MethodSpy, SpyCallArgs } from "./spies/spyTypes.js";

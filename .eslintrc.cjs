@@ -7,6 +7,7 @@ module.exports = {
 	extends: [
 		"eslint:recommended",
 		"plugin:eslint-comments/recommended",
+		"plugin:n/recommended",
 		"plugin:perfectionist/recommended-natural",
 		"plugin:regexp/recommended",
 		"plugin:vitest/recommended",
@@ -40,6 +41,27 @@ module.exports = {
 				"jsdoc/require-param": "off",
 				"jsdoc/require-property": "off",
 				"jsdoc/require-returns": "off",
+			},
+		},
+		{
+			files: "**/*.md/*.*s",
+			rules: {
+				"n/no-missing-import": [
+					"error",
+					{ allowModules: ["console-fail-test", "vitest"] },
+				],
+				"n/no-missing-require": [
+					"error",
+					{
+						allowModules: [
+							"@hapi/lab",
+							"ava",
+							"console-fail-test",
+							"sinon",
+							"tap",
+						],
+					},
+				],
 			},
 		},
 		{
@@ -135,16 +157,20 @@ module.exports = {
 		"no-only-tests/no-only-tests": "error",
 
 		// These on-by-default rules don't work well for this repo and we like them off.
+		"n/no-missing-import": "off",
 		"no-case-declarations": "off",
 		"no-constant-condition": "off",
 		"no-inner-declarations": "off",
 		"no-mixed-spaces-and-tabs": "off",
+		"no-undef": "off",
 
 		// Stylistic concerns that don't interfere with Prettier
 		"@typescript-eslint/padding-line-between-statements": [
 			"error",
 			{ blankLine: "always", next: "*", prev: "block-like" },
 		],
+		"no-useless-rename": "error",
+		"object-shorthand": "error",
 		"perfectionist/sort-objects": [
 			"error",
 			{
