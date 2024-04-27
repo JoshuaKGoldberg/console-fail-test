@@ -21,8 +21,8 @@ importers:
         specifier: ^7.0.0
         version: 7.7.1(eslint@8.57.0)(typescript@5.4.5)
       '@vitest/coverage-v8':
-        specifier: 1.5.0
-        version: 1.5.0(vitest@1.5.0(@types/node@20.12.7))
+        specifier: 1.5.1
+        version: 1.5.1(vitest@1.5.0(@types/node@20.12.7))
       cspell:
         specifier: ^8.0.0
         version: 8.7.0
@@ -1049,10 +1049,10 @@ packages:
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  '@vitest/coverage-v8@1.5.0':
-    resolution: {integrity: sha512-1igVwlcqw1QUMdfcMlzzY4coikSIBN944pkueGi0pawrX5I5Z+9hxdTR+w3Sg6Q3eZhvdMAs8ZaF9JuTG1uYOQ==}
+  '@vitest/coverage-v8@1.5.1':
+    resolution: {integrity: sha512-Zx+dYEDcZg+44ksjIWvWosIGlPLJB1PPpN3O8+Xrh/1qa7WSFA6Y8H7lsZJTYrxu4G2unk9tvP5TgjIGDliF1w==}
     peerDependencies:
-      vitest: 1.5.0
+      vitest: 1.5.1
 
   '@vitest/expect@1.5.0':
     resolution: {integrity: sha512-0pzuCI6KYi2SIC3LQezmxujU9RK/vwC1U9R0rLuGlNGcOuDWxqWKu6nUdFsX9tH1WU0SXtAxToOsEjeUn1s3hA==}
@@ -4966,7 +4966,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitest/coverage-v8@1.5.0(vitest@1.5.0(@types/node@20.12.7))':
+  '@vitest/coverage-v8@1.5.1(vitest@1.5.0(@types/node@20.12.7))':
     dependencies:
       '@ampproject/remapping': 2.2.1
       '@bcoe/v8-coverage': 0.2.3
