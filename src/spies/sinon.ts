@@ -1,9 +1,9 @@
 import { SpyCallArgs, SpyFactory, SpyFactoryGetter } from "./spyTypes.js";
 
-type SinonSpy = Function & {
+type SinonSpy = {
 	getCalls(): SpyCallArgs[];
 	restore(): void;
-};
+} & Function;
 
 declare interface Sinon {
 	spy(callback: Function): SinonSpy;

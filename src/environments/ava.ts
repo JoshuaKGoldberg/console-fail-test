@@ -8,9 +8,9 @@ declare interface Ava {
 	meta: {
 		file: string;
 	};
-	serial: Function & {
+	serial: {
 		cb: Function;
-	};
+	} & Function;
 }
 
 const isAva = (testFramework: unknown): testFramework is Ava => {
