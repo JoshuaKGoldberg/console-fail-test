@@ -9,106 +9,106 @@ importers:
   .:
     devDependencies:
       '@eslint-community/eslint-plugin-eslint-comments':
-        specifier: ^4.3.0
+        specifier: 4.3.0
         version: 4.3.0(eslint@8.57.0)
       '@eslint/js':
-        specifier: ^9.6.0
+        specifier: 9.6.0
         version: 9.6.0
       '@release-it/conventional-changelog':
-        specifier: ^8.0.1
+        specifier: 8.0.1
         version: 8.0.1(release-it@17.5.0(typescript@5.5.3))
       '@types/eslint-plugin-markdown':
-        specifier: ^2.0.2
+        specifier: 2.0.2
         version: 2.0.2
       '@types/eslint__js':
-        specifier: ^8.42.3
+        specifier: 8.42.3
         version: 8.42.3
       '@vitest/coverage-v8':
         specifier: 2.0.1
         version: 2.0.1(vitest@2.0.1(@types/node@20.12.7))
       cspell:
-        specifier: ^8.10.4
+        specifier: 8.10.4
         version: 8.10.4
       eslint:
-        specifier: ^8.53.0
+        specifier: 8.57.0
         version: 8.57.0
       eslint-plugin-jsdoc:
-        specifier: ^48.6.0
+        specifier: 48.6.0
         version: 48.6.0(eslint@8.57.0)
       eslint-plugin-jsonc:
-        specifier: ^2.16.0
+        specifier: 2.16.0
         version: 2.16.0(eslint@8.57.0)
       eslint-plugin-markdown:
-        specifier: ^5.0.0
+        specifier: 5.0.0
         version: 5.0.0(eslint@8.57.0)
       eslint-plugin-n:
-        specifier: ^17.9.0
+        specifier: 17.9.0
         version: 17.9.0(eslint@8.57.0)
       eslint-plugin-package-json:
-        specifier: ^0.15.0
+        specifier: 0.15.0
         version: 0.15.0(eslint@8.57.0)(jsonc-eslint-parser@2.4.0)
       eslint-plugin-perfectionist:
-        specifier: ^2.11.0
+        specifier: 2.11.0
         version: 2.11.0(eslint@8.57.0)(typescript@5.5.3)
       eslint-plugin-regexp:
-        specifier: ^2.6.0
+        specifier: 2.6.0
         version: 2.6.0(eslint@8.57.0)
       eslint-plugin-vitest:
-        specifier: ^0.5.4
+        specifier: 0.5.4
         version: 0.5.4(eslint@8.57.0)(typescript@5.5.3)(vitest@2.0.1(@types/node@20.12.7))
       eslint-plugin-yml:
-        specifier: ^1.14.0
+        specifier: 1.14.0
         version: 1.14.0(eslint@8.57.0)
       husky:
-        specifier: ^9.0.11
+        specifier: 9.0.11
         version: 9.0.11
       jsonc-eslint-parser:
-        specifier: ^2.4.0
+        specifier: 2.4.0
         version: 2.4.0
       knip:
-        specifier: ^5.25.1
+        specifier: 5.25.1
         version: 5.25.1(@types/node@20.12.7)(typescript@5.5.3)
       lint-staged:
-        specifier: ^15.2.7
+        specifier: 15.2.7
         version: 15.2.7
       markdownlint:
-        specifier: ^0.34.0
+        specifier: 0.34.0
         version: 0.34.0
       markdownlint-cli:
-        specifier: ^0.41.0
+        specifier: 0.41.0
         version: 0.41.0
       prettier:
-        specifier: ^3.3.2
+        specifier: 3.3.2
         version: 3.3.2
       prettier-plugin-curly:
-        specifier: ^0.2.1
+        specifier: 0.2.1
         version: 0.2.1(prettier@3.3.2)
       prettier-plugin-packagejson:
-        specifier: ^2.5.0
+        specifier: 2.5.0
         version: 2.5.0(prettier@3.3.2)
       prettier-plugin-sh:
-        specifier: ^0.14.0
+        specifier: 0.14.0
         version: 0.14.0(prettier@3.3.2)
       release-it:
-        specifier: ^17.5.0
+        specifier: 17.5.0
         version: 17.5.0(typescript@5.5.3)
       sentences-per-line:
-        specifier: ^0.2.1
+        specifier: 0.2.1
         version: 0.2.1
       should-semantic-release:
-        specifier: ^0.3.0
+        specifier: 0.3.0
         version: 0.3.0
       tsup:
-        specifier: ^8.1.0
+        specifier: 8.1.0
         version: 8.1.0(postcss@8.4.38)(typescript@5.5.3)
       typescript:
-        specifier: ^5.5.3
+        specifier: 5.5.3
         version: 5.5.3
       typescript-eslint:
-        specifier: ^7.16.0
+        specifier: 7.16.0
         version: 7.16.0(eslint@8.57.0)(typescript@5.5.3)
       vitest:
-        specifier: ^2.0.1
+        specifier: 2.0.1
         version: 2.0.1(@types/node@20.12.7)
 
 packages:
