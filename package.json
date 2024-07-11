@@ -14,12 +14,14 @@
 	"type": "module",
 	"exports": {
 		".": {
-			"types": {
-				"import": "./lib/index.d.mts",
-				"require": "./lib/index.d.ts"
+			"import": {
+				"types": "./lib/index.d.ts",
+				"default": "./lib/index.js"
 			},
-			"import": "./lib/index.mjs",
-			"require": "./lib/index.js"
+			"require": {
+				"types": "./lib/index.d.cts",
+				"default": "./lib/index.cjs"
+			}
 		}
 	},
 	"main": "./lib/index.js",
