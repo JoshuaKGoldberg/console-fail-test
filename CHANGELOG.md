@@ -1,3 +1,9 @@
+## [0.4.2](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.4.1...0.4.2) (2024-07-13)
+
+### Bug Fixes
+
+- also publish setup.js ([#591](https://github.com/JoshuaKGoldberg/console-fail-test/issues/591)) ([4833ed2](https://github.com/JoshuaKGoldberg/console-fail-test/commit/4833ed26675b493eec8d3b64916132589e02e06b)), closes [#588](https://github.com/JoshuaKGoldberg/console-fail-test/issues/588)
+
 ## [0.4.1](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.4.0...0.4.1) (2024-07-11)
 
 ### Bug Fixes
