@@ -60,7 +60,7 @@
 		"eslint": "8.57.0",
 		"eslint-plugin-jsdoc": "48.7.0",
 		"eslint-plugin-jsonc": "2.16.0",
-		"eslint-plugin-markdown": "5.0.0",
+		"eslint-plugin-markdown": "5.1.0",
 		"eslint-plugin-n": "17.9.0",
 		"eslint-plugin-package-json": "0.15.2",
 		"eslint-plugin-perfectionist": "2.11.0",
