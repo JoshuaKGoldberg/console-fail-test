@@ -22,14 +22,16 @@
 				"types": "./lib/index.d.cts",
 				"default": "./lib/index.cjs"
 			}
-		}
+		},
+		"./setup": "./setup.js"
 	},
 	"main": "./lib/index.js",
 	"files": [
 		"lib/",
-		"package.json",
 		"LICENSE.md",
-		"README.md"
+		"package.json",
+		"README.md",
+		"setup.js"
 	],
 	"scripts": {
 		"build": "tsup",
