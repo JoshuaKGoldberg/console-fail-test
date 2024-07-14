@@ -69,7 +69,7 @@
 		"eslint-plugin-yml": "1.14.0",
 		"husky": "9.0.11",
 		"jsonc-eslint-parser": "2.4.0",
-		"knip": "5.25.2",
+		"knip": "5.26.0",
 		"lint-staged": "15.2.7",
 		"markdownlint": "0.34.0",
 		"markdownlint-cli": "0.41.0",
