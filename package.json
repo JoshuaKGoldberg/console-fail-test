@@ -23,7 +23,7 @@
 				"default": "./lib/index.cjs"
 			}
 		},
-		"./setup": "./setup.js"
+		"./setup": "./setup.mjs"
 	},
 	"main": "./lib/index.js",
 	"files": [
