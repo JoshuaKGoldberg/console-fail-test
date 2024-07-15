@@ -1,3 +1,9 @@
+## [0.4.3](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.4.2...0.4.3) (2024-07-15)
+
+### Bug Fixes
+
+- switch setup.js to ESM setup.mjs ([#598](https://github.com/JoshuaKGoldberg/console-fail-test/issues/598)) ([9d94c22](https://github.com/JoshuaKGoldberg/console-fail-test/commit/9d94c22a9fae253c1310ecba592e549a565ffa07)), closes [#597](https://github.com/JoshuaKGoldberg/console-fail-test/issues/597)
+
 ## [0.4.2](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.4.1...0.4.2) (2024-07-13)
 
 ### Bug Fixes
