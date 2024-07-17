@@ -1,3 +1,9 @@
+## [0.4.4](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.4.3...0.4.4) (2024-07-17)
+
+### Bug Fixes
+
+- correct setup.mjs files path in package.json ([9c42001](https://github.com/JoshuaKGoldberg/console-fail-test/commit/9c4200164aeb1691b8ef318c9e4cd2af277a69fc))
+
 ## [0.4.3](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.4.2...0.4.3) (2024-07-15)
 
 ### Bug Fixes
