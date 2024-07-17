@@ -31,7 +31,7 @@
 		"LICENSE.md",
 		"package.json",
 		"README.md",
-		"setup.js"
+		"setup.mjs"
 	],
 	"scripts": {
 		"build": "tsup",
