@@ -80,7 +80,7 @@
 		"release-it": "17.6.0",
 		"sentences-per-line": "0.2.1",
 		"should-semantic-release": "0.3.0",
-		"tsup": "8.1.2",
+		"tsup": "8.2.1",
 		"typescript": "5.5.3",
 		"typescript-eslint": "7.16.1",
 		"vitest": "2.0.3"
