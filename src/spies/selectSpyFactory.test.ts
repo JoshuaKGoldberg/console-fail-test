@@ -1,4 +1,4 @@
-import { describe, vi, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { selectSpyFactory } from "./selectSpyFactory.js";
 

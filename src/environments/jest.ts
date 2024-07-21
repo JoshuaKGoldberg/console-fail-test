@@ -10,11 +10,7 @@ const isJest = () =>
 	typeof jest !== "undefined";
 
 export const selectJestEnvironment: TestFrameworkSelector = () => {
-	if (
-		typeof afterEach === "undefined" ||
-		typeof beforeEach === "undefined" ||
-		typeof jest === "undefined"
-	) {
+	if (!isJest()) {
 		return undefined;
 	}
 

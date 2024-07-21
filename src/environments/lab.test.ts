@@ -3,10 +3,10 @@ import { describe, expect, test, vi } from "vitest";
 import { selectLabEnvironment } from "./lab.js";
 
 const mockLabFramework = {
+	_current: { tests: [] },
 	afterEach: vi.fn(),
 	beforeEach: vi.fn(),
 	setOnly: vi.fn(),
-	_current: { tests: [] },
 };
 
 describe("selectLabEnvironment", () => {
@@ -22,10 +22,10 @@ describe("selectLabEnvironment", () => {
 			],
 			[
 				{
+					_current: {},
 					afterEach: vi.fn(),
 					beforeEach: vi.fn(),
 					setOnly: vi.fn(),
-					_current: {},
 				},
 				undefined,
 			],
