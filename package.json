@@ -67,7 +67,7 @@
 		"eslint-plugin-regexp": "2.6.0",
 		"eslint-plugin-vitest": "0.5.4",
 		"eslint-plugin-yml": "1.14.0",
-		"husky": "9.1.0",
+		"husky": "9.1.1",
 		"jsonc-eslint-parser": "2.4.0",
 		"knip": "5.26.0",
 		"lint-staged": "15.2.7",
