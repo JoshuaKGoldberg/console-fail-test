@@ -12,18 +12,24 @@ declare interface Mocha {
 	};
 }
 
-export const selectMochaEnvironment: TestFrameworkSelector = () => {
+const isMocha = () => {
 	// Until there is some kind of global `mocha` variable that can be referenced,
 	// we check the stringified versions of its used hook methods
-	// See https://github.com/JoshuaKGoldberg/console-fail-test/issues/10
-	if (
-		typeof afterEach === "undefined" ||
-		typeof beforeEach === "undefined" ||
-		`${afterEach}`.replace(/\s/g, "") !==
-			"function(name,fn){suites[0].afterEach(name,fn);}" ||
-		`${beforeEach}`.replace(/\s/g, "") !==
+	// https://github.com/JoshuaKGoldberg/console-fail-test/issues/10
+	// https://github.com/mochajs/mocha/issues/5084
+
+	return (
+		typeof afterEach !== "undefined" &&
+		typeof beforeEach !== "undefined" &&
+		`${afterEach}`.replace(/\s/g, "") ===
+			"function(name,fn){suites[0].afterEach(name,fn);}" &&
+		`${beforeEach}`.replace(/\s/g, "") ===
 			"function(name,fn){suites[0].beforeEach(name,fn);}"
-	) {
+	);
+};
+
+export const selectMochaEnvironment: TestFrameworkSelector = () => {
+	if (!isMocha()) {
 		return undefined;
 	}
 

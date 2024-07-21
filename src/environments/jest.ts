@@ -4,12 +4,13 @@ declare const afterEach: (callback: () => void) => void;
 declare const beforeEach: (callback: () => void) => void;
 declare const jest: unknown;
 
+const isJest = () =>
+	typeof afterEach !== "undefined" &&
+	typeof beforeEach !== "undefined" &&
+	typeof jest !== "undefined";
+
 export const selectJestEnvironment: TestFrameworkSelector = () => {
-	if (
-		typeof afterEach === "undefined" ||
-		typeof beforeEach === "undefined" ||
-		typeof jest === "undefined"
-	) {
+	if (!isJest()) {
 		return undefined;
 	}
 

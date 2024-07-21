@@ -6,13 +6,17 @@ declare const jasmine: {
 	Spec: unknown;
 };
 
+const isJasmine = () => {
+	return (
+		typeof afterEach !== "undefined" &&
+		typeof beforeEach !== "undefined" &&
+		typeof jasmine !== "undefined" &&
+		typeof jasmine.Spec !== "undefined"
+	);
+};
+
 export const selectJasmineEnvironment: TestFrameworkSelector = () => {
-	if (
-		typeof afterEach === "undefined" ||
-		typeof beforeEach === "undefined" ||
-		typeof jasmine === "undefined" ||
-		typeof jasmine.Spec === "undefined"
-	) {
+	if (!isJasmine()) {
 		return undefined;
 	}
 
