@@ -1,3 +1,9 @@
+# [0.5.0](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.4.4...0.5.0) (2024-08-14)
+
+### Features
+
+- split CJS and ESM outputs more formally ([#707](https://github.com/JoshuaKGoldberg/console-fail-test/issues/707)) ([c0ff764](https://github.com/JoshuaKGoldberg/console-fail-test/commit/c0ff76496cd5627c66564ed17b0ff4ec3b1f456a)), closes [#706](https://github.com/JoshuaKGoldberg/console-fail-test/issues/706)
+
 ## [0.4.4](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.4.3...0.4.4) (2024-07-17)
 
 ### Bug Fixes
