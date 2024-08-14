@@ -13,7 +13,7 @@ export default defineConfig([
 		...configEntryBase,
 		format: "cjs",
 		outDir: "lib/cjs",
-		outExtension: () => ({ dts: ".d.ts", js: ".js" }),
+		outExtension: () => ({ dts: ".d.ts", js: ".cjs" }),
 	},
 	{
 		...configEntryBase,

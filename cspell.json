@@ -20,10 +20,11 @@
 		"npmpackagejsonlintrc",
 		"outro",
 		"packagejson",
+		"postbuild",
 		"quickstart",
-		"whoopsies",
 		"tseslint",
 		"tsup",
+		"whoopsies",
 		"wontfix"
 	]
 }

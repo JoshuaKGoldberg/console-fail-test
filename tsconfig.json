@@ -1,10 +1,11 @@
 {
 	"compilerOptions": {
+		"allowImportingTsExtensions": true,
 		"declaration": true,
 		"declarationMap": true,
 		"esModuleInterop": true,
-		"module": "NodeNext",
-		"moduleResolution": "NodeNext",
+		"module": "Preserve",
+		"moduleResolution": "Bundler",
 		"noEmit": true,
 		"outDir": "lib",
 		"resolveJsonModule": true,
