@@ -24,7 +24,7 @@
 			}
 		},
 		"./setup": "./setup.mjs",
-		"./setup.cjs": "./setup.mjs",
+		"./setup.cjs": "./setup.cjs",
 		"./setup.mjs": "./setup.mjs"
 	},
 	"main": "./lib/esm/index.js",
