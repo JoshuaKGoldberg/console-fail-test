@@ -1,11 +1,23 @@
 import { defineConfig } from "tsup";
 
-export default defineConfig({
+const configEntryBase = {
 	bundle: false,
 	clean: true,
 	dts: true,
 	entry: ["src/**/*.ts", "!src/**/*.test.*"],
-	format: ["cjs", "esm"],
-	outDir: "lib",
 	sourcemap: true,
-});
+};
+
+export default defineConfig([
+	{
+		...configEntryBase,
+		format: "cjs",
+		outDir: "lib/cjs",
+		outExtension: () => ({ dts: ".d.ts", js: ".js" }),
+	},
+	{
+		...configEntryBase,
+		format: "esm",
+		outDir: "lib/esm",
+	},
+]);
