@@ -57,9 +57,11 @@ For example, in a Jest config:
 ```js
 // jest.config.js
 module.exports = {
-	setupFilesAfterEnv: ["console-fail-test/setup.js"],
+	setupFilesAfterEnv: ["console-fail-test/setup.mjs"],
 };
 ```
+
+> If your package only supports CommonJS, you can use `console-fail-test/setup.cjs`.
 
 ### Test Frameworks
 

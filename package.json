@@ -15,26 +15,30 @@
 	"exports": {
 		".": {
 			"import": {
-				"types": "./lib/index.d.ts",
-				"default": "./lib/index.js"
+				"types": "./lib/esm/index.d.ts",
+				"default": "./lib/esm/index.js"
 			},
 			"require": {
-				"types": "./lib/index.d.cts",
-				"default": "./lib/index.cjs"
+				"types": "./lib/cjs/index.d.cts",
+				"default": "./lib/cjs/index.cjs"
 			}
 		},
-		"./setup": "./setup.mjs"
+		"./setup": "./setup.mjs",
+		"./setup.cjs": "./setup.cjs",
+		"./setup.mjs": "./setup.mjs"
 	},
-	"main": "./lib/index.js",
+	"main": "./lib/esm/index.js",
 	"files": [
 		"lib/",
 		"LICENSE.md",
 		"package.json",
 		"README.md",
+		"setup.cjs",
 		"setup.mjs"
 	],
 	"scripts": {
 		"build": "tsup",
+		"postbuild": "node fixExtensions.js",
 		"format": "prettier .",
 		"lint": "eslint . --max-warnings 0",
 		"lint:knip": "knip",
@@ -55,6 +59,7 @@
 		"@release-it/conventional-changelog": "8.0.1",
 		"@types/eslint-plugin-markdown": "2.0.2",
 		"@types/eslint__js": "8.42.3",
+		"@types/node": "^22.3.0",
 		"@vitest/coverage-v8": "2.0.5",
 		"cspell": "8.13.1",
 		"eslint": "8.57.0",
@@ -67,6 +72,7 @@
 		"eslint-plugin-regexp": "2.6.0",
 		"eslint-plugin-vitest": "0.5.4",
 		"eslint-plugin-yml": "1.14.0",
+		"glob": "^11.0.0",
 		"husky": "9.1.4",
 		"jsonc-eslint-parser": "2.4.0",
 		"knip": "5.27.2",

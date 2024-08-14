@@ -100,6 +100,12 @@ export default tseslint.config(
 		},
 	}),
 	{
+		files: ["package.json"],
+		rules: {
+			"package-json/sort-collections": "off",
+		},
+	},
+	{
 		files: ["*.jsonc"],
 		rules: {
 			"jsonc/comma-dangle": "off",
