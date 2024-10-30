@@ -12,8 +12,8 @@ importers:
         specifier: 4.4.1
         version: 4.4.1(eslint@8.57.1)
       '@eslint/js':
-        specifier: 9.11.0
-        version: 9.11.0
+        specifier: 9.13.0
+        version: 9.13.0
       '@release-it/conventional-changelog':
         specifier: 8.0.2
         version: 8.0.2(release-it@17.6.0(typescript@5.6.3))
@@ -703,8 +703,8 @@ packages:
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@eslint/js@9.11.0':
-    resolution: {integrity: sha512-LPkkenkDqyzTFauZLLAPhIb48fj6drrfMvRGSL9tS3AcZBSVTllemLSNyCvHNNL2t797S/6DJNSIwRwXgMO/eQ==}
+  '@eslint/js@9.13.0':
+    resolution: {integrity: sha512-IFLyoY4d72Z5y/6o/BazFBezupzI/taV8sGumxTAVw3lXG9A6md1Dc34T9s1FoD/an9pJH8RHbAxsaEbBed9lA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@humanwhocodes/config-array@0.13.0':
@@ -4157,7 +4157,7 @@ snapshots:
 
   '@eslint/js@8.57.1': {}
 
-  '@eslint/js@9.11.0': {}
+  '@eslint/js@9.13.0': {}
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
