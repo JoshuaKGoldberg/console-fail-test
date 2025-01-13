@@ -63,8 +63,8 @@ importers:
         specifier: 1.16.0
         version: 1.16.0(eslint@8.57.1)
       glob:
-        specifier: 11.0.0
-        version: 11.0.0
+        specifier: 11.0.1
+        version: 11.0.1
       husky:
         specifier: 9.1.7
         version: 9.1.7
@@ -2039,8 +2039,8 @@ packages:
     engines: {node: '>=16 || 14 >=14.18'}
     hasBin: true
 
-  glob@11.0.0:
-    resolution: {integrity: sha512-9UiX/Bl6J2yaBbxKoEBRm4Cipxgok8kQYcOPEhScPwebu2I0HoQOuYdIO6S3hLuWoZgpDpwQZMzTFxgpkyT76g==}
+  glob@11.0.1:
+    resolution: {integrity: sha512-zrQDm8XPnYEKawJScsnM0QzobJxlT/kHOOlRTio8IH/GrmxRE5fjllkzdaHclIuNjUQTJYH2xHNIGfdpJkDJUw==}
     engines: {node: 20 || >=22}
     hasBin: true
 
@@ -5589,7 +5589,7 @@ snapshots:
       minipass: 7.1.2
       path-scurry: 1.11.1
 
-  glob@11.0.0:
+  glob@11.0.1:
     dependencies:
       foreground-child: 3.1.1
       jackspeak: 4.0.1
@@ -6054,7 +6054,7 @@ snapshots:
   markdownlint-cli@0.43.0:
     dependencies:
       commander: 12.1.0
-      glob: 11.0.0
+      glob: 11.0.1
       ignore: 6.0.2
       js-yaml: 4.1.0
       jsonc-parser: 3.3.1
