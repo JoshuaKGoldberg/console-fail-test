@@ -75,7 +75,7 @@
 		"glob": "11.0.1",
 		"husky": "9.1.7",
 		"jsonc-eslint-parser": "2.4.0",
-		"knip": "5.42.1",
+		"knip": "5.42.2",
 		"lint-staged": "15.4.1",
 		"markdownlint": "0.37.4",
 		"markdownlint-cli": "0.43.0",
