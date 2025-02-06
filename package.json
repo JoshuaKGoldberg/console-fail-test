@@ -60,7 +60,7 @@
 		"@types/eslint-plugin-markdown": "2.0.2",
 		"@types/eslint__js": "8.42.3",
 		"@types/node": "22.13.0",
-		"@vitest/coverage-v8": "3.0.4",
+		"@vitest/coverage-v8": "3.0.5",
 		"cspell": "8.13.1",
 		"eslint": "8.57.1",
 		"eslint-plugin-jsdoc": "50.6.3",
@@ -89,7 +89,7 @@
 		"tsup": "8.3.6",
 		"typescript": "5.7.3",
 		"typescript-eslint": "7.18.0",
-		"vitest": "3.0.4"
+		"vitest": "3.0.5"
 	},
 	"packageManager": "pnpm@10.1.0",
 	"engines": {
