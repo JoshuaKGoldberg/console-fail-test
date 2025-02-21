@@ -60,8 +60,8 @@ importers:
         specifier: 0.5.4
         version: 0.5.4(eslint@8.57.1)(typescript@5.7.3)(vitest@3.0.5(@types/debug@4.1.12)(@types/node@22.13.4))
       eslint-plugin-yml:
-        specifier: 1.16.0
-        version: 1.16.0(eslint@8.57.1)
+        specifier: 1.17.0
+        version: 1.17.0(eslint@8.57.1)
       glob:
         specifier: 11.0.1
         version: 11.0.1
@@ -1828,8 +1828,8 @@ packages:
       vitest:
         optional: true
 
-  eslint-plugin-yml@1.16.0:
-    resolution: {integrity: sha512-t4MNCetPjTn18/fUDlQ/wKkcYjnuLYKChBrZ0qUaNqRigVqChHWzTP8SrfFi5s4keX3vdlkWRSu8zHJMdKwxWQ==}
+  eslint-plugin-yml@1.17.0:
+    resolution: {integrity: sha512-Q3LXFRnNpGYAK/PM0BY1Xs0IY1xTLfM0kC986nNQkx1l8tOGz+YS50N6wXkAJkrBpeUN9OxEMB7QJ+9MTDAqIQ==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=6.0.0'
@@ -5325,12 +5325,12 @@ snapshots:
       - supports-color
       - typescript
 
-  eslint-plugin-yml@1.16.0(eslint@8.57.1):
+  eslint-plugin-yml@1.17.0(eslint@8.57.1):
     dependencies:
       debug: 4.4.0
+      escape-string-regexp: 4.0.0
       eslint: 8.57.1
       eslint-compat-utils: 0.6.0(eslint@8.57.1)
-      lodash: 4.17.21
       natural-compare: 1.4.0
       yaml-eslint-parser: 1.2.3
     transitivePeerDependencies:
