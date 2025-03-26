@@ -57,6 +57,9 @@ export default tseslint.config(
 			"@typescript-eslint/restrict-template-expressions": "off",
 			"@typescript-eslint/unbound-method": "off",
 
+			// TODO: Eventually, update all guides to ESM (if they support it?
+			"@typescript-eslint/no-require-imports": "off",
+
 			// Stylistic concerns that don't interfere with Prettier
 			"logical-assignment-operators": [
 				"error",
