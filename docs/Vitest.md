@@ -7,7 +7,7 @@ It will be auto-detected if available.
 
 In your `vitest.config.ts`, include `console-fail-test/vitest` in your [`setupFiles`](https://vitest.dev/config/#setupfiles):
 
-```js
+```ts
 // vitest.config.ts
 import { defineConfig } from "vitest/config";
 
@@ -18,7 +18,7 @@ export default defineConfig({
 
 Alternately, if you have a setup file already being run first, or you'd like to manually enable this in individual files, you can use the Node API:
 
-```js
+```ts
 // some.test.js
 import { describe } from "vitest";
 

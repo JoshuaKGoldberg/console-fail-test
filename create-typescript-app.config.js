@@ -30,6 +30,13 @@ export default createConfig({
 							"@typescript-eslint/unbound-method": "off",
 						},
 					},
+					{
+						comment:
+							"TODO: Eventually, update all guides to ESM (if they support it?",
+						entries: {
+							"@typescript-eslint/no-require-imports": "off",
+						},
+					},
 				],
 			}),
 		],

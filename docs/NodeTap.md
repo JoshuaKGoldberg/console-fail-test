@@ -7,7 +7,7 @@ It cannot be auto-detected.
 
 Call the Node API in each test file that should be checked for console calls:
 
-```js
+```ts
 // some.test.js
 
 require("console-fail-test").cft({

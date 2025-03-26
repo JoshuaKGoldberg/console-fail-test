@@ -17,7 +17,7 @@ Note that helper paths may be resolved relative to your spec directory.
 
 Alternately, if you have a helper file already being run first, or you'd like to manually enable this in individual files, you can use the Node API:
 
-```js
+```ts
 // someSpec.js
 require("console-fail-test").cft();
 ```

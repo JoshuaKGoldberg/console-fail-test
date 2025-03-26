@@ -21,7 +21,6 @@
 	],
 	"scripts": {
 		"build": "tsup",
-		"postbuild": "node fixExtensions.js",
 		"format": "prettier .",
 		"lint": "eslint . --max-warnings 0",
 		"lint:knip": "knip",
@@ -75,7 +74,7 @@
 	},
 	"packageManager": "pnpm@10.6.5",
 	"engines": {
-		"node": ">=18"
+		"node": "^20.19.0 || >=22.12.0"
 	},
 	"publishConfig": {
 		"provenance": true

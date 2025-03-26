@@ -25,7 +25,7 @@ It will auto-detect your combination if possible and use the most appropriate en
 
 For example, in a Jest config:
 
-```js
+```ts
 // jest.config.js
 module.exports = {
 	setupFilesAfterEnv: ["console-fail-test/setup.mjs"],
@@ -210,8 +210,10 @@ If a supported spy library isn't detected, an internal fallback will be used to 
 
 You can request a specific test library using the Node API with its API request:
 
-```js
-require("console-fail-test").cft({
+```ts
+import { cft } from "console-fail-test";
+
+cft({
 	spyLibrary: "sinon",
 });
 ```
@@ -311,8 +313,10 @@ require("console-fail-test").cft({
 By default, `console-fail-test` will error on _any_ called `console` method.
 If you'd like allow certain methods, pass a `console` object to the `cft` API when you set it up:
 
-```js
-require("console-fail-test").cft({
+```ts
+import { cft } from "console-fail-test";
+
+cft({
 	console: {
 		warn: true, // won't error on any instance of console.warn
 	},
