@@ -4,7 +4,7 @@
 	"description": "Gently fails test runs if the console was used during them. 📢",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/JoshuaKGoldberg/console-fail-test"
+		"url": "git+https://github.com/JoshuaKGoldberg/console-fail-test.git"
 	},
 	"license": "MIT",
 	"author": {
@@ -12,29 +12,12 @@
 		"email": "npm@joshuakgoldberg.com"
 	},
 	"type": "module",
-	"exports": {
-		".": {
-			"import": {
-				"types": "./lib/esm/index.d.ts",
-				"default": "./lib/esm/index.js"
-			},
-			"require": {
-				"types": "./lib/cjs/index.d.cts",
-				"default": "./lib/cjs/index.cjs"
-			}
-		},
-		"./setup": "./setup.mjs",
-		"./setup.cjs": "./setup.cjs",
-		"./setup.mjs": "./setup.mjs"
-	},
-	"main": "./lib/esm/index.js",
+	"main": "lib/index.js",
 	"files": [
-		"lib/",
 		"LICENSE.md",
-		"package.json",
 		"README.md",
-		"setup.cjs",
-		"setup.mjs"
+		"lib/",
+		"package.json"
 	],
 	"scripts": {
 		"build": "tsup",
@@ -46,7 +29,6 @@
 		"lint:packages": "pnpm dedupe --check",
 		"lint:spelling": "cspell \"**\" \".github/**/*\"",
 		"prepare": "husky",
-		"should-semantic-release": "should-semantic-release --verbose",
 		"test": "vitest",
 		"tsc": "tsc"
 	},
@@ -61,21 +43,22 @@
 		"@types/eslint__js": "8.42.3",
 		"@types/node": "22.13.11",
 		"@vitest/coverage-v8": "3.0.9",
-		"cspell": "8.13.1",
-		"eslint": "8.57.1",
+		"@vitest/eslint-plugin": "1.1.38",
+		"console-fail-test": "0.5.0",
+		"create-typescript-app": "2.14.0",
+		"cspell": "8.17.5",
+		"eslint": "9.22.0",
 		"eslint-plugin-jsdoc": "50.6.8",
 		"eslint-plugin-jsonc": "2.19.1",
 		"eslint-plugin-markdown": "5.1.0",
 		"eslint-plugin-n": "17.16.2",
-		"eslint-plugin-package-json": "0.26.3",
-		"eslint-plugin-perfectionist": "2.11.0",
+		"eslint-plugin-package-json": "0.29.0",
+		"eslint-plugin-perfectionist": "4.10.1",
 		"eslint-plugin-regexp": "2.7.0",
-		"eslint-plugin-vitest": "0.5.4",
 		"eslint-plugin-yml": "1.17.0",
 		"glob": "11.0.1",
 		"husky": "9.1.7",
-		"jsonc-eslint-parser": "2.4.0",
-		"knip": "5.44.0",
+		"knip": "5.46.0",
 		"lint-staged": "15.5.0",
 		"markdownlint": "0.37.4",
 		"markdownlint-cli": "0.44.0",
@@ -85,10 +68,9 @@
 		"prettier-plugin-sh": "0.15.0",
 		"release-it": "18.1.2",
 		"sentences-per-line": "0.3.0",
-		"should-semantic-release": "0.3.1",
 		"tsup": "8.4.0",
 		"typescript": "5.8.2",
-		"typescript-eslint": "7.18.0",
+		"typescript-eslint": "8.26.1",
 		"vitest": "3.0.9"
 	},
 	"packageManager": "pnpm@10.6.5",

@@ -4,8 +4,8 @@ export type SpyFactoryGetter = (request: CftRequest) => SpyFactory | undefined;
 
 /**
  * Creates method spies that abstract the spy library implementation.
- * @param container - An object whose method is to be spied on.
- * @param methodName - The key of the method to spy on, such as `"log"`.
+ * @param container An object whose method is to be spied on.
+ * @param methodName The key of the method to spy on, such as `"log"`.
  */
 export type SpyFactory = (container: unknown, methodName: string) => MethodSpy;
 

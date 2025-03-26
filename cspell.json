@@ -1,6 +1,7 @@
 {
-	"dictionaries": ["typescript"],
+	"dictionaries": ["npm", "node", "typescript"],
 	"ignorePaths": [
+		".all-contributorsrc",
 		".github",
 		"CHANGELOG.md",
 		"coverage",
@@ -10,10 +11,13 @@
 	],
 	"words": [
 		"Codecov",
+		"apexskier",
+		"automerge",
 		"codespace",
 		"commitlint",
 		"contributorsrc",
 		"conventionalcommits",
+		"joshuakgoldberg",
 		"knip",
 		"lcov",
 		"markdownlintignore",
