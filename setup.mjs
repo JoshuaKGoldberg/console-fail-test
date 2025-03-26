@@ -1,3 +1,3 @@
-import { cft } from "./lib/esm/cft.js";
+import { cft } from "./lib/cft.js";
 
 cft();

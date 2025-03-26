@@ -4,6 +4,10 @@ export interface CftRequest {
 	testFramework?: SupportedTestFramework;
 }
 
+export type ConsoleSettings = {
+	[P in keyof Console]?: Console[P] extends Function ? boolean : never;
+};
+
 export type SupportedSpyLibrary =
 	| "fallback"
 	| "jasmine"
@@ -12,7 +16,3 @@ export type SupportedSpyLibrary =
 	| unknown;
 
 export type SupportedTestFramework = "jasmine" | "jest" | "mocha" | unknown;
-
-export type ConsoleSettings = {
-	[P in keyof Console]?: Console[P] extends Function ? boolean : never;
-};

@@ -25,13 +25,13 @@ describe("formatMethodComplaint", () => {
 	test("multiple multi-line complaint", () => {
 		const actual = formatMethodComplaint([
 			"log",
-			[["abc\ndef"], ["def\nghi", "jkl"]],
+			[["abc\ndef"], ["def\nabc", "jkl"]],
 		]);
 
 		expect(actual).toMatchInlineSnapshot(`
 			"  * log (2 calls)
 			    > Call 0: "abc\\ndef"
-			    > Call 1: "def\\nghi", "jkl""
+			    > Call 1: "def\\nabc", "jkl""
 		`);
 	});
 

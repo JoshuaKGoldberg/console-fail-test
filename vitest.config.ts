@@ -5,10 +5,10 @@ export default defineConfig({
 		clearMocks: true,
 		coverage: {
 			all: true,
-			exclude: ["lib"],
 			include: ["src"],
 			reporter: ["html", "lcov"],
 		},
 		exclude: ["lib", "node_modules"],
+		setupFiles: ["console-fail-test/setup"],
 	},
 });

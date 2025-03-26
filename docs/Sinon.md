@@ -5,7 +5,7 @@ It will be auto-detected if `sinon.spy` is globally available.
 
 Otherwise, pass `require("sinon")` as your `spyLibrary` request:
 
-```js
+```ts
 require("console-fail-test").cft({
 	spyLibrary: require("sinon"),
 });

@@ -7,7 +7,7 @@ It will be auto-detected if available.
 
 Use [`setupFilesAfterEnv`](https://jestjs.io/docs/en/configuration.html) to run this before setting up test files:
 
-```js
+```ts
 // jest.config.js
 module.exports = {
 	setupFilesAfterEnv: ["console-fail-test/setup.js"],
@@ -16,7 +16,7 @@ module.exports = {
 
 Alternately, if you have a setup file already being run first, or you'd like to manually enable this in individual files, you can use the Node API:
 
-```js
+```ts
 // some.test.js
 
 require("console-fail-test").cft();
@@ -30,7 +30,7 @@ See Jest's [mock functions docs](https://jestjs.io/docs/en/mock-functions.html).
 
 If you'd like to use Jasmine's spies instead of Jest's, use the Node API with the `spyLibrary` option:
 
-```js
+```ts
 require("console-fail-test").cft({
 	spyLibrary: "jasmine",
 });

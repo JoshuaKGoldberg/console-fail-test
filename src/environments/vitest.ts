@@ -5,7 +5,7 @@ declare interface VitestModule {
 	beforeEach: (callback: () => void) => void;
 }
 
-declare const __vitest_index__: VitestModule | undefined;
+declare const __vitest_index__: undefined | VitestModule;
 
 export const selectVitestEnvironment: TestFrameworkSelector = () => {
 	if (typeof __vitest_index__ === "undefined") {
