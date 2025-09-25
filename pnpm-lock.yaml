@@ -29,6 +29,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: 3.0.9
         version: 3.0.9(vitest@3.0.9(@types/debug@4.1.12)(@types/node@22.13.11))
+      '@vitest/eslint-plugin':
+        specifier: 1.0.1
+        version: 1.0.1(eslint@8.57.1)(typescript@5.8.2)(vitest@3.0.9(@types/debug@4.1.12)(@types/node@22.13.11))
       cspell:
         specifier: 8.13.1
         version: 8.13.1
@@ -56,9 +59,6 @@ importers:
       eslint-plugin-regexp:
         specifier: 2.7.0
         version: 2.7.0(eslint@8.57.1)
-      eslint-plugin-vitest:
-        specifier: 0.5.4
-        version: 0.5.4(eslint@8.57.1)(typescript@5.8.2)(vitest@3.0.9(@types/debug@4.1.12)(@types/node@22.13.11))
       eslint-plugin-yml:
         specifier: 1.17.0
         version: 1.17.0(eslint@8.57.1)
@@ -1148,6 +1148,21 @@ packages:
       '@vitest/browser':
         optional: true
 
+  '@vitest/eslint-plugin@1.0.1':
+    resolution: {integrity: sha512-albpL56cL9XMwHJWCWZqjDxkuDkBXBF3WpPGOv6q2WA3cipCP41cKEwfSGktoRNGmPN77wuX452O8pM+z+ApNw==}
+    peerDependencies:
+      '@typescript-eslint/utils': '>= 8.0'
+      eslint: '>= 8.57.0'
+      typescript: '>= 5.0.0'
+      vitest: '*'
+    peerDependenciesMeta:
+      '@typescript-eslint/utils':
+        optional: true
+      typescript:
+        optional: true
+      vitest:
+        optional: true
+
   '@vitest/expect@3.0.9':
     resolution: {integrity: sha512-5eCqRItYgIML7NNVgJj6TVCmdzE7ZVgJhruW0ziSQV4V7PvLkDL1bBkBdcTs/VuIz0IxPb5da1IDSqc1TR9eig==}
 
@@ -1786,6 +1801,7 @@ packages:
   eslint-plugin-markdown@5.1.0:
     resolution: {integrity: sha512-SJeyKko1K6GwI0AN6xeCDToXDkfKZfXcexA6B+O2Wr2btUS9GrC+YgwSyVli5DJnctUHjFXcQ2cqTaAmVoLi2A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: Please use @eslint/markdown instead
     peerDependencies:
       eslint: '>=8'
 
@@ -1825,19 +1841,6 @@ packages:
     engines: {node: ^18 || >=20}
     peerDependencies:
       eslint: '>=8.44.0'
-
-  eslint-plugin-vitest@0.5.4:
-    resolution: {integrity: sha512-um+odCkccAHU53WdKAw39MY61+1x990uXjSPguUCq3VcEHdqJrOb8OTMrbYlY6f9jAKx7x98kLVlIe3RJeJqoQ==}
-    engines: {node: ^18.0.0 || >= 20.0.0}
-    peerDependencies:
-      '@typescript-eslint/eslint-plugin': '*'
-      eslint: ^8.57.0 || ^9.0.0
-      vitest: '*'
-    peerDependenciesMeta:
-      '@typescript-eslint/eslint-plugin':
-        optional: true
-      vitest:
-        optional: true
 
   eslint-plugin-yml@1.17.0:
     resolution: {integrity: sha512-Q3LXFRnNpGYAK/PM0BY1Xs0IY1xTLfM0kC986nNQkx1l8tOGz+YS50N6wXkAJkrBpeUN9OxEMB7QJ+9MTDAqIQ==}
@@ -2701,6 +2704,7 @@ packages:
 
   mvdan-sh@0.10.1:
     resolution: {integrity: sha512-kMbrH0EObaKmK3nVRKUIIya1dpASHIEusM13S4V1ViHFuxuNxCo+arxoa6j/dbV22YBGjl7UKJm9QQKJ2Crzhg==}
+    deprecated: See https://github.com/mvdan/sh/issues/1145
 
   mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
@@ -3209,6 +3213,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   spdx-correct@3.2.0:
     resolution: {integrity: sha512-kN9dJbvnySHULIluDHy32WHRUu3Og7B9sbY7tsFLctQkIqnMh3hErYgdMjTYuqmcXX+lK5T1lnUt3G7zNswmZA==}
@@ -4579,6 +4584,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@vitest/eslint-plugin@1.0.1(eslint@8.57.1)(typescript@5.8.2)(vitest@3.0.9(@types/debug@4.1.12)(@types/node@22.13.11))':
+    dependencies:
+      eslint: 8.57.1
+    optionalDependencies:
+      typescript: 5.8.2
+      vitest: 3.0.9(@types/debug@4.1.12)(@types/node@22.13.11)
+
   '@vitest/expect@3.0.9':
     dependencies:
       '@vitest/spy': 3.0.9
@@ -5341,16 +5353,6 @@ snapshots:
       refa: 0.12.1
       regexp-ast-analysis: 0.7.1
       scslre: 0.3.0
-
-  eslint-plugin-vitest@0.5.4(eslint@8.57.1)(typescript@5.8.2)(vitest@3.0.9(@types/debug@4.1.12)(@types/node@22.13.11)):
-    dependencies:
-      '@typescript-eslint/utils': 7.18.0(eslint@8.57.1)(typescript@5.8.2)
-      eslint: 8.57.1
-    optionalDependencies:
-      vitest: 3.0.9(@types/debug@4.1.12)(@types/node@22.13.11)
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
 
   eslint-plugin-yml@1.17.0(eslint@8.57.1):
     dependencies:
