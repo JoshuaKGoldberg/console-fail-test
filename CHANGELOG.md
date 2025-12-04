@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.6.0](///compare/0.5.0...0.6.0) (2025-12-04)
+
+### Features
+
+- bump Node.js minimum to 20.19.0; remove CJS files ([#1049](undefined/undefined/undefined/issues/1049)) a1209e4, closes #1041 #1046
+
 ## [0.5.0](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.4.4...0.5.0) (2024-08-14)
 
 ### Features
