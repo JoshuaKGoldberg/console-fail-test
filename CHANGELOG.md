@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.6.1](///compare/0.6.0...0.6.1) (2025-12-04)
+
+### Bug Fixes
+
+- use wrapping function instead of Vitest's spyOn ([#1060](undefined/undefined/undefined/issues/1060)) 78dd795, closes #1059
+
 ## [0.6.0](///compare/0.5.0...0.6.0) (2025-12-04)
 
 ### Features
