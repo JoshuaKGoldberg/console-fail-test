@@ -2,16 +2,17 @@ import { TestFrameworkSelector } from "./testEnvironmentTypes.js";
 
 declare const afterEach: (callback: () => void) => void;
 declare const beforeEach: (callback: () => void) => void;
-declare const jasmine: {
-	Spec: unknown;
-};
+declare const jasmine:
+	| undefined
+	| {
+			Spec: unknown;
+	  };
 
 const isJasmine = () => {
 	return (
 		typeof afterEach !== "undefined" &&
 		typeof beforeEach !== "undefined" &&
-		typeof jasmine !== "undefined" &&
-		typeof jasmine.Spec !== "undefined"
+		typeof jasmine?.Spec !== "undefined"
 	);
 };
 

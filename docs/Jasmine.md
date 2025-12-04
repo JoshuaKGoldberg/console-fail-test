@@ -9,7 +9,7 @@ Use [`helpers`](https://jasmine.github.io/setup/nodejs.html#configuration) to ru
 
 ```json
 {
-	"helpers": ["../node_modules/console-fail-test/setup.js"]
+	"helpers": ["../node_modules/console-fail-test/lib/setup.js"]
 }
 ```
 

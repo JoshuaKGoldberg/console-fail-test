@@ -4,7 +4,7 @@ const formatComplaintLineArg = (arg: unknown) => {
 	try {
 		return JSON.stringify(arg) || JSON.stringify(`${arg}`);
 	} catch {
-		return `A recursive object with keys: ${Object.keys(arg as {}).join(", ")}`;
+		return `A recursive object with keys: ${Object.keys(arg as object).join(", ")}`;
 	}
 };
 

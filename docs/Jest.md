@@ -10,7 +10,7 @@ Use [`setupFilesAfterEnv`](https://jestjs.io/docs/en/configuration.html) to run 
 ```js
 // jest.config.js
 module.exports = {
-	setupFilesAfterEnv: ["console-fail-test/setup.js"],
+	setupFilesAfterEnv: ["console-fail-test/setup"],
 };
 ```
 

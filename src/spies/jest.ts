@@ -1,7 +1,7 @@
 import { SpyCallArgs, SpyFactory, SpyFactoryGetter } from "./spyTypes.js";
 
 declare interface Jest {
-	fn(implementation: Function): void;
+	fn(implementation: Function): unknown;
 }
 
 declare const jest: Jest | undefined;

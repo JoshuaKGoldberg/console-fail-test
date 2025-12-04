@@ -7,7 +7,7 @@ declare interface NodeTap {
 	fail(message: string): void;
 	jobs: number;
 	name: "TAP";
-	pool: {};
+	pool: object;
 }
 
 const isNodeTap = (testFramework: unknown): testFramework is NodeTap => {

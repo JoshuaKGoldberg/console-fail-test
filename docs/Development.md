@@ -10,7 +10,7 @@ Please check for open issues before filing your own; if you'd like to send a pul
 After [forking the repository](https://help.github.com/en/articles/fork-a-repo), install npm modules with [Yarn](https://yarnpkg.com):
 
 ```shell
-git clone https://github.com/<your-username-here>/console-fail-test
+git clone https://github.com/(your-username-here)/console-fail-test
 cd console-fail-test
 yarn
 ```
@@ -72,7 +72,7 @@ The `SpyFactorySelector` function potentially returned by a test framework selec
 It receives as parameters:
 
 1. `container`: An object whose method is to be spied on.
-   This will practically always be `console`.
+This will practically always be `console`.
    - Note that in future versions of console-fail-test, this may expand to include other objects.
 2. `methodName`: The key of the method to spy on, such as `"log"`.
 

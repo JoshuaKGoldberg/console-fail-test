@@ -1,7 +1,7 @@
 import { SpyCallArgs, SpyFactory, SpyFactoryGetter } from "./spyTypes.js";
 
 declare interface Jasmine {
-	createSpy(): Function & any;
+	createSpy(): any & Function;
 }
 
 declare const jasmine: Jasmine | undefined;
