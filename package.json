@@ -12,6 +12,16 @@
 		"email": "npm@joshuakgoldberg.com"
 	},
 	"type": "module",
+	"exports": {
+		".": {
+			"types": "./lib/index.d.ts",
+			"default": "./lib/index.js"
+		},
+		"./setup": {
+			"types": "./lib/setup.d.ts",
+			"default": "./lib/setup.js"
+		}
+	},
 	"main": "lib/index.js",
 	"files": [
 		"lib/"
