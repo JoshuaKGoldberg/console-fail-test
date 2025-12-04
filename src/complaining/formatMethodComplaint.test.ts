@@ -13,25 +13,25 @@ describe("formatMethodComplaint", () => {
 	});
 
 	test("multiple single-line complaint", () => {
-		const actual = formatMethodComplaint(["log", [["abc"], ["def", "ghi"]]]);
+		const actual = formatMethodComplaint(["log", [["abc"], ["def", "123"]]]);
 
 		expect(actual).toMatchInlineSnapshot(`
 			"  * log (2 calls)
 			    > Call 0: "abc"
-			    > Call 1: "def", "ghi""
+			    > Call 1: "def", "123""
 		`);
 	});
 
 	test("multiple multi-line complaint", () => {
 		const actual = formatMethodComplaint([
 			"log",
-			[["abc\ndef"], ["def\nghi", "jkl"]],
+			[["abc\ndef"], ["def\n123", "jkl"]],
 		]);
 
 		expect(actual).toMatchInlineSnapshot(`
 			"  * log (2 calls)
 			    > Call 0: "abc\\ndef"
-			    > Call 1: "def\\nghi", "jkl""
+			    > Call 1: "def\\n123", "jkl""
 		`);
 	});
 

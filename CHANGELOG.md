@@ -1,4 +1,6 @@
-# [0.5.0](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.4.4...0.5.0) (2024-08-14)
+# Changelog
+
+## [0.5.0](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.4.4...0.5.0) (2024-08-14)
 
 ### Features
 
@@ -28,7 +30,7 @@
 
 - Fix exported types ([#583](https://github.com/JoshuaKGoldberg/console-fail-test/issues/583)) ([09a48e2](https://github.com/JoshuaKGoldberg/console-fail-test/commit/09a48e2206ccc5f659f11d516ca4d973ef9a01a3)), closes [#531](https://github.com/JoshuaKGoldberg/console-fail-test/issues/531)
 
-# 0.4.0 (2024-07-10)
+## 0.4.0 (2024-07-10)
 
 ### Bug Fixes
 

@@ -1,11 +1,5 @@
 import { SpyCallArgs, SpyFactory, SpyFactoryGetter } from "./spyTypes.js";
 
-declare interface Vitest {
-	vi: {
-		spyOn(container: unknown, methodName: string): ViSpy;
-	};
-}
-
 declare interface ViSpy {
 	mock: ViSpyMock;
 	mockRestore(): void;
@@ -15,7 +9,13 @@ declare interface ViSpyMock {
 	calls: SpyCallArgs[];
 }
 
-declare const __vitest_index__: Vitest | undefined;
+declare interface Vitest {
+	vi: {
+		spyOn(container: unknown, methodName: string): ViSpy;
+	};
+}
+
+declare const __vitest_index__: undefined | Vitest;
 
 const isVitestModule = (spyLibrary: unknown): spyLibrary is Vitest => {
 	return (

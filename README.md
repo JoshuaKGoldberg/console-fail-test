@@ -1,17 +1,20 @@
 <h1 align="center">console-fail-test</h1>
 
-<p align="center">Gently fails test runs if the console was used during them. 📢</p>
+<p align="center">
+	Gently fails test runs if the console was used during them.
+	📢
+</p>
 
 <p align="center">
 	<!-- prettier-ignore-start -->
 	<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<img alt="All Contributors: 6 👪" src="https://img.shields.io/badge/all_contributors-6_👪-21bb42.svg" />
+	<a href="#contributors" target="_blank"><img alt="👪 All Contributors: 6" src="https://img.shields.io/badge/%F0%9F%91%AA_all_contributors-6-21bb42.svg" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 	<!-- prettier-ignore-end -->
 	<a href="https://github.com/JoshuaKGoldberg/console-fail-test/blob/main/.github/CODE_OF_CONDUCT.md" target="_blank"><img alt="🤝 Code of Conduct: Kept" src="https://img.shields.io/badge/%F0%9F%A4%9D_code_of_conduct-kept-21bb42" /></a>
 	<a href="https://codecov.io/gh/JoshuaKGoldberg/console-fail-test" target="_blank"><img alt="🧪 Coverage" src="https://img.shields.io/codecov/c/github/JoshuaKGoldberg/console-fail-test?label=%F0%9F%A7%AA%20coverage" /></a>
-	<a href="https://github.com/JoshuaKGoldberg/console-fail-test/blob/main/LICENSE.md" target="_blank"><img alt="📝 License: MIT" src="https://img.shields.io/badge/%F0%9F%93%9D_license-MIT-21bb42.svg"></a>
-	<a href="http://npmjs.com/package/console-fail-test"><img alt="📦 npm version" src="https://img.shields.io/npm/v/console-fail-test?color=21bb42&label=%F0%9F%93%A6%20npm" /></a>
+	<a href="https://github.com/JoshuaKGoldberg/console-fail-test/blob/main/LICENSE.md" target="_blank"><img alt="📝 License: MIT" src="https://img.shields.io/badge/%F0%9F%93%9D_license-MIT-21bb42.svg" /></a>
+	<a href="http://npmjs.com/package/console-fail-test" target="_blank"><img alt="📦 npm version" src="https://img.shields.io/npm/v/console-fail-test?color=21bb42&label=%F0%9F%93%A6%20npm" /></a>
 	<img alt="💪 TypeScript: Strict" src="https://img.shields.io/badge/%F0%9F%92%AA_typescript-strict-21bb42.svg" />
 </p>
 
@@ -31,7 +34,7 @@ It's got some nifty features:
 
 ```plaintext
 stdout | src/index.test.ts > index > example test that console.logs
-Whoopsies!
+Whoops!
 
  ❯ src/index.test.ts (4)
    ❯ index (4)
@@ -44,7 +47,7 @@ Whoopsies!
  FAIL  src/index.test.ts > index > example test that console.logs
 Error: Oh no! Your test called the following console method:
   * log (1 call)
-    > Call 0: "Whoopsies!"
+    > Call 0: "Whoops!"
 ```
 
 ## Usage
@@ -350,28 +353,8 @@ require("console-fail-test").cft({
 
 ## Development
 
-Requires:
-
-- [Node.js](https://nodejs.org) >14 (LTS)
-- [Yarn](https://yarnpkg.com/en)
-
-After [forking the repo from GitHub](https://help.github.com/articles/fork-a-repo):
-
-```shell
-git clone https://github.com/<your-name-here>/console-fail-test
-cd console-fail-test
-yarn
-```
-
-### Contribution Guidelines
-
-We'd love to have you contribute!
-Check the [issue tracker](https://github.com/JoshuaKGoldberg/console-fail-test/issues) for issues labeled [`accepting prs`](https://github.com/JoshuaKGoldberg/console-fail-test/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22accepting+prs%22) to find bug fixes and feature requests the community can work on.
-If this is your first time working with this code, the [`good first issue`](https://github.com/JoshuaKGoldberg/console-fail-test/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22+) label indicates good introductory issues.
-
-Please note that this project is released with a [Contributor Covenant](https://www.contributor-covenant.org).
-By participating in this project you agree to abide by its terms.
-See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
+See [`.github/CONTRIBUTING.md`](./.github/CONTRIBUTING.md), then [`.github/DEVELOPMENT.md`](./.github/DEVELOPMENT.md).
+Thanks! 📢
 
 ## Contributors
 
@@ -382,12 +365,12 @@ See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/mackenco"><img src="https://avatars.githubusercontent.com/u/4284340?v=4?s=100" width="100px;" alt="Colin MacKenzie"/><br /><sub><b>Colin MacKenzie</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=mackenco" title="Code">💻</a> <a href="#ideas-mackenco" title="Ideas, Planning, & Feedback">🤔</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://www.kop.ax/"><img src="https://avatars.githubusercontent.com/u/77674046?v=4?s=100" width="100px;" alt="Dimitri Kopriwa"/><br /><sub><b>Dimitri Kopriwa</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=kopax-polyconseil" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://farazpatankar.com/"><img src="https://avatars.githubusercontent.com/u/10681116?v=4?s=100" width="100px;" alt="Faraz Patankar"/><br /><sub><b>Faraz Patankar</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues?q=author%3Afarazpatankar" title="Bug reports">🐛</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/joel-darós-95536a21/?locale=en_US"><img src="https://avatars.githubusercontent.com/u/992049?v=4?s=100" width="100px;" alt="Joel"/><br /><sub><b>Joel</b></sub></a><br /><a href="#ideas-joel-daros" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=joel-daros" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="http://www.joshuakgoldberg.com"><img src="https://avatars.githubusercontent.com/u/3335181?v=4?s=100" width="100px;" alt="Josh Goldberg"/><br /><sub><b>Josh Goldberg</b></sub></a><br /><a href="#tool-JoshuaKGoldberg" title="Tools">🔧</a> <a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=JoshuaKGoldberg" title="Code">💻</a> <a href="#maintenance-JoshuaKGoldberg" title="Maintenance">🚧</a> <a href="#infra-JoshuaKGoldberg" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-JoshuaKGoldberg" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues?q=author%3AJoshuaKGoldberg" title="Bug reports">🐛</a> <a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=JoshuaKGoldberg" title="Tests">⚠️</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/sosukesuzuki"><img src="https://avatars.githubusercontent.com/u/14838850?v=4?s=100" width="100px;" alt="SUZUKI Sosuke"/><br /><sub><b>SUZUKI Sosuke</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=sosukesuzuki" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/mackenco"><img src="https://avatars.githubusercontent.com/u/4284340?v=4?s=100" width="100px;" alt="Colin MacKenzie"/><br /><sub><b>Colin MacKenzie</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=mackenco" title="Code">💻</a> <a href="#ideas-mackenco" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center"><a href="https://www.kop.ax/"><img src="https://avatars.githubusercontent.com/u/77674046?v=4?s=100" width="100px;" alt="Dimitri Kopriwa"/><br /><sub><b>Dimitri Kopriwa</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=kopax-polyconseil" title="Code">💻</a></td>
+      <td align="center"><a href="https://farazpatankar.com/"><img src="https://avatars.githubusercontent.com/u/10681116?v=4?s=100" width="100px;" alt="Faraz Patankar"/><br /><sub><b>Faraz Patankar</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues?q=author%3Afarazpatankar" title="Bug reports">🐛</a></td>
+      <td align="center"><a href="https://www.linkedin.com/in/joel-darós-95536a21/?locale=en_US"><img src="https://avatars.githubusercontent.com/u/992049?v=4?s=100" width="100px;" alt="Joel"/><br /><sub><b>Joel</b></sub></a><br /><a href="#ideas-joel-daros" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=joel-daros" title="Code">💻</a></td>
+      <td align="center"><a href="http://www.joshuakgoldberg.com"><img src="https://avatars.githubusercontent.com/u/3335181?v=4?s=100" width="100px;" alt="Josh Goldberg"/><br /><sub><b>Josh Goldberg</b></sub></a><br /><a href="#tool-JoshuaKGoldberg" title="Tools">🔧</a> <a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=JoshuaKGoldberg" title="Code">💻</a> <a href="#maintenance-JoshuaKGoldberg" title="Maintenance">🚧</a> <a href="#infra-JoshuaKGoldberg" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#ideas-JoshuaKGoldberg" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues?q=author%3AJoshuaKGoldberg" title="Bug reports">🐛</a> <a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=JoshuaKGoldberg" title="Tests">⚠️</a> <a href="#content-JoshuaKGoldberg" title="Content">🖋</a> <a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=JoshuaKGoldberg" title="Documentation">📖</a> <a href="#projectManagement-JoshuaKGoldberg" title="Project Management">📆</a></td>
+      <td align="center"><a href="https://github.com/sosukesuzuki"><img src="https://avatars.githubusercontent.com/u/14838850?v=4?s=100" width="100px;" alt="SUZUKI Sosuke"/><br /><sub><b>SUZUKI Sosuke</b></sub></a><br /><a href="https://github.com/JoshuaKGoldberg/console-fail-test/commits?author=sosukesuzuki" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
@@ -398,4 +381,4 @@ See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- spellchecker: enable -->
 
-> 💙 This package is based on [@JoshuaKGoldberg](https://github.com/JoshuaKGoldberg)'s [create-typescript-app](https://github.com/JoshuaKGoldberg/create-typescript-app).
+> 💝 This package was templated with [`create-typescript-app`](https://github.com/JoshuaKGoldberg/create-typescript-app) using the [Bingo framework](https://create.bingo).
