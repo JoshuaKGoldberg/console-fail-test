@@ -27,8 +27,8 @@ importers:
         specifier: 4.0.15
         version: 4.0.15(vitest@4.0.15(@types/node@24.10.1)(jiti@2.6.1)(yaml@2.8.2))
       '@vitest/eslint-plugin':
-        specifier: 1.5.1
-        version: 1.5.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.15(@types/node@24.10.1)(jiti@2.6.1)(yaml@2.8.2))
+        specifier: 1.6.1
+        version: 1.6.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.15(@types/node@24.10.1)(jiti@2.6.1)(yaml@2.8.2))
       cspell:
         specifier: 9.4.0
         version: 9.4.0
@@ -1346,8 +1346,8 @@ packages:
       '@vitest/browser':
         optional: true
 
-  '@vitest/eslint-plugin@1.5.1':
-    resolution: {integrity: sha512-t49CNERe/YadnLn90NTTKJLKzs99xBkXElcoUTLodG6j1G0Q7jy3mXqqiHd3N5aryG2KkgOg4UAoGwgwSrZqKQ==}
+  '@vitest/eslint-plugin@1.6.1':
+    resolution: {integrity: sha512-q4ZCihsURDxhJm6bEUtJjciXtT5k3ijWR4U+0f9XdCRAzAfML5NUUSwulsFoK1AFohBieh52akKWJEIFFMLn/g==}
     engines: {node: '>=18'}
     peerDependencies:
       eslint: '>=8.57.0'
@@ -4425,7 +4425,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/eslint-plugin@1.5.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.15(@types/node@24.10.1)(jiti@2.6.1)(yaml@2.8.2))':
+  '@vitest/eslint-plugin@1.6.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.15(@types/node@24.10.1)(jiti@2.6.1)(yaml@2.8.2))':
     dependencies:
       '@typescript-eslint/scope-manager': 8.50.0
       '@typescript-eslint/utils': 8.50.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
