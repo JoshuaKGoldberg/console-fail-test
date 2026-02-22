@@ -46,7 +46,7 @@ importers:
         version: 17.24.0(eslint@10.0.0(jiti@2.6.1))(typescript@5.9.3)
       eslint-plugin-package-json:
         specifier: 0.88.0
-        version: 0.88.0(@types/estree@1.0.8)(eslint@10.0.0(jiti@2.6.1))(jsonc-eslint-parser@2.4.1)
+        version: 0.88.0(@types/estree@1.0.8)(eslint@10.0.0(jiti@2.6.1))(jsonc-eslint-parser@3.0.0)
       eslint-plugin-perfectionist:
         specifier: 5.6.0
         version: 5.6.0(eslint@10.0.0(jiti@2.6.1))(typescript@5.9.3)
@@ -60,8 +60,8 @@ importers:
         specifier: 9.1.7
         version: 9.1.7
       jsonc-eslint-parser:
-        specifier: 2.4.1
-        version: 2.4.1
+        specifier: 3.0.0
+        version: 3.0.0
       knip:
         specifier: 5.76.0
         version: 5.76.0(@types/node@24.10.1)(typescript@5.9.3)
@@ -2393,6 +2393,10 @@ packages:
   jsonc-eslint-parser@2.4.1:
     resolution: {integrity: sha512-uuPNLJkKN8NXAlZlQ6kmUF9qO+T6Kyd7oV4+/7yy8Jz6+MZNyhPq8EdLpdfnPVzUC8qSf1b4j1azKaGnFsjmsw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  jsonc-eslint-parser@3.0.0:
+    resolution: {integrity: sha512-LqaIdUCuMcNRjlusHwscrnCsF8wzmRWM/VoTqKwn6agerfJ0LCTOnUJmbiZirc02+b1n+pl+FJfVXDOLDa12+Q==}
+    engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
@@ -5109,7 +5113,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  eslint-plugin-package-json@0.88.0(@types/estree@1.0.8)(eslint@10.0.0(jiti@2.6.1))(jsonc-eslint-parser@2.4.1):
+  eslint-plugin-package-json@0.88.0(@types/estree@1.0.8)(eslint@10.0.0(jiti@2.6.1))(jsonc-eslint-parser@3.0.0):
     dependencies:
       '@altano/repository-tools': 2.0.1
       change-case: 5.4.4
@@ -5117,7 +5121,7 @@ snapshots:
       detect-newline: 4.0.1
       eslint: 10.0.0(jiti@2.6.1)
       eslint-fix-utils: 0.4.1(@types/estree@1.0.8)(eslint@10.0.0(jiti@2.6.1))
-      jsonc-eslint-parser: 2.4.1
+      jsonc-eslint-parser: 3.0.0
       package-json-validator: 0.59.1
       semver: 7.7.4
       sort-object-keys: 2.1.0
@@ -5560,6 +5564,12 @@ snapshots:
       acorn: 8.15.0
       eslint-visitor-keys: 3.4.3
       espree: 9.6.1
+      semver: 7.7.4
+
+  jsonc-eslint-parser@3.0.0:
+    dependencies:
+      acorn: 8.15.0
+      eslint-visitor-keys: 5.0.0
       semver: 7.7.4
 
   keyv@4.5.4:
