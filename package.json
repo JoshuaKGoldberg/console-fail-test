@@ -48,7 +48,7 @@
 		"@types/node": "24.13.0",
 		"@vitest/coverage-v8": "4.1.0",
 		"@vitest/eslint-plugin": "1.6.1",
-		"cspell": "10.0.0",
+		"cspell": "10.1.0",
 		"eslint": "10.9.0",
 		"eslint-plugin-jsdoc": "64.2.0",
 		"eslint-plugin-jsonc": "3.4.0",
