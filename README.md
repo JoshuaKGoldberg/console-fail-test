@@ -170,6 +170,21 @@ See the _Documentation_ link for each supported framework for how to set up cons
       </td>
     </tr>
     <tr>
+      <td>node:test</td>
+      <td>
+        ✅️
+        ✨
+      </td>
+      <td>
+        <code>"node:test"</code>
+      </td>
+      <td>
+        <a href="./docs/NodeTest.md">
+          <code>NodeTest.md</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>Vitest</td>
       <td>
         ✅️

@@ -18,6 +18,14 @@ vi.mock("./jest.js", () => ({
 	},
 }));
 
+const mockSelectNodeTestEnvironment = vi.fn();
+
+vi.mock("./nodeTest.js", () => ({
+	get selectNodeTestEnvironment() {
+		return () => mockSelectNodeTestEnvironment();
+	},
+}));
+
 describe("selectTestFramework", () => {
 	it("throws an error when given testFramework name that does not exist", () => {
 		expect(() =>
@@ -53,6 +61,18 @@ describe("selectTestFramework", () => {
 		});
 
 		expect(actual).toBe(jest);
+	});
+
+	it("returns an environment when given the node:test name for an active framework", () => {
+		const nodeTest = { isNodeTest: true };
+		mockSelectNodeTestEnvironment.mockReturnValueOnce(nodeTest);
+
+		const actual = selectTestFramework({
+			console: {},
+			testFramework: "node:test",
+		});
+
+		expect(actual).toBe(nodeTest);
 	});
 
 	it("returns an environment when an active framework is inferred", () => {

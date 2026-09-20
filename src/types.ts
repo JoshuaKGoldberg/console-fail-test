@@ -15,4 +15,9 @@ export type SupportedSpyLibrary =
 	| "sinon"
 	| unknown;
 
-export type SupportedTestFramework = "jasmine" | "jest" | "mocha" | unknown;
+export type SupportedTestFramework =
+	| "jasmine"
+	| "jest"
+	| "mocha"
+	| "node:test"
+	| unknown;
