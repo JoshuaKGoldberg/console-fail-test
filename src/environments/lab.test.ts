@@ -6,7 +6,7 @@ const mockLabFramework = {
 	_current: { tests: [] },
 	afterEach: vi.fn(),
 	beforeEach: vi.fn(),
-	setOnly: vi.fn(),
+	experiment: vi.fn(),
 };
 
 describe("selectLabEnvironment", () => {
@@ -17,7 +17,7 @@ describe("selectLabEnvironment", () => {
 			[{ afterEach: vi.fn() }, undefined],
 			[{ afterEach: vi.fn(), beforeEach: vi.fn() }, undefined],
 			[
-				{ afterEach: vi.fn(), beforeEach: vi.fn(), setOnly: vi.fn() },
+				{ afterEach: vi.fn(), beforeEach: vi.fn(), experiment: vi.fn() },
 				undefined,
 			],
 			[
@@ -25,7 +25,7 @@ describe("selectLabEnvironment", () => {
 					_current: {},
 					afterEach: vi.fn(),
 					beforeEach: vi.fn(),
-					setOnly: vi.fn(),
+					experiment: vi.fn(),
 				},
 				undefined,
 			],

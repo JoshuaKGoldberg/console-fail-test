@@ -6,7 +6,7 @@ declare interface Lab {
 	};
 	afterEach(callback: Function): void;
 	beforeEach(callback: Function): void;
-	setOnly: Function;
+	experiment: Function;
 }
 
 const isLab = (testFramework: unknown): testFramework is Lab => {
@@ -14,7 +14,7 @@ const isLab = (testFramework: unknown): testFramework is Lab => {
 		typeof testFramework !== "undefined" &&
 		typeof (testFramework as Partial<Lab>).afterEach !== "undefined" &&
 		typeof (testFramework as Partial<Lab>).beforeEach !== "undefined" &&
-		typeof (testFramework as Partial<Lab>).setOnly !== "undefined" &&
+		typeof (testFramework as Partial<Lab>).experiment !== "undefined" &&
 		typeof (testFramework as Partial<Lab>)._current === "object" &&
 		typeof (testFramework as Lab)._current.tests === "object"
 	);

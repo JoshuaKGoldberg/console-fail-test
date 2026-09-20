@@ -21,10 +21,12 @@ const isMocha = () => {
 	return (
 		typeof afterEach !== "undefined" &&
 		typeof beforeEach !== "undefined" &&
-		`${afterEach}`.replace(/\s/g, "") ===
-			"function(name,fn){suites[0].afterEach(name,fn);}" &&
-		`${beforeEach}`.replace(/\s/g, "") ===
-			"function(name,fn){suites[0].beforeEach(name,fn);}"
+		/^function\(name,fn\)\{(?:return)?suites\[0\]\.afterEach\(name,fn\);\}$/.test(
+			`${afterEach}`.replace(/\s/g, ""),
+		) &&
+		/^function\(name,fn\)\{(?:return)?suites\[0\]\.beforeEach\(name,fn\);\}$/.test(
+			`${beforeEach}`.replace(/\s/g, ""),
+		)
 	);
 };
 

@@ -5,14 +5,11 @@ import { selectAvaEnvironment } from "./ava.js";
 const mockAva = {
 	afterEach: vi.fn(),
 	beforeEach: vi.fn(),
-	cb: vi.fn(),
 	failing: vi.fn(),
 	meta: {
 		file: "",
 	},
-	serial: {
-		cb: vi.fn(),
-	},
+	serial: vi.fn(),
 };
 
 describe("selectAvaEnvironment", () => {
@@ -36,16 +33,6 @@ describe("selectAvaEnvironment", () => {
 					beforeEach: vi.fn(),
 					failing: vi.fn(),
 					meta: { file: "" },
-				},
-				undefined,
-			],
-			[
-				{
-					afterEach: vi.fn(),
-					beforeEach: vi.fn(),
-					failing: vi.fn(),
-					meta: { file: "" },
-					serial: {},
 				},
 				undefined,
 			],

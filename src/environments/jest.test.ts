@@ -37,5 +37,18 @@ describe("selectJestEnvironment", () => {
 				expect(actual).toEqual(expected);
 			},
 		);
+
+		test("when jest is undefined but JEST_WORKER_ID is set, returns an environment", () => {
+			Object.defineProperties(globalThis, {
+				afterEach: { value: mockAfterEach, writable: true },
+				beforeEach: { value: mockBeforeEach, writable: true },
+				jest: { value: undefined, writable: true },
+			});
+			vi.stubEnv("JEST_WORKER_ID", "1");
+
+			const actual = selectJestEnvironment({ console: {} });
+
+			expect(actual).toEqual(expect.any(Object));
+		});
 	});
 });

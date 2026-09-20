@@ -2,8 +2,8 @@ import { formatComplaintCall } from "../complaining/index.js";
 import { TestFrameworkSelector } from "./testEnvironmentTypes.js";
 
 declare interface NodeTap {
-	afterEach(callback: (onFinishAfterEach: () => void) => void): void;
-	beforeEach(callback: (onFinishBeforeEach: () => void) => void): void;
+	afterEach(callback: (onFinish?: unknown) => void): void;
+	beforeEach(callback: (onFinish?: unknown) => void): void;
 	fail(message: string): void;
 	jobs: number;
 	name: "TAP";
@@ -31,7 +31,7 @@ export const selectNodeTapEnvironment: TestFrameworkSelector = ({
 
 	return {
 		afterEach: (callback) => {
-			testFramework.afterEach((onFinishAfterEach) => {
+			testFramework.afterEach((onFinish) => {
 				callback({
 					reportComplaint({ methodComplaints }) {
 						for (const { methodCalls, methodName } of methodComplaints) {
@@ -45,13 +45,18 @@ export const selectNodeTapEnvironment: TestFrameworkSelector = ({
 						}
 					},
 				});
-				onFinishAfterEach();
+				// node-tap <15 passes a done callback; newer versions pass the test
+				if (typeof onFinish === "function") {
+					onFinish();
+				}
 			});
 		},
 		beforeEach: (callback) => {
-			testFramework.beforeEach((onFinishBeforeEach) => {
+			testFramework.beforeEach((onFinish) => {
 				callback();
-				onFinishBeforeEach();
+				if (typeof onFinish === "function") {
+					onFinish();
+				}
 			});
 		},
 	};
