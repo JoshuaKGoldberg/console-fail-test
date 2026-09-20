@@ -185,6 +185,20 @@ See the _Documentation_ link for each supported framework for how to set up cons
       </td>
     </tr>
     <tr>
+      <td>tape</td>
+      <td>
+        ✅️
+      </td>
+      <td>
+        <code>require("tape")</code>
+      </td>
+      <td>
+        <a href="./docs/Tape.md">
+          <code>Tape.md</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>Vitest</td>
       <td>
         ✅️
@@ -226,16 +240,6 @@ See the _Documentation_ link for each supported framework for how to set up cons
       <td>
         <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/198">
           <code>/issues/198</code>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>tape</td>
-      <td>⚙️</td>
-      <td></td>
-      <td>
-        <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/17">
-          <code>/issues/17</code>
         </a>
       </td>
     </tr>
