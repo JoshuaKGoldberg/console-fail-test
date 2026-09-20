@@ -8,7 +8,6 @@ declare const process: {
 
 type HookCallback = (context: { fullName: string }) => void;
 
-// vi.fn() reserves .mock, so the base function is a plain one
 const createMockNodeTest = () => {
 	const nodeTest = Object.assign(() => undefined, {
 		afterEach: vi.fn<(callback: HookCallback) => void>(),
@@ -19,7 +18,6 @@ const createMockNodeTest = () => {
 		run: vi.fn(),
 	});
 
-	// The node:test module is the test function itself, with .test referencing itself
 	return Object.assign(nodeTest, { test: nodeTest });
 };
 

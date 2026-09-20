@@ -31,7 +31,6 @@ const isNodeTest = (testFramework: unknown): testFramework is NodeTest => {
 		typeof (testFramework as Partial<NodeTest>).it === "function" &&
 		typeof (testFramework as Partial<NodeTest>).mock === "object" &&
 		typeof (testFramework as Partial<NodeTest>).run === "function" &&
-		// The node:test module is the test function itself, with .test referencing itself
 		(testFramework as Partial<NodeTest>).test === testFramework
 	);
 };
@@ -41,13 +40,10 @@ const getNodeTest = (testFramework: unknown): NodeTest | undefined => {
 		return testFramework;
 	}
 
-	// A different received module was passed, so this isn't node:test
 	if (testFramework !== undefined && typeof testFramework !== "string") {
 		return undefined;
 	}
 
-	// When run by `node --test`, node:test doesn't create any globals but does set
-	// environment variables, and node:test can be retrieved synchronously
 	if (
 		typeof process === "undefined" ||
 		(process.env.NODE_TEST_CONTEXT === undefined &&
