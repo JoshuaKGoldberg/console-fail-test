@@ -1,2 +1,2 @@
 export { createComplaint } from "./createComplaint.js";
-export { formatComplaintCall } from "./formatComplaintCall.js";
+export { createMethodCallComplaintReporter } from "./createMethodCallComplaintReporter.js";

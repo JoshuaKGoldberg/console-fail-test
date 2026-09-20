@@ -1,6 +1,6 @@
 {
 	"name": "console-fail-test",
-	"version": "0.6.1",
+	"version": "0.8.0",
 	"description": "Gently fails test runs if the console was used during them. 📢",
 	"repository": {
 		"type": "git",

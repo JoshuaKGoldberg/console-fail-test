@@ -7,6 +7,7 @@ import { selectMochaEnvironment } from "./mocha.js";
 import { selectNodeTapEnvironment } from "./nodeTap.js";
 import { selectNodeTestEnvironment } from "./nodeTest.js";
 import { selectQUnitEnvironment } from "./qunit.js";
+import { selectTapeEnvironment } from "./tape.js";
 import { TestFrameworkSelector } from "./testEnvironmentTypes.js";
 import { selectVitestEnvironment } from "./vitest.js";
 
@@ -29,6 +30,7 @@ const detectableTestEnvironmentSelectors: TestFrameworkSelector[] = [
 	selectNodeTapEnvironment,
 	selectNodeTestEnvironment,
 	selectQUnitEnvironment,
+	selectTapeEnvironment,
 
 	selectVitestEnvironment,
 

@@ -1,0 +1,12 @@
+{
+	"name": "example-tape",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "tape example.test.js"
+	},
+	"devDependencies": {
+		"console-fail-test": "workspace:*",
+		"tape": "^5.0.0"
+	}
+}
