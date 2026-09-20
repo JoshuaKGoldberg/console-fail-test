@@ -28,7 +28,7 @@ cft();
 Cypress runs specs and support files inside the browser, so console-fail-test spies on that browser window's `console`.
 It reports calls made by your test code, including from callbacks such as `.then()`, and by code running in the same window, such as components mounted in component tests.
 
-It does not check the console of a page visited with `cy.visit()`, which runs in a separate window.
+It does not check the console of a page visited with `cy.visit()` or of a [`cy.origin()`](https://docs.cypress.io/api/commands/origin) callback, which run in separate windows.
 Cypress's own commands, including `cy.log()` and `Cypress.log()`, don't call the console and so aren't reported.
 
 Some libraries write to the browser console as a normal part of running in development mode.
@@ -48,5 +48,5 @@ cft({
 
 ## Failures
 
-Console calls during a test are reported as a failure of that test, not of its `afterEach` hook, so Cypress continues running the remaining tests in the suite.
+Console calls during a test are reported as a failure of that test rather than of an `afterEach` hook, so Cypress continues running the remaining tests in the suite.
 Cypress doesn't retry tests failed this way even when [test retries](https://docs.cypress.io/app/guides/test-retries) are enabled.

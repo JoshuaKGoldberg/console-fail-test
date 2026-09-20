@@ -51,13 +51,13 @@ const getNodeTest = (testFramework: unknown): NodeTest | undefined => {
 		process === undefined ||
 		(process.env?.NODE_TEST_CONTEXT === undefined &&
 			process.env?.NODE_TEST_WORKER_ID === undefined) ||
-		// eslint-disable-next-line n/no-unsupported-features/node-builtins -- Guarded against by this check
+		// eslint-disable-next-line n/no-unsupported-features/node-builtins -- Checking for support
 		typeof process.getBuiltinModule !== "function"
 	) {
 		return undefined;
 	}
 
-	// eslint-disable-next-line n/no-unsupported-features/node-builtins -- Guarded against by the check above
+	// eslint-disable-next-line n/no-unsupported-features/node-builtins -- Checked for support above
 	const nodeTest = process.getBuiltinModule("node:test");
 
 	return isNodeTest(nodeTest) ? nodeTest : undefined;

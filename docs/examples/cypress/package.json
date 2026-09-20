@@ -7,6 +7,6 @@
 	},
 	"devDependencies": {
 		"console-fail-test": "workspace:*",
-		"cypress": "^15.13.0"
+		"cypress": "^16.0.0"
 	}
 }
