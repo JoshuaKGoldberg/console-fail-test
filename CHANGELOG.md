@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.8.0](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.7.0...0.8.0) (2026-09-20)
+
+### Features
+
+- add tape support ([#1334](https://github.com/JoshuaKGoldberg/console-fail-test/issues/1334)) ([84393cc](https://github.com/JoshuaKGoldberg/console-fail-test/commit/84393ccc722bc0385ab7a0f80a539fcb5541a7c4)), closes [#17](https://github.com/JoshuaKGoldberg/console-fail-test/issues/17)
+
 ## [0.7.0](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.6.1...0.7.0) (2026-09-20)
 
 ### Features
