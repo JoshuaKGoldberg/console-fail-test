@@ -18,22 +18,16 @@ declare interface QUnitModule {
 	test: Function;
 }
 
-const isQUnitHooks = (hooks: unknown): hooks is QUnitHooks => {
-	return (
-		typeof hooks === "object" &&
-		hooks !== null &&
-		typeof (hooks as Partial<QUnitHooks>).afterEach === "function" &&
-		typeof (hooks as Partial<QUnitHooks>).beforeEach === "function"
-	);
-};
-
 const isQUnit = (testFramework: unknown): testFramework is QUnitModule => {
 	return (
 		typeof testFramework === "object" &&
 		testFramework !== null &&
 		typeof (testFramework as Partial<QUnitModule>).config === "object" &&
 		// Global QUnit.hooks were added in QUnit 2.18
-		isQUnitHooks((testFramework as Partial<QUnitModule>).hooks) &&
+		typeof (testFramework as Partial<QUnitModule>).hooks?.afterEach ===
+			"function" &&
+		typeof (testFramework as Partial<QUnitModule>).hooks?.beforeEach ===
+			"function" &&
 		typeof (testFramework as Partial<QUnitModule>).module === "function" &&
 		typeof (testFramework as Partial<QUnitModule>).test === "function"
 	);
