@@ -1,0 +1,12 @@
+{
+	"name": "example-node-tap",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "tap --disable-coverage"
+	},
+	"devDependencies": {
+		"console-fail-test": "workspace:*",
+		"tap": "^21.0.0"
+	}
+}

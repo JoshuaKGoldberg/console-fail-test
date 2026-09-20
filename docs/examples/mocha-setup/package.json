@@ -1,0 +1,12 @@
+{
+	"name": "example-mocha-setup",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "mocha"
+	},
+	"devDependencies": {
+		"console-fail-test": "workspace:*",
+		"mocha": "^11.0.0"
+	}
+}

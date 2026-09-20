@@ -1,0 +1,12 @@
+{
+	"name": "example-jest-basic",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+	},
+	"devDependencies": {
+		"console-fail-test": "workspace:*",
+		"jest": "^30.0.0"
+	}
+}

@@ -66,6 +66,8 @@ module.exports = {
 
 > Prior to `console-fail-test@0.6.0`, this was `setup.cjs` or `setup.mjs`.
 
+See [`docs/examples/`](./docs/examples) for runnable example projects per framework.
+
 ### Test Frameworks
 
 See the _Documentation_ link for each supported framework for how to set up console-fail-test with that framework.

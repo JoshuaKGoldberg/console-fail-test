@@ -1,0 +1,12 @@
+{
+	"name": "example-jasmine-basic",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "jasmine --config=jasmine.json"
+	},
+	"devDependencies": {
+		"console-fail-test": "workspace:*",
+		"jasmine": "^5.0.0"
+	}
+}
