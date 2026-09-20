@@ -26,6 +26,14 @@ vi.mock("./nodeTest.js", () => ({
 	},
 }));
 
+const mockSelectQUnitEnvironment = vi.fn();
+
+vi.mock("./qunit.js", () => ({
+	get selectQUnitEnvironment() {
+		return () => mockSelectQUnitEnvironment();
+	},
+}));
+
 describe("selectTestFramework", () => {
 	it("throws an error when given testFramework name that does not exist", () => {
 		expect(() =>
@@ -73,6 +81,18 @@ describe("selectTestFramework", () => {
 		});
 
 		expect(actual).toBe(nodeTest);
+	});
+
+	it("returns an environment when given the qunit name for an active framework", () => {
+		const qunit = { isQUnit: true };
+		mockSelectQUnitEnvironment.mockReturnValueOnce(qunit);
+
+		const actual = selectTestFramework({
+			console: {},
+			testFramework: "qunit",
+		});
+
+		expect(actual).toBe(qunit);
 	});
 
 	it("returns an environment when an active framework is inferred", () => {

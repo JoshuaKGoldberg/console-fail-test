@@ -185,6 +185,21 @@ See the _Documentation_ link for each supported framework for how to set up cons
       </td>
     </tr>
     <tr>
+      <td>QUnit</td>
+      <td>
+        ✅️
+        ✨
+      </td>
+      <td>
+        <code>"qunit"</code>
+      </td>
+      <td>
+        <a href="./docs/QUnit.md">
+          <code>QUnit.md</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>Vitest</td>
       <td>
         ✅️
@@ -206,16 +221,6 @@ See the _Documentation_ link for each supported framework for how to set up cons
       <td>
         <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/199">
           <code>/issues/199</code>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>QUnit</td>
-      <td>⚙️</td>
-      <td></td>
-      <td>
-        <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/19">
-          <code>/issues/19</code>
         </a>
       </td>
     </tr>
