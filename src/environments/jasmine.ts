@@ -12,7 +12,9 @@ const isJasmine = () => {
 	return (
 		typeof afterEach !== "undefined" &&
 		typeof beforeEach !== "undefined" &&
-		typeof jasmine?.Spec !== "undefined"
+		// Not `jasmine?.Spec`: that throws a ReferenceError when jasmine isn't declared
+		typeof jasmine === "object" &&
+		jasmine.Spec !== undefined
 	);
 };
 
