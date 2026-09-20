@@ -1,0 +1,11 @@
+{
+	"name": "example-node-test",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "node --test"
+	},
+	"devDependencies": {
+		"console-fail-test": "workspace:*"
+	}
+}

@@ -5,6 +5,7 @@ import { selectJestEnvironment } from "./jest.js";
 import { selectLabEnvironment } from "./lab.js";
 import { selectMochaEnvironment } from "./mocha.js";
 import { selectNodeTapEnvironment } from "./nodeTap.js";
+import { selectNodeTestEnvironment } from "./nodeTest.js";
 import { TestFrameworkSelector } from "./testEnvironmentTypes.js";
 import { selectVitestEnvironment } from "./vitest.js";
 
@@ -15,6 +16,7 @@ const testEnvironmentsByName = new Map<
 	["jasmine", selectJasmineEnvironment],
 	["jest", selectJestEnvironment],
 	["mocha", selectMochaEnvironment],
+	["node:test", selectNodeTestEnvironment],
 	["vitest", selectVitestEnvironment],
 ]);
 
@@ -23,6 +25,9 @@ const detectableTestEnvironmentSelectors: TestFrameworkSelector[] = [
 	selectAvaEnvironment,
 	selectLabEnvironment,
 	selectNodeTapEnvironment,
+
+	// node:test is detected by received module or by `node --test` environment variables
+	selectNodeTestEnvironment,
 
 	selectVitestEnvironment,
 

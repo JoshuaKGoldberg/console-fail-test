@@ -338,6 +338,12 @@ importers:
         specifier: ^21.0.0
         version: 21.8.0(@types/node@24.13.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(supports-color@8.1.1)(typescript@6.0.2)
 
+  docs/examples/node-test:
+    devDependencies:
+      console-fail-test:
+        specifier: workspace:*
+        version: link:../../..
+
   docs/examples/vitest-basic:
     devDependencies:
       console-fail-test:
