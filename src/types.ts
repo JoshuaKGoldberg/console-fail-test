@@ -20,4 +20,5 @@ export type SupportedTestFramework =
 	| "jest"
 	| "mocha"
 	| "node:test"
+	| "qunit"
 	| unknown;
