@@ -2,9 +2,7 @@ import { beforeEach, describe, expect, it, test, vi } from "vitest";
 
 import { selectCypressEnvironment } from "./cypress.js";
 
-declare const suites: [
-	{ afterEach: typeof mockAfterEach; beforeEach: typeof mockBeforeEach },
-];
+declare const suites: [typeof mockSuite];
 
 const mockAfterEach = function (name: string, fn: () => void) {
 	suites[0].afterEach(name, fn);
@@ -77,8 +75,6 @@ describe("selectCypressEnvironment", () => {
 	});
 
 	describe("afterEach", () => {
-		const error = new Error("Oh no!\nDetails");
-
 		const createContext = (
 			state: string,
 			statusInfo?: { outerStatus: string },
@@ -93,6 +89,7 @@ describe("selectCypressEnvironment", () => {
 		});
 
 		const runAfterEach = (context: ReturnType<typeof createContext>) => {
+			const error = new Error("Oh no!\nDetails");
 			const callback = vi.fn((hooks) => {
 				hooks.reportComplaint({ error, methodComplaints: [] });
 			});
@@ -105,18 +102,17 @@ describe("selectCypressEnvironment", () => {
 
 			hook.call(context);
 
-			return callback;
+			return { callback, error };
 		};
 
 		beforeEach(() => {
 			stubGlobals(mockCypress, mockAfterEach, mockBeforeEach);
-			error.message = "Oh no!\nDetails";
 		});
 
 		it("does not call the callback when the test did not pass", () => {
 			const context = createContext("failed");
 
-			const callback = runAfterEach(context);
+			const { callback } = runAfterEach(context);
 
 			expect(callback).not.toHaveBeenCalled();
 			expect(context.test.error).not.toHaveBeenCalled();
@@ -125,7 +121,7 @@ describe("selectCypressEnvironment", () => {
 		it("fails the test with an indented error when the test passed", () => {
 			const context = createContext("passed");
 
-			runAfterEach(context);
+			const { error } = runAfterEach(context);
 
 			expect(context.test.error).toHaveBeenCalledWith(error);
 			expect(error.message).toBe("Oh no!\n     Details");

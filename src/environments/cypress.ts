@@ -4,11 +4,11 @@ import { TestFrameworkSelector } from "./testEnvironmentTypes.js";
 declare const beforeEach: (callback: (this: MochaContext) => void) => void;
 declare const Cypress: object | undefined;
 
-interface CypressTest {
+type CypressTest = MochaContext["currentTest"] & {
 	_cypressTestStatusInfo?: {
 		outerStatus: string;
 	};
-}
+};
 
 export const selectCypressEnvironment: TestFrameworkSelector = () => {
 	// Cypress runs a bundled Mocha inside the browser, so it's detected the same way
@@ -16,6 +16,8 @@ export const selectCypressEnvironment: TestFrameworkSelector = () => {
 		return undefined;
 	}
 
+	// No mapSpyCalls: unlike Mocha's, Cypress's reporter runs outside the browser,
+	// so its logs never show up in the spied console
 	return {
 		afterEach: createMochaAfterEach((context, error) => {
 			// Failing the test itself, rather than throwing from this hook,
@@ -32,7 +34,5 @@ export const selectCypressEnvironment: TestFrameworkSelector = () => {
 			}
 		}),
 		beforeEach,
-		// Unlike Mocha's, Cypress's reporter runs outside the browser,
-		// so its logs never show up in the spied console
 	};
 };
