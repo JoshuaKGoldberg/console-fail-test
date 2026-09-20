@@ -1,4 +1,4 @@
-import { describe, expect, test, vi } from "vitest";
+import { describe, expect, it, test, vi } from "vitest";
 
 import { selectMochaEnvironment } from "./mocha.js";
 
@@ -14,7 +14,36 @@ const mockBeforeEach = function (name: string, fn: () => void) {
 	suites[0].beforeEach(name, fn);
 };
 
+const mockSuite = {
+	afterEach: vi.fn<(...args: unknown[]) => void>(),
+	beforeEach: vi.fn(),
+};
+
 describe("selectMochaEnvironment", () => {
+	describe("afterEach", () => {
+		it("fails the test with the error when the test passed", () => {
+			Object.defineProperties(globalThis, {
+				afterEach: { value: mockAfterEach, writable: true },
+				beforeEach: { value: mockBeforeEach, writable: true },
+				suites: { value: [mockSuite], writable: true },
+			});
+			const error = new Error("Oh no!");
+			const context = {
+				currentTest: { state: "passed" },
+				test: { error: vi.fn() },
+			};
+
+			selectMochaEnvironment({ console: {} })!.afterEach((hooks) => {
+				hooks!.reportComplaint!({ error, methodComplaints: [] });
+			});
+			(mockSuite.afterEach.mock.calls[0][0] as (this: unknown) => void).call(
+				context,
+			);
+
+			expect(context.test.error).toHaveBeenCalledWith(error);
+		});
+	});
+
 	describe("isMocha", () => {
 		test.each([
 			[undefined, undefined, undefined],

@@ -16,6 +16,7 @@ export type SupportedSpyLibrary =
 	| unknown;
 
 export type SupportedTestFramework =
+	| "cypress"
 	| "jasmine"
 	| "jest"
 	| "mocha"

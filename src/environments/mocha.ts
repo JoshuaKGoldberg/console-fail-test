@@ -1,9 +1,12 @@
-import { TestFrameworkSelector } from "./testEnvironmentTypes.js";
+import {
+	TestFramework,
+	TestFrameworkSelector,
+} from "./testEnvironmentTypes.js";
 
-declare const afterEach: (callback: (this: Mocha) => void) => void;
-declare const beforeEach: (callback: (this: Mocha) => void) => void;
+declare const afterEach: (callback: (this: MochaContext) => void) => void;
+declare const beforeEach: (callback: (this: MochaContext) => void) => void;
 
-declare interface Mocha {
+export interface MochaContext {
 	currentTest: {
 		state: string;
 	};
@@ -12,7 +15,7 @@ declare interface Mocha {
 	};
 }
 
-const isMocha = () => {
+export const isMocha = () => {
 	// Until there is some kind of global `mocha` variable that can be referenced,
 	// we check the stringified versions of its used hook methods
 	// https://github.com/JoshuaKGoldberg/console-fail-test/issues/10
@@ -30,26 +33,39 @@ const isMocha = () => {
 	);
 };
 
+/**
+ * Creates an afterEach hook for Mocha and for test frameworks built on Mocha.
+ * @param reportError Fails the hook's current test with an error.
+ * @returns The afterEach hook.
+ */
+export const createMochaAfterEach =
+	(
+		reportError: (context: MochaContext, error: Error) => void,
+	): TestFramework["afterEach"] =>
+	(callback) => {
+		afterEach(function (this: MochaContext) {
+			if (this.currentTest.state !== "passed") {
+				return;
+			}
+
+			callback({
+				reportComplaint: ({ error }) => {
+					error.message = error.message.replace(/\n/g, "\n     ");
+					reportError(this, error);
+				},
+			});
+		});
+	};
+
 export const selectMochaEnvironment: TestFrameworkSelector = () => {
 	if (!isMocha()) {
 		return undefined;
 	}
 
 	return {
-		afterEach: (callback) => {
-			afterEach(function (this: Mocha) {
-				if (this.currentTest.state !== "passed") {
-					return;
-				}
-
-				callback({
-					reportComplaint: ({ error }) => {
-						error.message = error.message.replace(/\n/g, "\n     ");
-						this.test.error(error);
-					},
-				});
-			});
-		},
+		afterEach: createMochaAfterEach((context, error) => {
+			context.test.error(error);
+		}),
 		beforeEach,
 		mapSpyCalls: ({ methodCalls, methodName }) => {
 			if (methodCalls.length === 0 || methodName !== "log") {

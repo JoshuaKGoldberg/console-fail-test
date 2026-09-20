@@ -1,5 +1,6 @@
 allowBuilds:
   "@parcel/watcher": false
+  cypress: false
   unrs-resolver: false
 packages:
   - docs/examples/*
