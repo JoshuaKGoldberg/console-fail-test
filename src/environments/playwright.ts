@@ -14,6 +14,8 @@ declare interface PlaywrightTest {
 const isPlaywrightTest = (
 	testFramework: unknown,
 ): testFramework is PlaywrightTest => {
+	// Vitest's test function also has afterEach, beforeEach, describe, and extend,
+	// so info, step, and use are the distinguishing keys
 	return (
 		typeof testFramework === "function" &&
 		typeof (testFramework as Partial<PlaywrightTest>).afterEach ===

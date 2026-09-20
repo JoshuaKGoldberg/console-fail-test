@@ -76,6 +76,7 @@ describe("selectPlaywrightEnvironment", () => {
 				undefined,
 			],
 			[notAFunction, undefined],
+			[test, undefined],
 			[createMockPlaywrightTest(), expect.any(Object)],
 		])("when testFramework is %s, returns %s", (testFramework, expected) => {
 			const actual = selectPlaywrightEnvironment({
@@ -99,7 +100,7 @@ describe("selectPlaywrightEnvironment", () => {
 			environment.afterEach(vi.fn());
 			environment.beforeEach(vi.fn());
 
-			// Playwright resolves hook parameters as fixtures, so there must be none
+			// Playwright parses hook parameters as fixture names, so the callbacks must declare none
 			expect(playwrightTest.afterEach.mock.calls[0][0]).toHaveLength(0);
 			expect(playwrightTest.beforeEach.mock.calls[0][0]).toHaveLength(0);
 		});

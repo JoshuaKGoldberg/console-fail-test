@@ -34,7 +34,12 @@ Calling `cft()` from a shared module would therefore only check the first test f
 console-fail-test registers file-level `beforeEach` and `afterEach` hooks.
 They run around any hooks registered in `test.describe()` blocks, so console calls in those hooks are reported as failures of their test as well.
 
-[Fixtures](https://playwright.dev/docs/test-fixtures) are set up before and torn down after those hooks, so their console calls are not checked.
+Hooks at the same level run in declaration order.
+A file-level `beforeEach` declared before `cft()` or a file-level `afterEach` declared after it is not checked.
+
+[Fixtures](https://playwright.dev/docs/test-fixtures) are set up right before the first hook or test that uses them.
+`auto` fixtures are therefore set up before console-fail-test's `beforeEach` hook and are not checked, while fixtures first used by the test itself are set up after it and are checked.
+Fixture teardown always runs after `afterEach` hooks, so it is never checked.
 
 ## Failures
 
