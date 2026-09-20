@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.9.0](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.8.0...0.9.0) (2026-09-20)
+
+### Features
+
+- add QUnit support ([#1335](https://github.com/JoshuaKGoldberg/console-fail-test/issues/1335)) ([e25a141](https://github.com/JoshuaKGoldberg/console-fail-test/commit/e25a141ce2be57399e8dea4faea443c038ac89fb)), closes [#19](https://github.com/JoshuaKGoldberg/console-fail-test/issues/19)
+
 ## [0.8.0](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.7.0...0.8.0) (2026-09-20)
 
 ### Features
