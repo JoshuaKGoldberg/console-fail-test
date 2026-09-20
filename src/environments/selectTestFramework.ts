@@ -25,8 +25,6 @@ const detectableTestEnvironmentSelectors: TestFrameworkSelector[] = [
 	selectAvaEnvironment,
 	selectLabEnvironment,
 	selectNodeTapEnvironment,
-
-	// node:test is detected by received module or by `node --test` environment variables
 	selectNodeTestEnvironment,
 
 	selectVitestEnvironment,
