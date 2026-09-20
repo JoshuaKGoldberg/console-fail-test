@@ -1,0 +1,12 @@
+{
+	"name": "example-cypress",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "cypress run"
+	},
+	"devDependencies": {
+		"console-fail-test": "workspace:*",
+		"cypress": "^15.13.0"
+	}
+}

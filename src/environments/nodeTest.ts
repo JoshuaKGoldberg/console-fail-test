@@ -15,12 +15,15 @@ declare interface NodeTestContext {
 	fullName: string;
 }
 
-declare const process:
-	| undefined
-	| {
-			env: Record<string, string | undefined>;
-			getBuiltinModule?: (id: string) => unknown;
-	  };
+// process is read from globalThis rather than as a free variable so that browser
+// bundlers such as Cypress's don't inject a polyfill for it into this module.
+// Some browser environments, such as Cypress component testing, define an empty process.
+const { process } = globalThis as {
+	process?: {
+		env?: Record<string, string | undefined>;
+		getBuiltinModule?: (id: string) => unknown;
+	};
+};
 
 const isNodeTest = (testFramework: unknown): testFramework is NodeTest => {
 	return (
@@ -45,14 +48,16 @@ const getNodeTest = (testFramework: unknown): NodeTest | undefined => {
 	}
 
 	if (
-		typeof process === "undefined" ||
-		(process.env.NODE_TEST_CONTEXT === undefined &&
-			process.env.NODE_TEST_WORKER_ID === undefined) ||
+		process === undefined ||
+		(process.env?.NODE_TEST_CONTEXT === undefined &&
+			process.env?.NODE_TEST_WORKER_ID === undefined) ||
+		// eslint-disable-next-line n/no-unsupported-features/node-builtins -- Guarded against by this check
 		typeof process.getBuiltinModule !== "function"
 	) {
 		return undefined;
 	}
 
+	// eslint-disable-next-line n/no-unsupported-features/node-builtins -- Guarded against by the check above
 	const nodeTest = process.getBuiltinModule("node:test");
 
 	return isNodeTest(nodeTest) ? nodeTest : undefined;

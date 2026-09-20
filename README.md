@@ -97,6 +97,21 @@ See the _Documentation_ link for each supported framework for how to set up cons
       </td>
     </tr>
     <tr>
+      <td>Cypress</td>
+      <td>
+        ✅️
+        ✨
+      </td>
+      <td>
+        <code>"cypress"</code>
+      </td>
+      <td>
+        <a href="./docs/Cypress.md">
+          <code>Cypress.md</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>Mocha</td>
       <td>
         ✅️
@@ -196,16 +211,6 @@ See the _Documentation_ link for each supported framework for how to set up cons
       <td>
         <a href="./docs/Vitest.md">
           <code>Vitest.md</code>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>Cypress</td>
-      <td>⚙️</td>
-      <td></td>
-      <td>
-        <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/199">
-          <code>/issues/199</code>
         </a>
       </td>
     </tr>
