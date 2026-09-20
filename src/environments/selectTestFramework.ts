@@ -6,6 +6,7 @@ import { selectLabEnvironment } from "./lab.js";
 import { selectMochaEnvironment } from "./mocha.js";
 import { selectNodeTapEnvironment } from "./nodeTap.js";
 import { selectNodeTestEnvironment } from "./nodeTest.js";
+import { selectPlaywrightEnvironment } from "./playwright.js";
 import { TestFrameworkSelector } from "./testEnvironmentTypes.js";
 import { selectVitestEnvironment } from "./vitest.js";
 
@@ -26,6 +27,7 @@ const detectableTestEnvironmentSelectors: TestFrameworkSelector[] = [
 	selectLabEnvironment,
 	selectNodeTapEnvironment,
 	selectNodeTestEnvironment,
+	selectPlaywrightEnvironment,
 
 	selectVitestEnvironment,
 
