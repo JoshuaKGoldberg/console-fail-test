@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.7.0](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.6.1...0.7.0) (2026-09-20)
+
+### Features
+
+- add node:test test framework support ([#1333](https://github.com/JoshuaKGoldberg/console-fail-test/issues/1333)) ([5a03088](https://github.com/JoshuaKGoldberg/console-fail-test/commit/5a03088b3e3d4ead09951fcdf4411133a39b9e40)), closes [#78](https://github.com/JoshuaKGoldberg/console-fail-test/issues/78)
+
+### Bug Fixes
+
+- detect current versions of Jest, Mocha, AVA, lab, and node-tap ([#1332](https://github.com/JoshuaKGoldberg/console-fail-test/issues/1332)) ([6437eed](https://github.com/JoshuaKGoldberg/console-fail-test/commit/6437eeddf2c8d3d89cc087b1c295f32931594ddf)), closes [#10](https://github.com/JoshuaKGoldberg/console-fail-test/issues/10)
+
 ## [0.6.1](///compare/0.6.0...0.6.1) (2025-12-04)
 
 ### Bug Fixes
