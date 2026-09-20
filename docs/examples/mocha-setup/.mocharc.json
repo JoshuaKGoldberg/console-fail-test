@@ -1,0 +1,4 @@
+{
+	"file": "./setupTests.js",
+	"spec": "*.test.js"
+}

@@ -14,7 +14,15 @@ import tseslint from "typescript-eslint";
 
 export default defineConfig(
 	{
-		ignores: ["**/*.snap", "coverage", "lib", "node_modules", "pnpm-lock.yaml"],
+		ignores: [
+			"**/*.snap",
+			"coverage",
+			"docs/examples",
+			"lib",
+			"node_modules",
+			"pnpm-lock.yaml",
+			"pnpm-workspace.yaml",
+		],
 	},
 	{ linterOptions: { reportUnusedDisableDirectives: "error" } },
 	{

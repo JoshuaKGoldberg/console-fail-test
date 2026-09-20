@@ -1,0 +1,12 @@
+{
+	"name": "example-lab",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "lab example.test.js"
+	},
+	"devDependencies": {
+		"@hapi/lab": "^26.0.0",
+		"console-fail-test": "workspace:*"
+	}
+}

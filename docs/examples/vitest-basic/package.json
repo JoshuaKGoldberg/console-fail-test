@@ -1,0 +1,12 @@
+{
+	"name": "example-vitest-basic",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "vitest run"
+	},
+	"devDependencies": {
+		"console-fail-test": "workspace:*",
+		"vitest": "^4.0.0"
+	}
+}

@@ -8,6 +8,6 @@ export default defineConfig({
 			include: ["src"],
 			reporter: ["html", "lcov"],
 		},
-		exclude: ["lib", "node_modules"],
+		exclude: ["docs/examples", "lib", "node_modules"],
 	},
 });

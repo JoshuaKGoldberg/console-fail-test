@@ -53,6 +53,14 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         if: always()
         uses: codecov/codecov-action@v3
+  test_examples:
+    name: Test Examples
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: ./.github/actions/prepare
+      - run: pnpm build
+      - run: pnpm --filter "./docs/examples/**" test
   type_check:
     name: Type Check
     runs-on: ubuntu-latest

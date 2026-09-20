@@ -1,0 +1,12 @@
+{
+	"name": "example-ava",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "ava"
+	},
+	"devDependencies": {
+		"ava": "^6.0.0",
+		"console-fail-test": "workspace:*"
+	}
+}

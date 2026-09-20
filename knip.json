@@ -1,7 +1,12 @@
 {
 	"$schema": "https://unpkg.com/knip@5.71.0/schema.json",
-	"entry": ["src/**/*.test.*", "src/index.ts", "src/index.ts!"],
 	"ignoreExportsUsedInFile": { "interface": true, "type": true },
-	"project": ["src/**/*.ts", "src/**/*.ts!"],
-	"treatConfigHintsAsErrors": true
+	"ignoreWorkspaces": ["docs/examples/*"],
+	"treatConfigHintsAsErrors": true,
+	"workspaces": {
+		".": {
+			"entry": ["src/**/*.test.*", "src/index.ts", "src/index.ts!"],
+			"project": ["src/**/*.ts", "src/**/*.ts!"]
+		}
+	}
 }
