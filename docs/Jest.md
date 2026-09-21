@@ -30,13 +30,8 @@ Jest has two similarly named options for setup files:
 - [`setupFilesAfterEnv`](https://jestjs.io/docs/configuration#setupfilesafterenv-array): run _after_ it is installed
 
 console-fail-test hooks into Jest's `beforeEach` and `afterEach` globals, which don't exist yet in `setupFiles`.
-Listing `console-fail-test/setup` in `setupFiles` instead of `setupFilesAfterEnv` will fail each test suite with:
-
-```plaintext
-Could not auto-detect test environment; consider passing it directly to cft.
-```
-
-Passing `testFramework: "jest"` explicitly doesn't help there either; move the entry to `setupFilesAfterEnv`.
+Listing `console-fail-test/setup` in `setupFiles` instead of `setupFilesAfterEnv` will fail each test suite.
+Use `setupFilesAfterEnv`.
 
 ## Spies
 
