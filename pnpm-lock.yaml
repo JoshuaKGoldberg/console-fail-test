@@ -221,8 +221,8 @@ importers:
         specifier: 3.3.0
         version: 3.3.0
       knip:
-        specifier: 5.76.0
-        version: 5.76.0(@types/node@24.13.0)(typescript@6.0.2)
+        specifier: 5.88.1
+        version: 5.88.1(@types/node@24.13.0)(typescript@6.0.2)
       lint-staged:
         specifier: 17.5.0
         version: 17.5.0
@@ -4431,8 +4431,8 @@ packages:
   keyv@5.6.0:
     resolution: {integrity: sha512-CYDD3SOtsHtyXeEORYRx2qBtpDJFjRTGXUtmNEMGyzYOKj1TE3tycdlho7kA1Ufx9OYWZzg52QFBGALTirzDSw==}
 
-  knip@5.76.0:
-    resolution: {integrity: sha512-Qw3rbm8oFzsegHQOP1m2VgVFB/mPiY9ws0axt/OPawqaf7glft561AC1woSFO0/UrzG3KUSwckQ2CcYBwpZ9iw==}
+  knip@5.88.1:
+    resolution: {integrity: sha512-tpy5o7zu1MjawVkLPuahymVJekYY3kYjvzcoInhIchgePxTlo+api90tBv2KfhAIe5uXh+mez1tAfmbv8/TiZg==}
     engines: {node: '>=18.18.0'}
     hasBin: true
     peerDependencies:
@@ -6003,6 +6003,10 @@ packages:
     resolution: {integrity: sha512-v3Xu+yuwBXisp6QYTcH4UbH+xYJXqnq2m/LtQVWKWzYc1iehYnLixoQDN9FH6/j9/oybfd6W9Ghwkl8+UMKTKQ==}
     engines: {node: '>=0.8.0'}
     hasBin: true
+
+  unbash@2.2.0:
+    resolution: {integrity: sha512-X2wH19RAPZE3+ldGicOkoj/SIA83OIxcJ6Cuaw23hf8Xc6fQpvZXY0SftE2JgS0QhYLUG4uwodSI3R53keyh7w==}
+    engines: {node: '>=14'}
 
   unbox-primitive@1.1.0:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}
@@ -11000,14 +11004,13 @@ snapshots:
     dependencies:
       '@keyv/serialize': 1.1.1
 
-  knip@5.76.0(@types/node@24.13.0)(typescript@6.0.2):
+  knip@5.88.1(@types/node@24.13.0)(typescript@6.0.2):
     dependencies:
       '@nodelib/fs.walk': 1.2.8
       '@types/node': 24.13.0
       fast-glob: 3.3.3
       formatly: 0.3.0
       jiti: 2.7.0
-      js-yaml: 4.3.2
       minimist: 1.2.8
       oxc-resolver: 11.24.2
       picocolors: 1.1.1
@@ -11015,6 +11018,8 @@ snapshots:
       smol-toml: 1.8.0
       strip-json-comments: 5.0.3
       typescript: 6.0.2
+      unbash: 2.2.0
+      yaml: 2.9.1
       zod: 4.6.5
 
   leven@3.1.0: {}
@@ -12938,6 +12943,8 @@ snapshots:
 
   uglify-js@3.19.3:
     optional: true
+
+  unbash@2.2.0: {}
 
   unbox-primitive@1.1.0:
     dependencies:
