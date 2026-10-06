@@ -68,6 +68,21 @@ module.exports = {
 
 See [`docs/examples/`](./docs/examples) for runnable example projects per framework.
 
+### Test Fixtures
+
+For test frameworks whose `test.extend()` creates fixtures, such as Playwright and Vitest, `extendTest` can instead add console-fail-test as an automatic fixture:
+
+```js
+// fixtures.js
+import { extendTest } from "console-fail-test";
+import { test as base } from "vitest";
+
+export const test = extendTest(base);
+```
+
+Tests that use the extended `test` are checked for console calls from the test, its hooks, and its fixtures' setup and teardown.
+`extendTest` takes the same options as `cft` as its second parameter, except for `testFramework`.
+
 ### Test Frameworks
 
 See the _Documentation_ link for each supported framework for how to set up console-fail-test with that framework.
@@ -200,6 +215,20 @@ See the _Documentation_ link for each supported framework for how to set up cons
       </td>
     </tr>
     <tr>
+      <td>Playwright</td>
+      <td>
+        ✅️
+      </td>
+      <td>
+        <code>extendTest(test)</code>
+      </td>
+      <td>
+        <a href="./docs/Playwright.md">
+          <code>Playwright.md</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>QUnit</td>
       <td>
         ✅️
@@ -240,16 +269,6 @@ See the _Documentation_ link for each supported framework for how to set up cons
       <td>
         <a href="./docs/Vitest.md">
           <code>Vitest.md</code>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>Playwright</td>
-      <td>⚙️</td>
-      <td></td>
-      <td>
-        <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/198">
-          <code>/issues/198</code>
         </a>
       </td>
     </tr>
