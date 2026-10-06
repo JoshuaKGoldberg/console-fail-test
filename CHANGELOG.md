@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.10.0](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.9.0...0.10.0) (2026-10-06)
+
+### Features
+
+- allow patterns of console messages per method ([#1360](https://github.com/JoshuaKGoldberg/console-fail-test/issues/1360)) ([62b1c9b](https://github.com/JoshuaKGoldberg/console-fail-test/commit/62b1c9b71f75260c95b25567489330b7915e3265)), closes [#36](https://github.com/JoshuaKGoldberg/console-fail-test/issues/36)
+
 ## [0.9.0](https://github.com/JoshuaKGoldberg/console-fail-test/compare/0.8.0...0.9.0) (2026-09-20)
 
 ### Features
