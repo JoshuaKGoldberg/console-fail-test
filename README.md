@@ -377,6 +377,19 @@ require("console-fail-test").cft({
 });
 ```
 
+To allow only specific messages, pass an `allow` array of strings or regular expressions.
+A call is allowed if its arguments, joined by spaces, contain any string or match any regular expression:
+
+```js
+require("console-fail-test").cft({
+	console: {
+		error: {
+			allow: ["Failed to fetch", /^Deprecated: /],
+		},
+	},
+});
+```
+
 ## Development
 
 See [`.github/CONTRIBUTING.md`](./.github/CONTRIBUTING.md), then [`.github/DEVELOPMENT.md`](./.github/DEVELOPMENT.md).
