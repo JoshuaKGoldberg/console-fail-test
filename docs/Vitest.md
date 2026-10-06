@@ -5,14 +5,16 @@ It will be auto-detected if available.
 
 ## Setup
 
-In your `vitest.config.ts`, include `console-fail-test/vitest` in your [`setupFiles`](https://vitest.dev/config/#setupfiles):
+In your `vitest.config.ts`, include `console-fail-test/setup` in your [`setupFiles`](https://vitest.dev/config/#setupfiles):
 
 ```js
 // vitest.config.ts
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
-	setupFiles: ["console-fail-test/setup"],
+	test: {
+		setupFiles: ["console-fail-test/setup"],
+	},
 });
 ```
 
