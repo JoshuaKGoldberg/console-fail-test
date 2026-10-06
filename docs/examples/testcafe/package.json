@@ -1,0 +1,12 @@
+{
+	"name": "example-testcafe",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "testcafe chrome:headless example.test.js"
+	},
+	"devDependencies": {
+		"console-fail-test": "workspace:*",
+		"testcafe": "^3.7.6"
+	}
+}

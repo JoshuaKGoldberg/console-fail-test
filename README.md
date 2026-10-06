@@ -243,6 +243,20 @@ See the _Documentation_ link for each supported framework for how to set up cons
       </td>
     </tr>
     <tr>
+      <td>TestCafe</td>
+      <td>
+        ✅️
+      </td>
+      <td>
+        <code>createTestCafeHooks()</code>
+      </td>
+      <td>
+        <a href="./docs/TestCafe.md">
+          <code>TestCafe.md</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>Vitest</td>
       <td>
         ✅️
@@ -264,16 +278,6 @@ See the _Documentation_ link for each supported framework for how to set up cons
       <td>
         <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/199">
           <code>/issues/199</code>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>TestCafe</td>
-      <td>⚙️</td>
-      <td></td>
-      <td>
-        <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/15">
-          <code>/issues/15</code>
         </a>
       </td>
     </tr>
