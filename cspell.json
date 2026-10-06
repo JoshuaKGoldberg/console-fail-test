@@ -10,5 +10,5 @@
 		"pnpm-lock.yaml",
 		"test-results"
 	],
-	"words": ["subtest", "subtests", "unstub"]
+	"words": ["prerun", "subtest", "subtests", "unstub"]
 }

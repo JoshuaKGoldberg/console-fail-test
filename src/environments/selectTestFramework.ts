@@ -7,6 +7,8 @@ import { selectMochaEnvironment } from "./mocha.js";
 import { selectNodeTapEnvironment } from "./nodeTap.js";
 import { selectNodeTestEnvironment } from "./nodeTest.js";
 import { selectPlaywrightEnvironment } from "./playwright.js";
+import { selectQUnitEnvironment } from "./qunit.js";
+import { selectTapeEnvironment } from "./tape.js";
 import { TestFrameworkSelector } from "./testEnvironmentTypes.js";
 import { selectVitestEnvironment } from "./vitest.js";
 
@@ -18,6 +20,7 @@ const testEnvironmentsByName = new Map<
 	["jest", selectJestEnvironment],
 	["mocha", selectMochaEnvironment],
 	["node:test", selectNodeTestEnvironment],
+	["qunit", selectQUnitEnvironment],
 	["vitest", selectVitestEnvironment],
 ]);
 
@@ -28,6 +31,8 @@ const detectableTestEnvironmentSelectors: TestFrameworkSelector[] = [
 	selectNodeTapEnvironment,
 	selectNodeTestEnvironment,
 	selectPlaywrightEnvironment,
+	selectQUnitEnvironment,
+	selectTapeEnvironment,
 
 	selectVitestEnvironment,
 

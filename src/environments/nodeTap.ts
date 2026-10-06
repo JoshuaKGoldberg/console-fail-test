@@ -1,4 +1,4 @@
-import { formatComplaintCall } from "../complaining/index.js";
+import { createMethodCallComplaintReporter } from "../complaining/index.js";
 import { TestFrameworkSelector } from "./testEnvironmentTypes.js";
 
 declare interface NodeTap {
@@ -33,17 +33,9 @@ export const selectNodeTapEnvironment: TestFrameworkSelector = ({
 		afterEach: (callback) => {
 			testFramework.afterEach((onFinish) => {
 				callback({
-					reportComplaint({ methodComplaints }) {
-						for (const { methodCalls, methodName } of methodComplaints) {
-							for (const methodCall of methodCalls) {
-								testFramework.fail(
-									`console.${methodName} was called with: ${formatComplaintCall(
-										methodCall,
-									)}`,
-								);
-							}
-						}
-					},
+					reportComplaint: createMethodCallComplaintReporter((message) => {
+						testFramework.fail(message);
+					}),
 				});
 				// node-tap <15 passes a done callback; newer versions pass the test
 				if (typeof onFinish === "function") {

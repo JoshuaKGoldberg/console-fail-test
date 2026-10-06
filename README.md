@@ -199,6 +199,35 @@ See the _Documentation_ link for each supported framework for how to set up cons
       </td>
     </tr>
     <tr>
+      <td>QUnit</td>
+      <td>
+        ✅️
+        ✨
+      </td>
+      <td>
+        <code>"qunit"</code>
+      </td>
+      <td>
+        <a href="./docs/QUnit.md">
+          <code>QUnit.md</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>tape</td>
+      <td>
+        ✅️
+      </td>
+      <td>
+        <code>require("tape")</code>
+      </td>
+      <td>
+        <a href="./docs/Tape.md">
+          <code>Tape.md</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>Vitest</td>
       <td>
         ✅️
@@ -220,26 +249,6 @@ See the _Documentation_ link for each supported framework for how to set up cons
       <td>
         <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/199">
           <code>/issues/199</code>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>QUnit</td>
-      <td>⚙️</td>
-      <td></td>
-      <td>
-        <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/19">
-          <code>/issues/19</code>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>tape</td>
-      <td>⚙️</td>
-      <td></td>
-      <td>
-        <a href="https://github.com/JoshuaKGoldberg/console-fail-test/issues/17">
-          <code>/issues/17</code>
         </a>
       </td>
     </tr>
@@ -368,6 +377,19 @@ If you'd like allow certain methods, pass a `console` object to the `cft` API wh
 require("console-fail-test").cft({
 	console: {
 		warn: true, // won't error on any instance of console.warn
+	},
+});
+```
+
+To allow only specific messages, pass an `allow` array of strings or regular expressions.
+A call is allowed if its arguments, joined by spaces, contain any string or match any regular expression:
+
+```js
+require("console-fail-test").cft({
+	console: {
+		error: {
+			allow: ["Failed to fetch", /^Deprecated: /],
+		},
 	},
 });
 ```
