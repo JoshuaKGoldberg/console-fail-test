@@ -9,5 +9,5 @@
 		"node_modules",
 		"pnpm-lock.yaml"
 	],
-	"words": ["subtest", "subtests", "unstub"]
+	"words": ["prerun", "subtest", "subtests", "unstub"]
 }

@@ -1,0 +1,12 @@
+{
+	"name": "example-qunit",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "qunit --require console-fail-test/setup example.test.js"
+	},
+	"devDependencies": {
+		"console-fail-test": "workspace:*",
+		"qunit": "^2.18.0"
+	}
+}

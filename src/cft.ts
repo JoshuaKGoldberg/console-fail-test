@@ -1,3 +1,4 @@
+import { filterAllowedCalls, isMethodFullyAllowed } from "./allowing.js";
 import { createComplaint } from "./complaining/index.js";
 import { consoleMethodNames } from "./console.js";
 import { setDefaults } from "./defaults.js";
@@ -17,7 +18,7 @@ export const cft = (rawRequest?: Partial<CftRequest>) => {
 	const testFramework = selectTestFramework(request);
 	const methodSpies: Record<string, MethodSpy> = {};
 	const relevantMethodNames = consoleMethodNames.filter(
-		(name) => !request.console[name],
+		(name) => !isMethodFullyAllowed(request.console[name]),
 	);
 
 	// Before each test, we spy on the console's methods
@@ -35,9 +36,11 @@ export const cft = (rawRequest?: Partial<CftRequest>) => {
 			for (const methodName of relevantMethodNames) {
 				const spy = methodSpies[methodName];
 				const methodCalls = spy.getCalls();
-				const filteredCalls =
+				const filteredCalls = filterAllowedCalls(
 					testFramework.mapSpyCalls?.({ methodCalls, methodName }) ??
-					methodCalls;
+						methodCalls,
+					request.console[methodName],
+				);
 
 				spy.restore();
 
