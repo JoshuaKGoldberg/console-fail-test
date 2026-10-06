@@ -68,6 +68,21 @@ module.exports = {
 
 See [`docs/examples/`](./docs/examples) for runnable example projects per framework.
 
+### Test Fixtures
+
+For test frameworks whose `test.extend()` creates fixtures, such as Playwright and Vitest, `extendTest` can instead add console-fail-test as an automatic fixture:
+
+```js
+// fixtures.js
+import { extendTest } from "console-fail-test";
+import { test as base } from "vitest";
+
+export const test = extendTest(base);
+```
+
+Tests that use the extended `test` are checked for console calls from the test, its hooks, and its fixtures' setup and teardown.
+`extendTest` takes the same options as `cft` as its second parameter, except for `testFramework`.
+
 ### Test Frameworks
 
 See the _Documentation_ link for each supported framework for how to set up console-fail-test with that framework.
@@ -190,7 +205,7 @@ See the _Documentation_ link for each supported framework for how to set up cons
         ✅️
       </td>
       <td>
-        <code>require("@playwright/test").test</code>
+        <code>extendTest(test)</code>
       </td>
       <td>
         <a href="./docs/Playwright.md">

@@ -31,6 +31,20 @@ describe("a test", () => {
 });
 ```
 
+### Test Fixtures
+
+Alternately, use `extendTest` to add console-fail-test as an [automatic fixture](https://vitest.dev/guide/test-context#fixture-options), which also checks console calls from fixtures' setup and teardown:
+
+```js
+// fixtures.js
+import { extendTest } from "console-fail-test";
+import { test as base } from "vitest";
+
+export const test = extendTest(base);
+```
+
+Then import `test` from that file in your tests.
+
 ## Spies
 
 Global `console` methods will be replaced by `vi.fn()` spies.

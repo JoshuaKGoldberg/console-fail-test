@@ -6,7 +6,6 @@ import { selectLabEnvironment } from "./lab.js";
 import { selectMochaEnvironment } from "./mocha.js";
 import { selectNodeTapEnvironment } from "./nodeTap.js";
 import { selectNodeTestEnvironment } from "./nodeTest.js";
-import { selectPlaywrightEnvironment } from "./playwright.js";
 import { selectQUnitEnvironment } from "./qunit.js";
 import { selectTapeEnvironment } from "./tape.js";
 import { TestFrameworkSelector } from "./testEnvironmentTypes.js";
@@ -30,7 +29,6 @@ const detectableTestEnvironmentSelectors: TestFrameworkSelector[] = [
 	selectLabEnvironment,
 	selectNodeTapEnvironment,
 	selectNodeTestEnvironment,
-	selectPlaywrightEnvironment,
 	selectQUnitEnvironment,
 	selectTapeEnvironment,
 
