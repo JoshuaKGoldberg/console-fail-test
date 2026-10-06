@@ -1,6 +1,5 @@
 import { CftRequest, SupportedTestFramework } from "../types.js";
 import { selectAvaEnvironment } from "./ava.js";
-import { selectCypressEnvironment } from "./cypress.js";
 import { selectJasmineEnvironment } from "./jasmine.js";
 import { selectJestEnvironment } from "./jest.js";
 import { selectLabEnvironment } from "./lab.js";
@@ -16,7 +15,8 @@ const testEnvironmentsByName = new Map<
 	SupportedTestFramework,
 	TestFrameworkSelector
 >([
-	["cypress", selectCypressEnvironment],
+	// Cypress runs on a bundled Mocha
+	["cypress", selectMochaEnvironment],
 	["jasmine", selectJasmineEnvironment],
 	["jest", selectJestEnvironment],
 	["mocha", selectMochaEnvironment],
@@ -39,9 +39,6 @@ const detectableTestEnvironmentSelectors: TestFrameworkSelector[] = [
 	// Jest should come before Jasmine because Jest includes a monkey-patched Jasmine
 	selectJestEnvironment,
 	selectJasmineEnvironment,
-
-	// Cypress runs a bundled Mocha, so it must come before Mocha
-	selectCypressEnvironment,
 
 	// Mocha should be last because it's difficult to accurately detect
 	// See https://github.com/JoshuaKGoldberg/console-fail-test/issues/10

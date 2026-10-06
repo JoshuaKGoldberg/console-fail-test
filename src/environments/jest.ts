@@ -3,13 +3,8 @@ import { TestFrameworkSelector } from "./testEnvironmentTypes.js";
 declare const afterEach: (callback: () => void) => void;
 declare const beforeEach: (callback: () => void) => void;
 declare const jest: unknown;
-
-// process is read from globalThis rather than as a free variable so that browser
-// bundlers such as Cypress's don't inject a polyfill for it into this module.
-// Some browser environments, such as Cypress component testing, define an empty process.
-const { process } = globalThis as {
-	process?: { env?: Record<string, string | undefined> };
-};
+// Cypress component testing defines a process without env
+declare const process: undefined | { env?: Record<string, string | undefined> };
 
 const isJest = () =>
 	typeof afterEach !== "undefined" &&

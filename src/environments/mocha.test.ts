@@ -2,9 +2,7 @@ import { describe, expect, it, test, vi } from "vitest";
 
 import { selectMochaEnvironment } from "./mocha.js";
 
-declare const suites: [
-	{ afterEach: typeof mockAfterEach; beforeEach: typeof mockBeforeEach },
-];
+declare const suites: [typeof mockSuite];
 
 const mockAfterEach = function (name: string, fn: () => void) {
 	suites[0].afterEach(name, fn);
@@ -20,30 +18,6 @@ const mockSuite = {
 };
 
 describe("selectMochaEnvironment", () => {
-	describe("afterEach", () => {
-		it("fails the test with the error when the test passed", () => {
-			Object.defineProperties(globalThis, {
-				afterEach: { value: mockAfterEach, writable: true },
-				beforeEach: { value: mockBeforeEach, writable: true },
-				suites: { value: [mockSuite], writable: true },
-			});
-			const error = new Error("Oh no!");
-			const context = {
-				currentTest: { state: "passed" },
-				test: { error: vi.fn() },
-			};
-
-			selectMochaEnvironment({ console: {} })!.afterEach((hooks) => {
-				hooks!.reportComplaint!({ error, methodComplaints: [] });
-			});
-			(mockSuite.afterEach.mock.calls[0][0] as (this: unknown) => void).call(
-				context,
-			);
-
-			expect(context.test.error).toHaveBeenCalledWith(error);
-		});
-	});
-
 	describe("isMocha", () => {
 		test.each([
 			[undefined, undefined, undefined],
@@ -70,5 +44,49 @@ describe("selectMochaEnvironment", () => {
 				expect(actual).toEqual(expected);
 			},
 		);
+	});
+
+	describe("afterEach", () => {
+		const runAfterEach = (currentTest: object) => {
+			Object.defineProperties(globalThis, {
+				afterEach: { value: mockAfterEach, writable: true },
+				beforeEach: { value: mockBeforeEach, writable: true },
+				suites: { value: [mockSuite], writable: true },
+			});
+			const context = { currentTest, test: { error: vi.fn() } };
+			const error = new Error("Oh no!\nDetails");
+
+			selectMochaEnvironment({ console: {} })!.afterEach((hooks) => {
+				hooks!.reportComplaint!({ error, methodComplaints: [] });
+			});
+			(mockSuite.afterEach.mock.lastCall![0] as Function).call(context);
+
+			return { context, error };
+		};
+
+		it("fails the test with an indented error when the test passed", () => {
+			const { context, error } = runAfterEach({ state: "passed" });
+
+			expect(context.test.error).toHaveBeenCalledWith(error);
+			expect(error.message).toBe("Oh no!\n     Details");
+		});
+
+		it("does not fail the test when the test did not pass", () => {
+			const { context } = runAfterEach({ state: "failed" });
+
+			expect(context.test.error).not.toHaveBeenCalled();
+		});
+
+		it("marks the test's Cypress status as failed when it has one", () => {
+			const { context } = runAfterEach({
+				_cypressTestStatusInfo: { outerStatus: "passed" },
+				state: "passed",
+			});
+
+			expect(context.currentTest).toEqual({
+				_cypressTestStatusInfo: { outerStatus: "failed" },
+				state: "passed",
+			});
+		});
 	});
 });

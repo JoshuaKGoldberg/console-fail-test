@@ -1,13 +1,13 @@
-import {
-	TestFramework,
-	TestFrameworkSelector,
-} from "./testEnvironmentTypes.js";
+import { TestFrameworkSelector } from "./testEnvironmentTypes.js";
 
-declare const afterEach: (callback: (this: MochaContext) => void) => void;
-declare const beforeEach: (callback: (this: MochaContext) => void) => void;
+declare const afterEach: (callback: (this: Mocha) => void) => void;
+declare const beforeEach: (callback: (this: Mocha) => void) => void;
 
-export interface MochaContext {
+declare interface Mocha {
 	currentTest: {
+		_cypressTestStatusInfo?: {
+			outerStatus: string;
+		};
 		state: string;
 	};
 	test: {
@@ -15,7 +15,7 @@ export interface MochaContext {
 	};
 }
 
-export const isMocha = () => {
+const isMocha = () => {
 	// Until there is some kind of global `mocha` variable that can be referenced,
 	// we check the stringified versions of its used hook methods
 	// https://github.com/JoshuaKGoldberg/console-fail-test/issues/10
@@ -33,39 +33,32 @@ export const isMocha = () => {
 	);
 };
 
-/**
- * Creates an afterEach hook for Mocha and for test frameworks built on Mocha.
- * @param reportError Fails the hook's current test with an error.
- * @returns The afterEach hook.
- */
-export const createMochaAfterEach =
-	(
-		reportError: (context: MochaContext, error: Error) => void,
-	): TestFramework["afterEach"] =>
-	(callback) => {
-		afterEach(function (this: MochaContext) {
-			if (this.currentTest.state !== "passed") {
-				return;
-			}
-
-			callback({
-				reportComplaint: ({ error }) => {
-					error.message = error.message.replace(/\n/g, "\n     ");
-					reportError(this, error);
-				},
-			});
-		});
-	};
-
 export const selectMochaEnvironment: TestFrameworkSelector = () => {
 	if (!isMocha()) {
 		return undefined;
 	}
 
 	return {
-		afterEach: createMochaAfterEach((context, error) => {
-			context.test.error(error);
-		}),
+		afterEach: (callback) => {
+			afterEach(function (this: Mocha) {
+				if (this.currentTest.state !== "passed") {
+					return;
+				}
+
+				callback({
+					reportComplaint: ({ error }) => {
+						error.message = error.message.replace(/\n/g, "\n     ");
+						this.test.error(error);
+
+						// Cypress >=13 reports a status for each test that it decides
+						// before afterEach hooks run, so it also needs to be marked failed
+						if (this.currentTest._cypressTestStatusInfo) {
+							this.currentTest._cypressTestStatusInfo.outerStatus = "failed";
+						}
+					},
+				});
+			});
+		},
 		beforeEach,
 		mapSpyCalls: ({ methodCalls, methodName }) => {
 			if (methodCalls.length === 0 || methodName !== "log") {

@@ -2,14 +2,6 @@ import { describe, expect, it, vi } from "vitest";
 
 import { selectTestFramework } from "./selectTestFramework.js";
 
-const mockSelectCypressEnvironment = vi.fn();
-
-vi.mock("./cypress.js", () => ({
-	get selectCypressEnvironment() {
-		return () => mockSelectCypressEnvironment();
-	},
-}));
-
 vi.mock("./jasmine.js", () => ({
 	selectJasmineEnvironment: () => undefined,
 }));
@@ -77,18 +69,6 @@ describe("selectTestFramework", () => {
 		});
 
 		expect(actual).toBe(jest);
-	});
-
-	it("returns an environment when given the cypress name for an active framework", () => {
-		const cypress = { isCypress: true };
-		mockSelectCypressEnvironment.mockReturnValueOnce(cypress);
-
-		const actual = selectTestFramework({
-			console: {},
-			testFramework: "cypress",
-		});
-
-		expect(actual).toBe(cypress);
 	});
 
 	it("returns an environment when given the node:test name for an active framework", () => {
