@@ -72,7 +72,7 @@
 		"typescript-eslint": "8.73.0",
 		"vitest": "5.1.0"
 	},
-	"packageManager": "pnpm@12.22.0",
+	"packageManager": "pnpm@12.23.0",
 	"engines": {
 		"node": ">=20.19.0"
 	},
